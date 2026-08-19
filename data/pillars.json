@@ -12,6 +12,19 @@
     ]
   },
   {
+    "id": "pillar:practitioner",
+    "type": "pillar",
+    "label": "The Practitioner",
+    "order": 15,
+    "summary": "Who is doing this strategy work, what they are actually able to decide, and whether the person who will live with the choice is the one making it.",
+    "assess_focus": "Establish this before working the cascade. The same finding lands differently on a chief executive who can act on it and an analyst who cannot, and advice aimed at the wrong authority is wasted.",
+    "sources": [
+      "src:who_should_do_strategy",
+      "src:the_proper_role_of_the_chief_strategy_officer",
+      "src:what_makes_for_a_great_strategist"
+    ]
+  },
+  {
     "id": "pillar:winning_aspiration",
     "type": "pillar",
     "label": "Winning Aspiration",

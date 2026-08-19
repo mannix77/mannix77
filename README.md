@@ -10,11 +10,11 @@ drafts, or completes the strategy.
 
 ```
                         ┌────────────────────────┐
-   user's strategy ───► │  assess  (51 tests)    │ ──► readiness + gaps
+   user's strategy ───► │  assess  (54 tests)    │ ──► readiness + gaps
                         └───────────┬────────────┘
                                     │
                         ┌───────────▼────────────┐
-                        │  ask  (110 questions)  │ ──► one or two questions,
+                        │  ask  (118 questions)  │ ──► one or two questions,
                         └───────────┬────────────┘      each traced to a gap
                                     │
                           user answers ──► state updated ──► loop
@@ -22,24 +22,24 @@ drafts, or completes the strategy.
 
 ## What is in the graph
 
-628 nodes, 1,907 edges, across eight node types:
+653 nodes, 2,064 edges, across eight node types:
 
 | Type | Count | What it is |
 |---|---|---|
-| `pillar` | 11 | The areas a strategy has to answer for, in assessment order |
-| `concept` | 68 | The vocabulary — Where-to-Play, Promise to the Customer, barriers to choice… |
-| `principle` | 36 | Normative rules, each with how to use it in coaching |
-| `trap` | 29 | Failure patterns, with observable signals and the coaching move for each |
-| `test` | 51 | Checkable propositions with pass/fail signals, severity and weight |
-| `slot` | 31 | The elements of the *user's* strategy the agent tracks state for |
-| `question` | 110 | The coaching questions, each probing a test and covering a slot |
+| `pillar` | 12 | The areas a strategy has to answer for, in assessment order |
+| `concept` | 74 | The vocabulary — Where-to-Play, Promise to the Customer, barriers to choice… |
+| `principle` | 39 | Normative rules, each with how to use it in coaching |
+| `trap` | 31 | Failure patterns, with observable signals and the coaching move for each |
+| `test` | 54 | Checkable propositions with pass/fail signals, severity and weight |
+| `slot` | 33 | The elements of the *user's* strategy the agent tracks state for |
+| `question` | 118 | The coaching questions, each probing a test and covering a slot |
 | `source` | 292 | The indexed series — every instalment by title, URL and date |
 
-The eleven pillars, in the order the agent works them:
+The twelve pillars, in the order the agent works them:
 
-`definition` → `winning_aspiration` → `where_to_play` → `customer` →
-`how_to_win` → `competition` → `capabilities` → `management_systems` →
-`coherence` → `logic` → `adoption`
+`definition` → `practitioner` → `winning_aspiration` → `where_to_play` →
+`customer` → `how_to_win` → `competition` → `capabilities` →
+`management_systems` → `coherence` → `logic` → `adoption`
 
 ## Quickstart
 
@@ -115,7 +115,10 @@ agent/
   system_prompt.md    the coach's instructions, including the one rule
   coaching_protocol.md session mechanics and failure modes
   tool_contract.md    the functions a runtime should expose
-examples/             a deliberately bad strategy + a mid-session state
+examples/
+  session_walkthrough.md  worked coaching scenario, driven by real CLI output
+  scenario_meridian.md    an OKR-shaped "strategy" from a VP of Product
+  sample_strategy.md      a deliberately bad strategy + mid-session states
 tools/
   refresh_corpus.py   extend the source index (metadata only)
   coverage_audit.py   measure structural, citation and thematic coverage
@@ -151,9 +154,9 @@ Two invariants the tests enforce, both worth keeping:
 
 ## Evaluating coverage
 
-"Is the content complete?" splits into three questions, only two of which can be
-answered from inside this repository. `tools/coverage_audit.py` reports all three
-and refuses to conflate them:
+"Is the content complete?" splits into three separate questions.
+`tools/coverage_audit.py` reports all three and refuses to conflate them — the
+third only became answerable once the corpus was indexed:
 
 ```bash
 python3 tools/coverage_audit.py                  # markdown report
@@ -165,7 +168,7 @@ python3 tools/coverage_audit.py --strict         # exit 1 on structural regressi
 |---|---|---|
 | **Structural** — every pillar carries enough tests and questions to run a session; every test probed, every required slot covered, every trap detectable | Yes, fully | complete |
 | **Citation** — how much of the series is indexed | Yes | 289 posts indexed; the archive feed reports 288 |
-| **Thematic** — whether the concepts span what the series develops | Yes, now that the corpus is indexed | verified, 26 registered gaps |
+| **Thematic** — whether the concepts span what the series develops | Yes, now that the corpus is indexed | verified, 26 registered gaps (23 still open) |
 
 `data/coverage_gaps.json` is the register: 26 entries, each carrying a
 `series_titles` count derived from title-level analysis of every indexed

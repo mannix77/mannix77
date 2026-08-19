@@ -538,5 +538,52 @@
       "src:playing_to_win_for_social_sector_organizations",
       "src:strategy_for_startups"
     ]
+  },
+  {
+    "id": "principle:chooser_must_own",
+    "type": "principle",
+    "pillar": "pillar:practitioner",
+    "statement": "The person who will bear the consequences of a choice must be the one who makes it; help with framing is legitimate, substitution is not.",
+    "implication": "A strategy produced for a leadership team rather than by it will not survive its first hard trade-off, because nobody in the room is committed to what it gives up.",
+    "coaching_use": "Ask who will have to defend this choice in twelve months, and whether they made it.",
+    "related": [
+      "principle:choices_need_owners"
+    ],
+    "sources": [
+      "src:who_should_do_strategy",
+      "src:the_business_of_strategy_consulting"
+    ]
+  },
+  {
+    "id": "principle:strategy_is_learnable",
+    "type": "principle",
+    "pillar": "pillar:practitioner",
+    "statement": "Strategic capability is built by making real choices under uncertainty and being held to the logic, not by studying frameworks.",
+    "implication": "Assess a team's capability by the choices it has actually made and revisited, not by the sophistication of its vocabulary.",
+    "coaching_use": "Ask what the hardest choice they have personally made was, and what it cost.",
+    "related": [
+      "principle:explore_the_opposing_model"
+    ],
+    "sources": [
+      "src:strategy_as_a_practice",
+      "src:novice_strategist",
+      "src:becoming_a_better_strategist"
+    ]
+  },
+  {
+    "id": "principle:authority_bounds_advice",
+    "type": "principle",
+    "pillar": "pillar:practitioner",
+    "statement": "Advice is only useful within the scope of what the person receiving it can actually decide or influence.",
+    "implication": "Establish authority early. Telling someone their Where-to-Play is unbounded is useless if they have no power to bound it; the useful question becomes who does, and what they would need to hear.",
+    "coaching_use": "Ask what they can decide alone, what they can influence, and what is fixed for them.",
+    "related": [
+      "principle:context_before_rubric",
+      "principle:choices_need_owners"
+    ],
+    "sources": [
+      "src:stop_working_for_loser_strategists",
+      "src:dealing_with_intuitive_non_strategists"
+    ]
   }
 ]

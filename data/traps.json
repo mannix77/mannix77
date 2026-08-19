@@ -722,5 +722,58 @@
       "src:why_execution_is_a_bankrupt_management_concept",
       "src:why_you_should_be_afraid_of_great_execution"
     ]
+  },
+  {
+    "id": "trap:delegated_strategy",
+    "type": "trap",
+    "label": "Strategy Delegated Away",
+    "pillar": "pillar:practitioner",
+    "summary": "The strategy was produced by a staff team, a consultancy or an analyst group, and the leaders who must act on it received it rather than made it.",
+    "signals": [
+      "The document's authors are not the people who will resource it",
+      "Leaders describe the strategy in the third person",
+      "The logic can only be explained by whoever built the deck",
+      "Nobody in the room can say what they personally gave up"
+    ],
+    "why_costly": "The first hard trade-off has no owner, so the organisation reverts to precedent while everyone continues to cite the document.",
+    "confused_with": [
+      "concept:strategy_ownership_by_staff",
+      "concept:chooser_owns_the_choice"
+    ],
+    "mitigated_by": [
+      "test:chooser_owns_the_choice",
+      "test:strategy_is_sayable"
+    ],
+    "coaching_move": "Ask who will have to defend this in twelve months, then ask whether they made it.",
+    "sources": [
+      "src:the_business_of_strategy_consulting",
+      "src:who_should_do_strategy"
+    ]
+  },
+  {
+    "id": "trap:presiding_not_choosing",
+    "type": "trap",
+    "label": "Presiding Instead of Choosing",
+    "pillar": "pillar:practitioner",
+    "summary": "The leader convenes the process, reviews the material and approves the output, without ever making a choice that closes off an option someone wanted.",
+    "signals": [
+      "The leader's contribution is described as challenge, sponsorship or governance",
+      "Approval is the only decision anyone can point to",
+      "Competing proposals were all funded at reduced levels",
+      "The leader can state the strategy but not the sacrifice"
+    ],
+    "why_costly": "Presiding feels like leadership and produces consensus documents, which is how an organisation ends up neither low cost nor differentiated.",
+    "confused_with": [
+      "concept:chooser_owns_the_choice"
+    ],
+    "mitigated_by": [
+      "test:chooser_owns_the_choice",
+      "test:sacrifice_is_visible"
+    ],
+    "coaching_move": "Ask which option they personally killed, and who was unhappy about it.",
+    "sources": [
+      "src:the_trap_of_presiding_over_strategy",
+      "src:the_signs_of_a_good_ceo"
+    ]
   }
 ]

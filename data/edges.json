@@ -1,58 +1,299 @@
 [
-  {"from": "pillar:definition", "to": "pillar:winning_aspiration", "type": "PRECEDES", "note": "Classify the artefact before assessing its content."},
-  {"from": "pillar:winning_aspiration", "to": "pillar:where_to_play", "type": "PRECEDES", "note": "Winning for whom bounds which arena is worth choosing."},
-  {"from": "pillar:where_to_play", "to": "pillar:customer", "type": "PRECEDES", "note": "The arena names the customers whose insight and promise then matter."},
-  {"from": "pillar:customer", "to": "pillar:how_to_win", "type": "PRECEDES", "note": "The desired action and the promise are what a way of winning has to deliver."},
-  {"from": "pillar:how_to_win", "to": "pillar:competition", "type": "PRECEDES", "note": "A stated way of winning can then be tested against rivals' responses."},
-  {"from": "pillar:competition", "to": "pillar:capabilities", "type": "PRECEDES", "note": "What must be true competitively determines what must be done distinctively well."},
-  {"from": "pillar:capabilities", "to": "pillar:management_systems", "type": "PRECEDES", "note": "Capabilities have to be built and protected by systems."},
-  {"from": "pillar:management_systems", "to": "pillar:coherence", "type": "PRECEDES", "note": "With all choices on the table, the joints between them can be tested."},
-  {"from": "pillar:coherence", "to": "pillar:logic", "type": "PRECEDES", "note": "Reverse-engineering the logic is most productive once the choices are coherent enough to have one."},
-  {"from": "pillar:logic", "to": "pillar:adoption", "type": "PRECEDES", "note": "A tested strategy is then worth communicating and cascading."},
-
-  {"from": "test:contains_a_bet", "to": "pillar:how_to_win", "type": "GATES", "note": "If there is no bet, assessing the way of winning is premature - the artefact is a plan."},
-  {"from": "test:wtp_exists", "to": "pillar:how_to_win", "type": "GATES", "note": "A way of winning cannot be assessed without an arena for it to be true of."},
-  {"from": "test:htw_exists", "to": "pillar:capabilities", "type": "GATES", "note": "Capabilities can only be traced to a way of winning that has been stated."},
-  {"from": "test:customer_action_named", "to": "pillar:how_to_win", "type": "GATES", "note": "Without a named desired action there is no success condition to win against."},
-  {"from": "test:must_be_trues_listed", "to": "pillar:adoption", "type": "GATES", "note": "Cascading an untested theory spreads the error faster."},
-
-  {"from": "concept:where_to_play", "to": "concept:how_to_win", "type": "PAIRED_WITH", "note": "Neither choice can be evaluated without the other."},
-  {"from": "concept:wwhtbt", "to": "concept:barriers_to_choice", "type": "PRODUCES", "note": "Reverse-engineering the logic yields the conditions, and the least believed among them."},
-  {"from": "concept:barriers_to_choice", "to": "concept:cheapest_test", "type": "PRODUCES", "note": "The barrier determines what is worth testing."},
-  {"from": "concept:must_be_true", "to": "concept:non_financial_kpis", "type": "PRODUCES", "note": "Each critical condition should leave behind something observable to watch."},
-  {"from": "concept:must_be_true", "to": "concept:disconfirming_evidence", "type": "PRODUCES", "note": "Conditions that could be false imply observations that would show them false."},
-  {"from": "concept:capability_gap", "to": "concept:barriers_to_choice", "type": "FEEDS", "note": "An unproven capability is usually one of the least believed conditions."},
-  {"from": "concept:strategic_stuckness", "to": "concept:wwhtbt", "type": "TREATED_BY", "note": "Reopening the original must-be-trues is the unsticking move."},
-  {"from": "concept:integrative_thinking", "to": "concept:possibilities", "type": "FEEDS", "note": "Tension between opposing views is raw material for additional possibilities."},
-  {"from": "concept:assertive_inquiry", "to": "concept:integrative_thinking", "type": "ENABLES", "note": "Understanding the opposing model is a precondition for integrating it."},
-  {"from": "concept:reinforcing_activity_system", "to": "concept:barriers_to_imitation", "type": "PRODUCES", "note": "Systems are hard to copy piecemeal, which is where durability comes from."},
-  {"from": "concept:three_lenses", "to": "concept:customer_insight", "type": "ENABLES", "note": "Multiple lenses on the same customer produce insight a single lens misses."},
-
-  {"from": "trap:plan_as_strategy", "to": "principle:outside_your_control", "type": "VIOLATES"},
-  {"from": "trap:initiative_list", "to": "principle:integrated_choices", "type": "VIOLATES"},
-  {"from": "trap:everything_to_everyone", "to": "principle:choice_costs_something", "type": "VIOLATES"},
-  {"from": "trap:stuck_in_the_middle", "to": "principle:two_ways_to_win", "type": "VIOLATES"},
-  {"from": "trap:internal_only_logic", "to": "principle:competitor_has_a_vote", "type": "VIOLATES"},
-  {"from": "trap:moat_thinking", "to": "principle:advantage_is_dynamic", "type": "VIOLATES"},
-  {"from": "trap:untested_assumptions", "to": "principle:ask_what_would_have_to_be_true", "type": "VIOLATES"},
-  {"from": "trap:single_option", "to": "principle:possibilities_before_recommendation", "type": "VIOLATES"},
-  {"from": "trap:faux_science", "to": "principle:no_certainty", "type": "VIOLATES"},
-  {"from": "trap:analysis_paralysis", "to": "principle:cheapest_sufficient_test", "type": "VIOLATES"},
-  {"from": "trap:misplaced_shoulds", "to": "principle:no_misplaced_shoulds", "type": "VIOLATES"},
-  {"from": "trap:no_management_systems", "to": "principle:systems_make_choices_stick", "type": "VIOLATES"},
-  {"from": "trap:lagging_measures_only", "to": "principle:leading_measures", "type": "VIOLATES"},
-  {"from": "trap:capability_wishlist", "to": "principle:capabilities_serve_htw", "type": "VIOLATES"},
-  {"from": "trap:consensus_strategy", "to": "principle:coherence_beats_parts", "type": "VIOLATES"},
-  {"from": "trap:strategy_in_a_drawer", "to": "principle:sayable_strategy", "type": "VIOLATES"},
-  {"from": "trap:sunk_logic", "to": "principle:revisit_on_evidence", "type": "VIOLATES"},
-  {"from": "trap:financial_targets_only", "to": "principle:targets_are_not_aspirations", "type": "VIOLATES"},
-  {"from": "trap:aspiration_as_strategy", "to": "principle:winning_not_participating", "type": "VIOLATES"},
-  {"from": "trap:demographic_segments", "to": "principle:insight_over_description", "type": "VIOLATES"},
-  {"from": "trap:unpaid_differentiation", "to": "principle:promise_must_be_deliverable", "type": "VIOLATES"},
-  {"from": "trap:inherited_arena", "to": "principle:hidden_arenas", "type": "VIOLATES"},
-  {"from": "trap:copycat_htw", "to": "principle:advantage_is_relative", "type": "VIOLATES"},
-  {"from": "trap:incremental_pilots", "to": "principle:big_enough_move", "type": "VIOLATES"},
-  {"from": "trap:assumed_capability", "to": "principle:test_the_weakest_link", "type": "VIOLATES"},
-  {"from": "trap:vague_language", "to": "principle:sayable_strategy", "type": "VIOLATES"},
-  {"from": "trap:missing_customer", "to": "principle:customer_action_is_the_point", "type": "VIOLATES"}
+  {
+    "from": "pillar:definition",
+    "to": "pillar:practitioner",
+    "type": "PRECEDES",
+    "note": "Classify the artefact, then establish who you are talking to."
+  },
+  {
+    "from": "pillar:practitioner",
+    "to": "pillar:winning_aspiration",
+    "type": "PRECEDES",
+    "note": "Knowing what this person can decide determines how the cascade findings should be framed."
+  },
+  {
+    "from": "pillar:winning_aspiration",
+    "to": "pillar:where_to_play",
+    "type": "PRECEDES",
+    "note": "Winning for whom bounds which arena is worth choosing."
+  },
+  {
+    "from": "pillar:where_to_play",
+    "to": "pillar:customer",
+    "type": "PRECEDES",
+    "note": "The arena names the customers whose insight and promise then matter."
+  },
+  {
+    "from": "pillar:customer",
+    "to": "pillar:how_to_win",
+    "type": "PRECEDES",
+    "note": "The desired action and the promise are what a way of winning has to deliver."
+  },
+  {
+    "from": "pillar:how_to_win",
+    "to": "pillar:competition",
+    "type": "PRECEDES",
+    "note": "A stated way of winning can then be tested against rivals' responses."
+  },
+  {
+    "from": "pillar:competition",
+    "to": "pillar:capabilities",
+    "type": "PRECEDES",
+    "note": "What must be true competitively determines what must be done distinctively well."
+  },
+  {
+    "from": "pillar:capabilities",
+    "to": "pillar:management_systems",
+    "type": "PRECEDES",
+    "note": "Capabilities have to be built and protected by systems."
+  },
+  {
+    "from": "pillar:management_systems",
+    "to": "pillar:coherence",
+    "type": "PRECEDES",
+    "note": "With all choices on the table, the joints between them can be tested."
+  },
+  {
+    "from": "pillar:coherence",
+    "to": "pillar:logic",
+    "type": "PRECEDES",
+    "note": "Reverse-engineering the logic is most productive once the choices are coherent enough to have one."
+  },
+  {
+    "from": "pillar:logic",
+    "to": "pillar:adoption",
+    "type": "PRECEDES",
+    "note": "A tested strategy is then worth communicating and cascading."
+  },
+  {
+    "from": "test:contains_a_bet",
+    "to": "pillar:how_to_win",
+    "type": "GATES",
+    "note": "If there is no bet, assessing the way of winning is premature - the artefact is a plan."
+  },
+  {
+    "from": "test:wtp_exists",
+    "to": "pillar:how_to_win",
+    "type": "GATES",
+    "note": "A way of winning cannot be assessed without an arena for it to be true of."
+  },
+  {
+    "from": "test:htw_exists",
+    "to": "pillar:capabilities",
+    "type": "GATES",
+    "note": "Capabilities can only be traced to a way of winning that has been stated."
+  },
+  {
+    "from": "test:customer_action_named",
+    "to": "pillar:how_to_win",
+    "type": "GATES",
+    "note": "Without a named desired action there is no success condition to win against."
+  },
+  {
+    "from": "test:must_be_trues_listed",
+    "to": "pillar:adoption",
+    "type": "GATES",
+    "note": "Cascading an untested theory spreads the error faster."
+  },
+  {
+    "from": "concept:where_to_play",
+    "to": "concept:how_to_win",
+    "type": "PAIRED_WITH",
+    "note": "Neither choice can be evaluated without the other."
+  },
+  {
+    "from": "concept:wwhtbt",
+    "to": "concept:barriers_to_choice",
+    "type": "PRODUCES",
+    "note": "Reverse-engineering the logic yields the conditions, and the least believed among them."
+  },
+  {
+    "from": "concept:barriers_to_choice",
+    "to": "concept:cheapest_test",
+    "type": "PRODUCES",
+    "note": "The barrier determines what is worth testing."
+  },
+  {
+    "from": "concept:must_be_true",
+    "to": "concept:non_financial_kpis",
+    "type": "PRODUCES",
+    "note": "Each critical condition should leave behind something observable to watch."
+  },
+  {
+    "from": "concept:must_be_true",
+    "to": "concept:disconfirming_evidence",
+    "type": "PRODUCES",
+    "note": "Conditions that could be false imply observations that would show them false."
+  },
+  {
+    "from": "concept:capability_gap",
+    "to": "concept:barriers_to_choice",
+    "type": "FEEDS",
+    "note": "An unproven capability is usually one of the least believed conditions."
+  },
+  {
+    "from": "concept:strategic_stuckness",
+    "to": "concept:wwhtbt",
+    "type": "TREATED_BY",
+    "note": "Reopening the original must-be-trues is the unsticking move."
+  },
+  {
+    "from": "concept:integrative_thinking",
+    "to": "concept:possibilities",
+    "type": "FEEDS",
+    "note": "Tension between opposing views is raw material for additional possibilities."
+  },
+  {
+    "from": "concept:assertive_inquiry",
+    "to": "concept:integrative_thinking",
+    "type": "ENABLES",
+    "note": "Understanding the opposing model is a precondition for integrating it."
+  },
+  {
+    "from": "concept:reinforcing_activity_system",
+    "to": "concept:barriers_to_imitation",
+    "type": "PRODUCES",
+    "note": "Systems are hard to copy piecemeal, which is where durability comes from."
+  },
+  {
+    "from": "concept:three_lenses",
+    "to": "concept:customer_insight",
+    "type": "ENABLES",
+    "note": "Multiple lenses on the same customer produce insight a single lens misses."
+  },
+  {
+    "from": "trap:plan_as_strategy",
+    "to": "principle:outside_your_control",
+    "type": "VIOLATES"
+  },
+  {
+    "from": "trap:initiative_list",
+    "to": "principle:integrated_choices",
+    "type": "VIOLATES"
+  },
+  {
+    "from": "trap:everything_to_everyone",
+    "to": "principle:choice_costs_something",
+    "type": "VIOLATES"
+  },
+  {
+    "from": "trap:stuck_in_the_middle",
+    "to": "principle:two_ways_to_win",
+    "type": "VIOLATES"
+  },
+  {
+    "from": "trap:internal_only_logic",
+    "to": "principle:competitor_has_a_vote",
+    "type": "VIOLATES"
+  },
+  {
+    "from": "trap:moat_thinking",
+    "to": "principle:advantage_is_dynamic",
+    "type": "VIOLATES"
+  },
+  {
+    "from": "trap:untested_assumptions",
+    "to": "principle:ask_what_would_have_to_be_true",
+    "type": "VIOLATES"
+  },
+  {
+    "from": "trap:single_option",
+    "to": "principle:possibilities_before_recommendation",
+    "type": "VIOLATES"
+  },
+  {
+    "from": "trap:faux_science",
+    "to": "principle:no_certainty",
+    "type": "VIOLATES"
+  },
+  {
+    "from": "trap:analysis_paralysis",
+    "to": "principle:cheapest_sufficient_test",
+    "type": "VIOLATES"
+  },
+  {
+    "from": "trap:misplaced_shoulds",
+    "to": "principle:no_misplaced_shoulds",
+    "type": "VIOLATES"
+  },
+  {
+    "from": "trap:no_management_systems",
+    "to": "principle:systems_make_choices_stick",
+    "type": "VIOLATES"
+  },
+  {
+    "from": "trap:lagging_measures_only",
+    "to": "principle:leading_measures",
+    "type": "VIOLATES"
+  },
+  {
+    "from": "trap:capability_wishlist",
+    "to": "principle:capabilities_serve_htw",
+    "type": "VIOLATES"
+  },
+  {
+    "from": "trap:consensus_strategy",
+    "to": "principle:coherence_beats_parts",
+    "type": "VIOLATES"
+  },
+  {
+    "from": "trap:strategy_in_a_drawer",
+    "to": "principle:sayable_strategy",
+    "type": "VIOLATES"
+  },
+  {
+    "from": "trap:sunk_logic",
+    "to": "principle:revisit_on_evidence",
+    "type": "VIOLATES"
+  },
+  {
+    "from": "trap:financial_targets_only",
+    "to": "principle:targets_are_not_aspirations",
+    "type": "VIOLATES"
+  },
+  {
+    "from": "trap:aspiration_as_strategy",
+    "to": "principle:winning_not_participating",
+    "type": "VIOLATES"
+  },
+  {
+    "from": "trap:demographic_segments",
+    "to": "principle:insight_over_description",
+    "type": "VIOLATES"
+  },
+  {
+    "from": "trap:unpaid_differentiation",
+    "to": "principle:promise_must_be_deliverable",
+    "type": "VIOLATES"
+  },
+  {
+    "from": "trap:inherited_arena",
+    "to": "principle:hidden_arenas",
+    "type": "VIOLATES"
+  },
+  {
+    "from": "trap:copycat_htw",
+    "to": "principle:advantage_is_relative",
+    "type": "VIOLATES"
+  },
+  {
+    "from": "trap:incremental_pilots",
+    "to": "principle:big_enough_move",
+    "type": "VIOLATES"
+  },
+  {
+    "from": "trap:assumed_capability",
+    "to": "principle:test_the_weakest_link",
+    "type": "VIOLATES"
+  },
+  {
+    "from": "trap:vague_language",
+    "to": "principle:sayable_strategy",
+    "type": "VIOLATES"
+  },
+  {
+    "from": "trap:missing_customer",
+    "to": "principle:customer_action_is_the_point",
+    "type": "VIOLATES"
+  }
 ]

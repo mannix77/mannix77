@@ -1217,5 +1217,112 @@
       "src:cost_effective_differentiation",
       "src:untangling_value_proposition_competitive_advantage"
     ]
+  },
+  {
+    "id": "concept:strategy_as_craft",
+    "type": "concept",
+    "label": "Strategy as a Craft",
+    "pillar": "pillar:practitioner",
+    "summary": "Strategy treated as a practice that improves with deliberate repetition on real choices, rather than as a body of knowledge to be absorbed or a title to be granted.",
+    "practitioner_note": "Someone who has made and lived with three real choices is usually further along than someone who has read widely and decided nothing.",
+    "related": [
+      "concept:coaching_a_novice",
+      "concept:assertive_inquiry"
+    ],
+    "sources": [
+      "src:strategy_as_a_practice",
+      "src:what_makes_for_a_great_strategist",
+      "src:becoming_a_better_strategist",
+      "src:the_lost_art_of_strategy"
+    ]
+  },
+  {
+    "id": "concept:technocrat_vs_strategist",
+    "type": "concept",
+    "label": "The Technocratic and the Strategic Disposition",
+    "pillar": "pillar:practitioner",
+    "summary": "Two habits of mind: one optimises within the constraints as given, the other asks which constraints are actually choices. Both are valuable, but only the second can change where an organisation competes.",
+    "practitioner_note": "A useful tell in conversation: when handed a constraint, does the person immediately start optimising inside it, or ask who chose it and whether it still holds?",
+    "related": [
+      "concept:strategy_as_craft",
+      "concept:reliability_vs_validity",
+      "concept:faux_rigour"
+    ],
+    "sources": [
+      "src:technocrats_vs_strategists",
+      "src:what_is_strategic_thinking"
+    ]
+  },
+  {
+    "id": "concept:chooser_owns_the_choice",
+    "type": "concept",
+    "label": "The Chooser Owns the Choice",
+    "pillar": "pillar:practitioner",
+    "summary": "Strategy cannot be performed on someone's behalf. Whoever will bear the consequences and allocate the resources has to make the choice, whatever help they take in framing it.",
+    "practitioner_note": "This is the boundary that makes coaching legitimate: an adviser can widen the option set and stress-test logic, and must stop short of choosing.",
+    "related": [
+      "concept:strategy_ownership_by_staff",
+      "concept:choice_chartering",
+      "concept:ai_in_strategy_practice"
+    ],
+    "sources": [
+      "src:who_should_do_strategy",
+      "src:the_business_of_strategy_consulting",
+      "src:the_trap_of_presiding_over_strategy"
+    ]
+  },
+  {
+    "id": "concept:strategy_ownership_by_staff",
+    "type": "concept",
+    "label": "The Strategy Function's Proper Job",
+    "pillar": "pillar:practitioner",
+    "summary": "A strategy officer, planning team or finance partner earns their place by making choices possible - framing them, generating possibilities, structuring the logic - rather than by producing the choice as a deliverable.",
+    "practitioner_note": "Where a staff function owns the strategy, the line managers who must act on it have no stake in it, and quietly continue deciding by precedent.",
+    "related": [
+      "concept:chooser_owns_the_choice",
+      "concept:cascading_strategy"
+    ],
+    "sources": [
+      "src:the_proper_role_of_the_chief_strategy_officer",
+      "src:how_to_become_a_strategic_chief_financial_officer",
+      "src:the_business_of_strategy_consulting"
+    ]
+  },
+  {
+    "id": "concept:coaching_a_novice",
+    "type": "concept",
+    "label": "Building Strategic Capability",
+    "pillar": "pillar:practitioner",
+    "summary": "Capability grows by working live choices with someone who asks better questions than you do, and by being held to the logic - not by frameworks taught in the abstract.",
+    "practitioner_note": "The transferable skill is the questioning habit. A novice who leaves with a question they will keep asking has gained more than one who leaves with a filled-in template.",
+    "related": [
+      "concept:strategy_as_craft",
+      "concept:assertive_inquiry",
+      "concept:culture_via_questions"
+    ],
+    "sources": [
+      "src:novice_strategist",
+      "src:becoming_a_better_strategist",
+      "src:asking_great_strategy_questions",
+      "src:ceo_advisor"
+    ]
+  },
+  {
+    "id": "concept:working_with_non_strategists",
+    "type": "concept",
+    "label": "Working With People Who Do Not Think This Way",
+    "pillar": "pillar:practitioner",
+    "summary": "The practical problem of making strategic progress when colleagues or superiors decide intuitively, or treat the current course as settled - which is the normal condition rather than the exception.",
+    "practitioner_note": "Arguing method rarely works. Asking what would have to be true is usually acceptable to an intuitive decision-maker, because it does not require them to concede anything.",
+    "related": [
+      "concept:wwhtbt",
+      "concept:assertive_inquiry",
+      "concept:strategic_stuckness"
+    ],
+    "sources": [
+      "src:dealing_with_intuitive_non_strategists",
+      "src:stop_working_for_loser_strategists",
+      "src:the_work_and_workings_of_leadership_teams"
+    ]
   }
 ]

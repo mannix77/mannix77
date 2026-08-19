@@ -2857,5 +2857,223 @@
       "src:strategy_artificial_intelligence",
       "src:becoming_an_ai_augmented_enterprise"
     ]
+  },
+  {
+    "id": "q:prac_who_are_you_in_this",
+    "pillar": "pillar:practitioner",
+    "kind": "opening",
+    "depth": 1,
+    "text": "Before we look at the strategy itself - what is your role in this work, and what can you decide on your own?",
+    "intent": "Establish role and authority up front, so findings are aimed at something the person can act on.",
+    "probes": [
+      "test:practitioner_scope_is_clear"
+    ],
+    "covers": [
+      "slot:practitioner_role",
+      "slot:decision_authority"
+    ],
+    "detects": [],
+    "ask_when": [
+      "opening",
+      "slot_empty"
+    ],
+    "follow_ups": [
+      "q:prac_what_is_fixed_for_you",
+      "q:prac_who_made_the_choices"
+    ],
+    "sources": [
+      "src:who_should_do_strategy"
+    ]
+  },
+  {
+    "id": "q:prac_what_is_fixed_for_you",
+    "pillar": "pillar:practitioner",
+    "kind": "clarifying",
+    "depth": 2,
+    "text": "What is fixed for you by someone else, and who owns those decisions?",
+    "intent": "Locate the boundary of the person's authority and name the owner beyond it.",
+    "probes": [
+      "test:practitioner_scope_is_clear",
+      "test:constraints_treated_as_choices"
+    ],
+    "covers": [
+      "slot:decision_authority"
+    ],
+    "detects": [],
+    "ask_when": [
+      "always",
+      "slot_empty"
+    ],
+    "follow_ups": [
+      "q:prac_which_constraints_are_choices"
+    ],
+    "sources": [
+      "src:stop_working_for_loser_strategists"
+    ]
+  },
+  {
+    "id": "q:prac_which_constraints_are_choices",
+    "pillar": "pillar:practitioner",
+    "kind": "challenge",
+    "depth": 2,
+    "text": "Of the constraints you are working within, which are genuinely fixed and which are choices somebody made that nobody has revisited?",
+    "intent": "Interrupt the technocratic habit of optimising inside inherited constraints.",
+    "probes": [
+      "test:constraints_treated_as_choices"
+    ],
+    "covers": [
+      "slot:practitioner_role",
+      "slot:alternatives_considered"
+    ],
+    "detects": [
+      "trap:sunk_logic",
+      "trap:incremental_pilots"
+    ],
+    "ask_when": [
+      "always"
+    ],
+    "follow_ups": [
+      "q:logic_old_must_be_trues"
+    ],
+    "sources": [
+      "src:technocrats_vs_strategists"
+    ]
+  },
+  {
+    "id": "q:prac_who_made_the_choices",
+    "pillar": "pillar:practitioner",
+    "kind": "probing",
+    "depth": 2,
+    "text": "Who actually made these choices - and will those same people have to resource them and answer for them?",
+    "intent": "Test whether the strategy was made or received.",
+    "probes": [
+      "test:chooser_owns_the_choice"
+    ],
+    "covers": [
+      "slot:decision_authority"
+    ],
+    "detects": [
+      "trap:delegated_strategy"
+    ],
+    "ask_when": [
+      "always",
+      "slot_empty"
+    ],
+    "follow_ups": [
+      "q:prac_which_option_did_you_kill"
+    ],
+    "sources": [
+      "src:who_should_do_strategy",
+      "src:the_business_of_strategy_consulting"
+    ]
+  },
+  {
+    "id": "q:prac_which_option_did_you_kill",
+    "pillar": "pillar:practitioner",
+    "kind": "challenge",
+    "depth": 3,
+    "text": "Which option did you personally kill, and who was unhappy about it?",
+    "intent": "Distinguish deciding from presiding, using the strongest available signal - a named casualty.",
+    "probes": [
+      "test:chooser_owns_the_choice",
+      "test:sacrifice_is_visible"
+    ],
+    "covers": [
+      "slot:sacrifice"
+    ],
+    "detects": [
+      "trap:presiding_not_choosing",
+      "trap:consensus_strategy"
+    ],
+    "ask_when": [
+      "deep",
+      "trap_hint"
+    ],
+    "follow_ups": [
+      "q:ms_what_gets_defunded"
+    ],
+    "sources": [
+      "src:the_trap_of_presiding_over_strategy",
+      "src:the_signs_of_a_good_ceo"
+    ]
+  },
+  {
+    "id": "q:prac_upward_influence",
+    "pillar": "pillar:practitioner",
+    "kind": "reframe",
+    "depth": 3,
+    "text": "If the choice you are worried about sits above you, what would the person who owns it need to see or hear to reopen it?",
+    "intent": "Convert a finding outside the person's authority into something they can act on, without pretending they can decide it.",
+    "probes": [
+      "test:practitioner_scope_is_clear"
+    ],
+    "covers": [
+      "slot:decision_authority"
+    ],
+    "detects": [],
+    "ask_when": [
+      "deep",
+      "test_fail"
+    ],
+    "follow_ups": [
+      "q:logic_wwhtbt"
+    ],
+    "sources": [
+      "src:dealing_with_intuitive_non_strategists",
+      "src:stop_working_for_loser_strategists"
+    ]
+  },
+  {
+    "id": "q:prac_hardest_choice_made",
+    "pillar": "pillar:practitioner",
+    "kind": "evidence",
+    "depth": 3,
+    "text": "What is the hardest strategic choice you have personally made, and what did it cost you?",
+    "intent": "Gauge practical capability from choices made rather than vocabulary used, and calibrate how hard to push.",
+    "probes": [
+      "test:chooser_owns_the_choice",
+      "test:practitioner_scope_is_clear"
+    ],
+    "covers": [
+      "slot:practitioner_role"
+    ],
+    "detects": [
+      "trap:presiding_not_choosing"
+    ],
+    "ask_when": [
+      "deep"
+    ],
+    "follow_ups": [],
+    "sources": [
+      "src:becoming_a_better_strategist",
+      "src:strategy_as_a_practice"
+    ]
+  },
+  {
+    "id": "q:prac_intuitive_colleague",
+    "pillar": "pillar:practitioner",
+    "kind": "probing",
+    "depth": 3,
+    "text": "If the people you need to persuade decide intuitively rather than analytically, what would you have to show them for this to land?",
+    "intent": "Surface the adoption problem where colleagues do not share the method, without prescribing a persuasion tactic.",
+    "probes": [
+      "test:practitioner_scope_is_clear",
+      "test:strategy_is_sayable"
+    ],
+    "covers": [
+      "slot:articulation",
+      "slot:decision_authority"
+    ],
+    "detects": [
+      "trap:strategy_in_a_drawer"
+    ],
+    "ask_when": [
+      "deep"
+    ],
+    "follow_ups": [],
+    "sources": [
+      "src:dealing_with_intuitive_non_strategists",
+      "src:the_work_and_workings_of_leadership_teams"
+    ]
   }
 ]

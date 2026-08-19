@@ -1602,5 +1602,104 @@
       "src:generating_creative_strategy_possibilities",
       "src:the_design_school_advantage"
     ]
+  },
+  {
+    "id": "test:chooser_owns_the_choice",
+    "type": "test",
+    "label": "The people who bear the consequences made the choice",
+    "pillar": "pillar:practitioner",
+    "statement": "The leaders who will resource this strategy and answer for it are the ones who made its choices, whoever helped frame them.",
+    "why_it_matters": "A strategy received rather than made has no owner at the first hard trade-off, and the organisation quietly reverts to precedent.",
+    "pass_signals": [
+      "The people accountable can state the choice and what it cost them",
+      "An option was killed by someone in the room, and they can say who objected"
+    ],
+    "fail_signals": [
+      "Leaders describe the strategy in the third person",
+      "Only the authors of the deck can explain the logic",
+      "The leader's contribution was approval"
+    ],
+    "severity": "major",
+    "weight": 5,
+    "evaluates": [
+      "concept:chooser_owns_the_choice",
+      "concept:strategy_ownership_by_staff"
+    ],
+    "detects": [
+      "trap:delegated_strategy",
+      "trap:presiding_not_choosing"
+    ],
+    "slots": [
+      "slot:decision_authority",
+      "slot:sacrifice"
+    ],
+    "sources": [
+      "src:who_should_do_strategy",
+      "src:the_trap_of_presiding_over_strategy"
+    ]
+  },
+  {
+    "id": "test:practitioner_scope_is_clear",
+    "type": "test",
+    "label": "What this person can actually decide is established",
+    "pillar": "pillar:practitioner",
+    "statement": "It is clear what the person doing this work can decide alone, what they can influence, and what is fixed for them by someone else.",
+    "why_it_matters": "Findings aimed outside someone's authority are unusable. Knowing the boundary turns 'your arena is unbounded' into 'here is what the person who can bound it would need to hear'.",
+    "pass_signals": [
+      "Their own decision rights are stated",
+      "Where a choice sits above them, the owner is named"
+    ],
+    "fail_signals": [
+      "Assessment proceeds without knowing whether they can act on it",
+      "Recommendations assume authority the person does not have"
+    ],
+    "severity": "minor",
+    "weight": 3,
+    "evaluates": [
+      "concept:chooser_owns_the_choice"
+    ],
+    "detects": [],
+    "slots": [
+      "slot:practitioner_role",
+      "slot:decision_authority"
+    ],
+    "sources": [
+      "src:stop_working_for_loser_strategists",
+      "src:dealing_with_intuitive_non_strategists"
+    ]
+  },
+  {
+    "id": "test:constraints_treated_as_choices",
+    "type": "test",
+    "label": "Given constraints have been examined rather than accepted",
+    "pillar": "pillar:practitioner",
+    "statement": "The team can say which of the constraints they are working within are genuinely fixed and which are inherited choices nobody has revisited.",
+    "why_it_matters": "The technocratic habit optimises inside the constraints as given, which is exactly how an organisation reaches a competent local peak and stays there.",
+    "pass_signals": [
+      "At least one apparent constraint identified as a choice, with who owns it",
+      "A stated reason the genuinely fixed ones are fixed"
+    ],
+    "fail_signals": [
+      "Every constraint treated as a fact of nature",
+      "The work is entirely optimisation within the current model"
+    ],
+    "severity": "major",
+    "weight": 4,
+    "evaluates": [
+      "concept:technocrat_vs_strategist",
+      "concept:strategic_stuckness"
+    ],
+    "detects": [
+      "trap:sunk_logic",
+      "trap:incremental_pilots"
+    ],
+    "slots": [
+      "slot:practitioner_role",
+      "slot:alternatives_considered"
+    ],
+    "sources": [
+      "src:technocrats_vs_strategists",
+      "src:what_is_strategic_thinking"
+    ]
   }
 ]

@@ -50,11 +50,10 @@
     "theme": "Who does strategy, and what makes someone good at it",
     "why_it_matters": "A substantial cluster about the practitioner rather than the artefact - the chief strategy officer's remit, whether a finance chief can be strategic, what distinguishes a strategist from a technocrat, how to train a novice, and how to work for someone who is not one. The graph assesses strategies and says nothing about the people making them.",
     "would_add": [
-      "concept",
-      "question"
+      "test"
     ],
     "impact": "high",
-    "status": "not_modelled",
+    "status": "partially_modelled",
     "series_titles": 12,
     "evidence": [
       "src:the_proper_role_of_the_chief_strategy_officer",
@@ -63,7 +62,24 @@
       "src:technocrats_vs_strategists",
       "src:how_to_become_a_strategic_chief_financial_officer"
     ],
-    "note": "The clearest remaining high-impact gap. Bears directly on the coaching relationship, since the agent is talking to one of these people."
+    "note": "Closed by adding pillar:practitioner (12th pillar, order 15, between classifying the artefact and working the cascade). This is the one theme that is not about the strategy artefact but about the person making it, so it needed its own pillar rather than being folded into an existing one. Remaining depth: the strategy-function remit and capability-building concepts carry no test yet.",
+    "covered_by": [
+      "pillar:practitioner",
+      "concept:strategy_as_craft",
+      "concept:technocrat_vs_strategist",
+      "concept:chooser_owns_the_choice",
+      "concept:strategy_ownership_by_staff",
+      "concept:coaching_a_novice",
+      "concept:working_with_non_strategists",
+      "principle:chooser_must_own",
+      "principle:strategy_is_learnable",
+      "principle:authority_bounds_advice",
+      "trap:delegated_strategy",
+      "trap:presiding_not_choosing",
+      "test:chooser_owns_the_choice",
+      "test:practitioner_scope_is_clear",
+      "test:constraints_treated_as_choices"
+    ]
   },
   {
     "id": "gap:execution_dichotomy",
