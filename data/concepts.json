@@ -1,0 +1,1328 @@
+[
+  {
+    "id": "concept:strategy_choice_cascade",
+    "type": "concept",
+    "label": "Strategy Choice Cascade",
+    "aka": [
+      "the cascade",
+      "five questions"
+    ],
+    "pillar": "pillar:definition",
+    "summary": "The five linked choices that together constitute a strategy: what winning means, where the organisation will play, how it will win there, what capabilities that requires, and what management systems will sustain them.",
+    "practitioner_note": "Used as an assessment frame rather than a form to fill in. The value is in the links between the boxes; a cascade filled in box by box, each without reference to the others, is the most common failure mode.",
+    "related": [
+      "concept:winning_aspiration",
+      "concept:where_to_play",
+      "concept:how_to_win",
+      "concept:capabilities",
+      "concept:management_systems",
+      "concept:cascade_coherence"
+    ],
+    "sources": [
+      "src:management_systems_role",
+      "src:publication"
+    ]
+  },
+  {
+    "id": "concept:strategy_vs_plan",
+    "type": "concept",
+    "label": "Strategy versus Plan",
+    "pillar": "pillar:definition",
+    "summary": "A plan commits to actions the organisation can take on its own initiative; a strategy commits to a bet about how people outside the organisation will respond. Both are useful, but only one of them can produce advantage.",
+    "practitioner_note": "The tell is the grammar: plans are lists of things the organisation will do, dated and resourced. Strategies contain a claim about somebody else's behaviour.",
+    "contrasts_with": [
+      "concept:desired_customer_action"
+    ],
+    "related": [
+      "concept:strategy_as_theory"
+    ],
+    "sources": [
+      "src:revisiting_definition",
+      "src:fixing_strategy"
+    ]
+  },
+  {
+    "id": "concept:desired_customer_action",
+    "type": "concept",
+    "label": "Desired Customer Action",
+    "aka": [
+      "compelling customer action"
+    ],
+    "pillar": "pillar:customer",
+    "summary": "The specific behaviour a strategy is designed to compel: enough of the right customers buying at prices that produce attractive returns, sustained over time. Volume and price are both part of the condition.",
+    "practitioner_note": "Naming the action converts vague ambition into something observable. It also exposes strategies whose success condition is internal (a launch, a capability, a reorganisation) rather than in the market.",
+    "part_of": [
+      "concept:strategy_choice_cascade"
+    ],
+    "related": [
+      "concept:pttc",
+      "concept:customer_insight"
+    ],
+    "sources": [
+      "src:revisiting_definition"
+    ]
+  },
+  {
+    "id": "concept:strategy_as_theory",
+    "type": "concept",
+    "label": "Strategy as Testable Theory",
+    "pillar": "pillar:logic",
+    "summary": "Treating a strategy as a theory about how winning will happen, which can be reasoned about and tested but not proved before the fact.",
+    "practitioner_note": "Reframing a strategy as a theory lowers the political cost of examining it: the question becomes what the theory requires, not who is right.",
+    "related": [
+      "concept:wwhtbt",
+      "concept:no_algorithm",
+      "concept:disconfirming_evidence"
+    ],
+    "sources": [
+      "src:wwhtbt",
+      "src:faux_science"
+    ]
+  },
+  {
+    "id": "concept:no_algorithm",
+    "type": "concept",
+    "label": "No Algorithm for Strategy",
+    "pillar": "pillar:logic",
+    "summary": "Strategy cannot be computed from available data, because the decisive facts are about a future that does not yet exist. Choice under irreducible uncertainty is the job, not a failure of preparation.",
+    "practitioner_note": "Teams that reject this tend to substitute analysis for decision, and to mistake the volume of evidence for the quality of the choice.",
+    "related": [
+      "concept:faux_rigour",
+      "concept:analysis_paralysis_pattern"
+    ],
+    "sources": [
+      "src:faux_science"
+    ]
+  },
+  {
+    "id": "concept:faux_rigour",
+    "type": "concept",
+    "label": "Faux Rigour",
+    "pillar": "pillar:logic",
+    "summary": "The appearance of scientific method in strategy work - precise projections, elaborate models, extrapolated trends - applied to questions where the underlying data cannot settle the answer.",
+    "practitioner_note": "A useful diagnostic is to ask what result would have changed the recommendation. If no possible output of the analysis would have, the analysis was decoration.",
+    "related": [
+      "concept:no_algorithm"
+    ],
+    "sources": [
+      "src:faux_science"
+    ]
+  },
+  {
+    "id": "concept:winning_aspiration",
+    "type": "concept",
+    "label": "Winning Aspiration",
+    "aka": [
+      "WA"
+    ],
+    "pillar": "pillar:winning_aspiration",
+    "summary": "A statement of what winning means for this organisation and for whom - the purpose that gives the remaining choices something to serve.",
+    "practitioner_note": "Distinguish from vision and from financial targets. A winning aspiration should be contestable: it should be possible to fail at it while still being in business.",
+    "part_of": [
+      "concept:strategy_choice_cascade"
+    ],
+    "related": [
+      "concept:aspiration_vs_target",
+      "concept:whose_win"
+    ],
+    "sources": [
+      "src:publication"
+    ]
+  },
+  {
+    "id": "concept:aspiration_vs_target",
+    "type": "concept",
+    "label": "Aspiration versus Target",
+    "pillar": "pillar:winning_aspiration",
+    "summary": "A financial target describes a result the organisation would like to report; an aspiration describes the position in the market that would produce such results.",
+    "practitioner_note": "Targets give no direction to choice. Two organisations with identical growth targets can require opposite strategies.",
+    "related": [
+      "concept:winning_aspiration"
+    ],
+    "sources": [
+      "src:revisiting_definition"
+    ]
+  },
+  {
+    "id": "concept:whose_win",
+    "type": "concept",
+    "label": "Winning For Whom",
+    "pillar": "pillar:winning_aspiration",
+    "summary": "The question of in whose eyes the organisation intends to win - which customers, and which other constituencies whose judgement matters.",
+    "practitioner_note": "Answering this early prevents a Where-to-Play chosen for internal convenience rather than for the customers whose action the strategy needs.",
+    "related": [
+      "concept:winning_aspiration",
+      "concept:three_lenses"
+    ],
+    "sources": [
+      "src:fifth_year",
+      "src:revisiting_definition"
+    ]
+  },
+  {
+    "id": "concept:where_to_play",
+    "type": "concept",
+    "label": "Where-to-Play",
+    "aka": [
+      "WTP"
+    ],
+    "pillar": "pillar:where_to_play",
+    "summary": "The arena in which the organisation will compete, expressed across the dimensions that actually differ competitively: which offerings, to which customers, in which geographies, through which channels, at which stages of the chain.",
+    "practitioner_note": "The most common defect is not a wrong arena but an unbounded one. Where-to-Play only becomes a choice when something is excluded.",
+    "part_of": [
+      "concept:strategy_choice_cascade"
+    ],
+    "related": [
+      "concept:wtp_dimensions",
+      "concept:where_not_to_play",
+      "concept:hidden_wtp",
+      "concept:how_to_win"
+    ],
+    "sources": [
+      "src:hidden_wtp",
+      "src:thick_thin",
+      "src:regional_strategy"
+    ]
+  },
+  {
+    "id": "concept:wtp_dimensions",
+    "type": "concept",
+    "label": "Dimensions of Where-to-Play",
+    "pillar": "pillar:where_to_play",
+    "summary": "The distinct axes along which an arena can be chosen - offering, customer, geography, channel, and stage of production or service delivery - each of which can be narrowed or widened independently.",
+    "practitioner_note": "Teams typically choose on one or two axes and leave the rest inherited. Walking all five surfaces choices nobody knew they had made.",
+    "part_of": [
+      "concept:where_to_play"
+    ],
+    "related": [
+      "concept:hidden_wtp"
+    ],
+    "sources": [
+      "src:hidden_wtp",
+      "src:regional_strategy"
+    ]
+  },
+  {
+    "id": "concept:where_not_to_play",
+    "type": "concept",
+    "label": "Where Not to Play",
+    "pillar": "pillar:where_to_play",
+    "summary": "The explicit exclusions that make an arena a choice rather than a description - the customers, segments, geographies and channels deliberately left to others.",
+    "practitioner_note": "Ask for exclusions that hurt. Excluding markets the organisation could never serve anyway is not sacrifice.",
+    "part_of": [
+      "concept:where_to_play"
+    ],
+    "related": [
+      "concept:sacrifice"
+    ],
+    "sources": [
+      "src:thick_thin"
+    ]
+  },
+  {
+    "id": "concept:hidden_wtp",
+    "type": "concept",
+    "label": "Hidden Where-to-Play Choices",
+    "pillar": "pillar:where_to_play",
+    "summary": "Arena choices that operate powerfully but were never deliberately made - most often the channel through which the organisation reaches customers, and the intermediaries whose behaviour it therefore depends on.",
+    "practitioner_note": "Where an intermediary stands between the organisation and the end customer, there are two customers with different desired actions, and strategies routinely address only one.",
+    "part_of": [
+      "concept:where_to_play"
+    ],
+    "related": [
+      "concept:customer_roles",
+      "concept:wtp_dimensions"
+    ],
+    "sources": [
+      "src:hidden_wtp"
+    ]
+  },
+  {
+    "id": "concept:arena_attractiveness",
+    "type": "concept",
+    "label": "Arena Attractiveness",
+    "pillar": "pillar:where_to_play",
+    "summary": "Whether the chosen arena can structurally support attractive returns for someone, independent of how well any particular competitor executes.",
+    "practitioner_note": "Distinguish 'we are not winning here' from 'nobody wins here'. The remedies are entirely different.",
+    "related": [
+      "concept:where_to_play",
+      "concept:relative_position"
+    ],
+    "sources": [
+      "src:book_club_ch11"
+    ]
+  },
+  {
+    "id": "concept:how_to_win",
+    "type": "concept",
+    "label": "How-to-Win",
+    "aka": [
+      "HTW"
+    ],
+    "pillar": "pillar:how_to_win",
+    "summary": "The logic by which the organisation will cause customers in the chosen arena to choose it over the alternatives, in a way competitors cannot easily replicate.",
+    "practitioner_note": "The single most difficult box, and the one most often filled with initiatives instead of a logic. A How-to-Win is a causal story, not an agenda.",
+    "part_of": [
+      "concept:strategy_choice_cascade"
+    ],
+    "related": [
+      "concept:two_ways_to_win",
+      "concept:pttc",
+      "concept:htw_not_initiatives",
+      "concept:where_to_play"
+    ],
+    "sources": [
+      "src:powerful_htw",
+      "src:thick_thin"
+    ]
+  },
+  {
+    "id": "concept:htw_not_initiatives",
+    "type": "concept",
+    "label": "How-to-Win Is Not an Initiative List",
+    "pillar": "pillar:how_to_win",
+    "summary": "A set of individually sensible programmes - improve service, invest in digital, enter adjacent segments - can occupy the How-to-Win box without adding up to a reason any customer would choose this organisation.",
+    "practitioner_note": "Test by asking what the list implies about the customer's decision. If the answer is 'we would be somewhat better at everything', there is no How-to-Win.",
+    "part_of": [
+      "concept:how_to_win"
+    ],
+    "related": [
+      "concept:coherence_test"
+    ],
+    "sources": [
+      "src:powerful_htw",
+      "src:fixing_strategy"
+    ]
+  },
+  {
+    "id": "concept:two_ways_to_win",
+    "type": "concept",
+    "label": "Cost Advantage or Differentiation",
+    "pillar": "pillar:how_to_win",
+    "summary": "Advantage ultimately rests on serving customers at structurally lower cost than rivals, or on being different in a way enough customers will pay for. Being neither leaves an organisation exposed to competitors who are.",
+    "practitioner_note": "Organisations frequently claim both. Claiming both usually means the trade-offs required by either have not been made.",
+    "part_of": [
+      "concept:how_to_win"
+    ],
+    "related": [
+      "concept:cost_advantage_structural",
+      "concept:differentiation_pays",
+      "concept:stuck_between"
+    ],
+    "sources": [
+      "src:powerful_htw",
+      "src:book_club_ch11"
+    ]
+  },
+  {
+    "id": "concept:cost_advantage_structural",
+    "type": "concept",
+    "label": "Structural Cost Advantage",
+    "pillar": "pillar:how_to_win",
+    "summary": "A cost position that comes from doing different activities or doing them in a different configuration - not from working harder, cutting discretionary spend, or being temporarily lucky on input prices.",
+    "practitioner_note": "Ask what a competitor would have to give up to match the cost position. If the answer is 'nothing, they would just have to try', it is not an advantage.",
+    "part_of": [
+      "concept:two_ways_to_win"
+    ],
+    "related": [
+      "concept:reinforcing_activity_system"
+    ],
+    "sources": [
+      "src:powerful_htw"
+    ]
+  },
+  {
+    "id": "concept:differentiation_pays",
+    "type": "concept",
+    "label": "Differentiation That Customers Pay For",
+    "pillar": "pillar:how_to_win",
+    "summary": "Difference that shows up in the customer's decision - as willingness to pay more, to switch, to stay, or to buy more often. Difference the customer does not notice or value is cost without advantage.",
+    "practitioner_note": "Distinguish the features the organisation is proud of from the ones that alter behaviour at the point of choice.",
+    "part_of": [
+      "concept:two_ways_to_win"
+    ],
+    "related": [
+      "concept:pttc",
+      "concept:customer_insight"
+    ],
+    "sources": [
+      "src:powerful_htw",
+      "src:regional_strategy"
+    ]
+  },
+  {
+    "id": "concept:stuck_between",
+    "type": "concept",
+    "label": "Neither Low Cost Nor Different",
+    "pillar": "pillar:how_to_win",
+    "summary": "The position of an organisation that has avoided the trade-offs of both routes to advantage and can therefore be attacked on price by the low-cost player and on value by the differentiated one.",
+    "practitioner_note": "Often the result of a strategy assembled by consensus, where every constituency protected its own priority.",
+    "related": [
+      "concept:two_ways_to_win",
+      "concept:sacrifice"
+    ],
+    "sources": [
+      "src:powerful_htw"
+    ]
+  },
+  {
+    "id": "concept:pttc",
+    "type": "concept",
+    "label": "Promise to the Customer",
+    "aka": [
+      "PTTC"
+    ],
+    "pillar": "pillar:customer",
+    "summary": "The commitment made to the chosen customer that motivates the action the strategy needs: valuable to them, memorable enough to be recalled when they choose, and specific enough that failure to deliver would be evident.",
+    "practitioner_note": "Auditability is the neglected attribute. A promise nobody can fail is a promise nobody can rely on.",
+    "related": [
+      "concept:desired_customer_action",
+      "concept:differentiation_pays"
+    ],
+    "sources": [
+      "src:regional_strategy"
+    ]
+  },
+  {
+    "id": "concept:customer_insight",
+    "type": "concept",
+    "label": "Customer Insight",
+    "pillar": "pillar:customer",
+    "summary": "An understanding of why customers behave as they do in their own context, deep enough to predict how they would respond to something that does not exist yet.",
+    "practitioner_note": "Insight is distinguishable from research output by its predictive use: it tells you what to offer, not only what people said about what already exists.",
+    "related": [
+      "concept:three_lenses",
+      "concept:behavioural_segments",
+      "concept:desired_customer_action"
+    ],
+    "sources": [
+      "src:culture_change",
+      "src:revisiting_definition"
+    ]
+  },
+  {
+    "id": "concept:three_lenses",
+    "type": "concept",
+    "label": "Economic, User and World Lenses",
+    "pillar": "pillar:customer",
+    "summary": "Three complementary ways of seeing the people a strategy serves: as economic actors making trade-offs, as users living with an offering in context, and as members of communities whose norms shape what they will accept.",
+    "practitioner_note": "The third lens is the one most often missing, and it is where legitimacy problems and social constraints on a strategy show up first.",
+    "related": [
+      "concept:customer_insight",
+      "concept:whose_win"
+    ],
+    "sources": [
+      "src:fifth_year"
+    ]
+  },
+  {
+    "id": "concept:behavioural_segments",
+    "type": "concept",
+    "label": "Behavioural versus Descriptive Segments",
+    "pillar": "pillar:customer",
+    "summary": "Segments defined by what people are trying to accomplish and how they choose, rather than by size, industry, region or demographic category.",
+    "practitioner_note": "Descriptive segments are convenient for reporting and useless for strategy, because they rarely correspond to differences in what would win the business.",
+    "related": [
+      "concept:customer_insight",
+      "concept:where_to_play"
+    ],
+    "sources": [
+      "src:culture_change"
+    ]
+  },
+  {
+    "id": "concept:customer_roles",
+    "type": "concept",
+    "label": "Distinguishing Customer Roles",
+    "pillar": "pillar:customer",
+    "summary": "Separating who uses an offering, who chooses it, who pays for it, and who distributes it - roles that are often held by different parties with different interests.",
+    "practitioner_note": "Where these roles diverge, a strategy needs a desired action and a promise for each party whose cooperation it requires.",
+    "related": [
+      "concept:hidden_wtp",
+      "concept:pttc"
+    ],
+    "sources": [
+      "src:hidden_wtp"
+    ]
+  },
+  {
+    "id": "concept:capabilities",
+    "type": "concept",
+    "label": "Capabilities",
+    "pillar": "pillar:capabilities",
+    "summary": "The activities the organisation must be able to perform distinctively well for its How-to-Win to hold, as distinct from the activities it must perform adequately to operate at all.",
+    "practitioner_note": "Every capability in the list should be traceable to the How-to-Win. Capabilities that would appear in any competitor's list are the cost of entry.",
+    "part_of": [
+      "concept:strategy_choice_cascade"
+    ],
+    "related": [
+      "concept:reinforcing_activity_system",
+      "concept:capability_gap",
+      "concept:table_stakes"
+    ],
+    "sources": [
+      "src:book_club_ch11"
+    ]
+  },
+  {
+    "id": "concept:reinforcing_activity_system",
+    "type": "concept",
+    "label": "Reinforcing Activity System",
+    "pillar": "pillar:capabilities",
+    "summary": "A configuration of activities in which each element makes the others more valuable, so that copying any single element yields little and copying the whole requires abandoning an existing position.",
+    "practitioner_note": "This is the practical source of durability. Ask which capabilities only make sense in the presence of the others.",
+    "part_of": [
+      "concept:capabilities"
+    ],
+    "related": [
+      "concept:barriers_to_imitation",
+      "concept:cost_advantage_structural"
+    ],
+    "sources": [
+      "src:book_club_ch11"
+    ]
+  },
+  {
+    "id": "concept:capability_gap",
+    "type": "concept",
+    "label": "Capability Gap",
+    "pillar": "pillar:capabilities",
+    "summary": "The honest difference between the capabilities the How-to-Win requires and those the organisation currently has, together with how each gap will be closed - built, bought, partnered, or dropped.",
+    "practitioner_note": "Strategies that assume capabilities will appear because they are needed are the most common form of wishful logic inside an otherwise sound cascade.",
+    "part_of": [
+      "concept:capabilities"
+    ],
+    "related": [
+      "concept:management_systems",
+      "concept:must_be_true"
+    ],
+    "sources": [
+      "src:revisiting_management_systems"
+    ]
+  },
+  {
+    "id": "concept:table_stakes",
+    "type": "concept",
+    "label": "Table Stakes versus Distinctive",
+    "pillar": "pillar:capabilities",
+    "summary": "The distinction between what everyone in the arena must do competently and the few things this organisation must do better than anyone.",
+    "practitioner_note": "Confusing the two spreads investment evenly, which is a reliable way to be distinctive at nothing.",
+    "part_of": [
+      "concept:capabilities"
+    ],
+    "related": [
+      "concept:capabilities"
+    ],
+    "sources": [
+      "src:book_club_ch11"
+    ]
+  },
+  {
+    "id": "concept:management_systems",
+    "type": "concept",
+    "label": "Management Systems",
+    "pillar": "pillar:management_systems",
+    "summary": "The measures, budgets, reviews, incentives, routines and decision rights that build the required capabilities and keep the chosen course in place once attention moves on.",
+    "practitioner_note": "The box that most often stays empty, and the reason many well-formed strategies quietly revert. Systems are what make a choice binding on ordinary behaviour.",
+    "part_of": [
+      "concept:strategy_choice_cascade"
+    ],
+    "related": [
+      "concept:non_financial_kpis",
+      "concept:choice_chartering",
+      "concept:culture_via_questions",
+      "concept:resource_alignment"
+    ],
+    "sources": [
+      "src:management_systems_role",
+      "src:revisiting_management_systems"
+    ]
+  },
+  {
+    "id": "concept:non_financial_kpis",
+    "type": "concept",
+    "label": "Non-Financial Indicators of Strategy",
+    "pillar": "pillar:management_systems",
+    "summary": "Measures that track the conditions and behaviours a strategy's logic depends on, and therefore move before financial results do.",
+    "practitioner_note": "Derive these directly from the must-be-trues. Each critical assumption should have something observable attached to it.",
+    "part_of": [
+      "concept:management_systems"
+    ],
+    "related": [
+      "concept:must_be_true",
+      "concept:disconfirming_evidence"
+    ],
+    "sources": [
+      "src:non_financial_kpis"
+    ]
+  },
+  {
+    "id": "concept:choice_chartering",
+    "type": "concept",
+    "label": "Strategic Choice Chartering",
+    "pillar": "pillar:management_systems",
+    "summary": "Making explicit which choices belong to which role, at which level, and within what boundaries - so that the organisation's ongoing stream of decisions is actually governed by the strategy.",
+    "practitioner_note": "Chartering converts strategy from a document into a decision-rights structure. Without it, choices default to whoever is nearest and whichever precedent is handiest.",
+    "part_of": [
+      "concept:management_systems"
+    ],
+    "related": [
+      "concept:cascading_strategy",
+      "concept:functional_strategy"
+    ],
+    "sources": [
+      "src:choice_chartering"
+    ]
+  },
+  {
+    "id": "concept:culture_via_questions",
+    "type": "concept",
+    "label": "Culture Shaped by the Questions Leaders Ask",
+    "pillar": "pillar:management_systems",
+    "summary": "The observation that what leaders reliably ask for in meetings becomes what the organisation prepares, and therefore what it learns to value.",
+    "practitioner_note": "A practical lever: choose the two or three questions that must be answered before any proposal is approved, and ask them without exception.",
+    "part_of": [
+      "concept:management_systems"
+    ],
+    "related": [
+      "concept:customer_insight",
+      "concept:management_systems"
+    ],
+    "sources": [
+      "src:culture_change"
+    ]
+  },
+  {
+    "id": "concept:resource_alignment",
+    "type": "concept",
+    "label": "Resource Allocation as Evidence of Strategy",
+    "pillar": "pillar:management_systems",
+    "summary": "Where money, people and senior attention actually go, which reveals the organisation's operative strategy regardless of what is written down.",
+    "practitioner_note": "Compare the stated priorities with last year's spend and this year's calendar. The gap is the real assessment finding.",
+    "part_of": [
+      "concept:management_systems"
+    ],
+    "related": [
+      "concept:management_systems",
+      "concept:sacrifice"
+    ],
+    "sources": [
+      "src:revisiting_management_systems"
+    ]
+  },
+  {
+    "id": "concept:competitor_response",
+    "type": "concept",
+    "label": "Competitor Response",
+    "pillar": "pillar:competition",
+    "summary": "What rivals can and will do once the strategy becomes visible, and what would have to be true about their incentives and constraints for them not to neutralise it.",
+    "practitioner_note": "The useful version is specific: named competitors, plausible responses, and the reason each would or would not be willing to make them.",
+    "related": [
+      "concept:barriers_to_imitation",
+      "concept:relative_position"
+    ],
+    "sources": [
+      "src:what_questions",
+      "src:book_club_ch11"
+    ]
+  },
+  {
+    "id": "concept:barriers_to_imitation",
+    "type": "concept",
+    "label": "Barriers to Imitation",
+    "pillar": "pillar:competition",
+    "summary": "The reasons a competitor who understands the strategy still cannot or will not copy it - usually because copying would require abandoning something they value more.",
+    "practitioner_note": "Trade-offs, not secrets, are what make advantage durable. Anything a rival could add without subtracting is copyable.",
+    "related": [
+      "concept:reinforcing_activity_system",
+      "concept:dynamic_advantage"
+    ],
+    "sources": [
+      "src:book_club_ch11"
+    ]
+  },
+  {
+    "id": "concept:dynamic_advantage",
+    "type": "concept",
+    "label": "Advantage as Dynamic, Not a Moat",
+    "pillar": "pillar:competition",
+    "summary": "Advantage understood as something continuously re-earned through where an organisation directs its attention and investment, rather than a static barrier that holds once built.",
+    "practitioner_note": "The operational question becomes which questions the organisation is working on ahead of its competitors, because that determines where it will invest before they do.",
+    "related": [
+      "concept:barriers_to_imitation",
+      "concept:competitor_response"
+    ],
+    "sources": [
+      "src:what_questions",
+      "src:book_club_ch11"
+    ]
+  },
+  {
+    "id": "concept:relative_position",
+    "type": "concept",
+    "label": "Relative Position",
+    "pillar": "pillar:competition",
+    "summary": "Where the organisation stands against the specific alternatives its customers actually consider - including substitutes and doing nothing.",
+    "practitioner_note": "Ask what the customer does today instead. 'Nothing' and 'a spreadsheet' are competitors with real advantages.",
+    "related": [
+      "concept:competitor_response",
+      "concept:arena_attractiveness"
+    ],
+    "sources": [
+      "src:book_club_ch11"
+    ]
+  },
+  {
+    "id": "concept:rugged_landscape",
+    "type": "concept",
+    "label": "Rugged Competitive Landscape",
+    "pillar": "pillar:competition",
+    "summary": "A competitive terrain with many separate peaks, where improving from where you stand leads to a local summit that may be far below the ones available elsewhere.",
+    "practitioner_note": "Where the landscape is rugged, incremental testing gives confident but misleading feedback, and the strategic question is which peak to aim for rather than which direction is uphill.",
+    "related": [
+      "concept:incrementalism_limits",
+      "concept:dynamic_advantage"
+    ],
+    "sources": [
+      "src:rugged_landscapes"
+    ]
+  },
+  {
+    "id": "concept:incrementalism_limits",
+    "type": "concept",
+    "label": "Limits of Incremental Moves",
+    "pillar": "pillar:competition",
+    "summary": "The condition under which small, safe, adjacent moves cannot reach a winning position, however well executed and however encouraging their early results.",
+    "practitioner_note": "Useful to raise when a strategy consists of pilots. Ask what the pilot could prove, and what it structurally cannot.",
+    "related": [
+      "concept:rugged_landscape"
+    ],
+    "sources": [
+      "src:rugged_landscapes"
+    ]
+  },
+  {
+    "id": "concept:wwhtbt",
+    "type": "concept",
+    "label": "What Would Have to Be True",
+    "aka": [
+      "WWHTBT",
+      "reverse engineering the logic"
+    ],
+    "pillar": "pillar:logic",
+    "summary": "The move of reverse-engineering a possibility: rather than asking whether it is true, asking what conditions would have to hold for it to be a great choice.",
+    "practitioner_note": "The core technique of the method, and the one with the largest effect on group dynamics. Teams that cannot agree on facts can usually agree on the structure of what a choice requires, which is what makes deciding possible.",
+    "related": [
+      "concept:must_be_true",
+      "concept:barriers_to_choice",
+      "concept:possibilities",
+      "concept:strategy_as_theory"
+    ],
+    "sources": [
+      "src:wwhtbt",
+      "src:scsp",
+      "src:innovation_driven_change"
+    ]
+  },
+  {
+    "id": "concept:must_be_true",
+    "type": "concept",
+    "label": "Must-Be-True Conditions",
+    "pillar": "pillar:logic",
+    "summary": "The set of conditions - about customers, competitors, capabilities, channels, economics and the organisation itself - that would each have to hold for a given possibility to be the right choice.",
+    "practitioner_note": "Write them as falsifiable statements about the world, not as intentions. 'Customers will pay a premium of at least X for Y' is testable; 'we will be seen as the leader' is not.",
+    "part_of": [
+      "concept:wwhtbt"
+    ],
+    "related": [
+      "concept:barriers_to_choice",
+      "concept:non_financial_kpis"
+    ],
+    "sources": [
+      "src:wwhtbt",
+      "src:scsp"
+    ]
+  },
+  {
+    "id": "concept:barriers_to_choice",
+    "type": "concept",
+    "label": "Barriers to Choice",
+    "aka": [
+      "BTC"
+    ],
+    "pillar": "pillar:logic",
+    "summary": "Those must-be-true conditions the team believes least - the specific doubts on which the decision actually turns.",
+    "practitioner_note": "Identifying them is what makes testing efficient: everything else can be accepted, and effort concentrates where the risk is.",
+    "part_of": [
+      "concept:wwhtbt"
+    ],
+    "related": [
+      "concept:cheapest_test",
+      "concept:must_be_true"
+    ],
+    "sources": [
+      "src:wwhtbt",
+      "src:scsp"
+    ]
+  },
+  {
+    "id": "concept:cheapest_test",
+    "type": "concept",
+    "label": "Cheapest Sufficient Test",
+    "pillar": "pillar:logic",
+    "summary": "The least costly piece of evidence that would genuinely change the team's mind about a barrier to choice.",
+    "practitioner_note": "Agree in advance what result counts as passing and what counts as failing. Tests designed after the data arrives always pass.",
+    "part_of": [
+      "concept:scsp"
+    ],
+    "related": [
+      "concept:barriers_to_choice",
+      "concept:disconfirming_evidence"
+    ],
+    "sources": [
+      "src:scsp",
+      "src:scsp_evolution"
+    ]
+  },
+  {
+    "id": "concept:possibilities",
+    "type": "concept",
+    "label": "Possibilities, Not Problems",
+    "pillar": "pillar:logic",
+    "summary": "Framing strategy work as a choice among several coherent stories of how the organisation could win, each complete enough to be evaluated.",
+    "practitioner_note": "Genuinely different possibilities are hard to generate and easy to fake. If all the options share the same Where-to-Play, there is only one option.",
+    "part_of": [
+      "concept:scsp"
+    ],
+    "related": [
+      "concept:wwhtbt",
+      "concept:integrative_thinking"
+    ],
+    "sources": [
+      "src:scsp",
+      "src:scsp_evolution"
+    ]
+  },
+  {
+    "id": "concept:scsp",
+    "type": "concept",
+    "label": "Strategic Choice Structuring Process",
+    "aka": [
+      "SCSP"
+    ],
+    "pillar": "pillar:logic",
+    "summary": "A sequence for making a strategic choice as a group: frame the choice, generate possibilities, reverse-engineer what would have to be true for each, identify the barriers to choice, design and run the cheapest sufficient tests, then choose.",
+    "practitioner_note": "The order matters more than the artefacts. Most groups skip generation and go straight to defending a preferred answer, which turns the remaining steps into theatre.",
+    "related": [
+      "concept:wwhtbt",
+      "concept:possibilities",
+      "concept:barriers_to_choice",
+      "concept:cheapest_test"
+    ],
+    "sources": [
+      "src:scsp",
+      "src:scsp_evolution"
+    ]
+  },
+  {
+    "id": "concept:misplaced_should",
+    "type": "concept",
+    "label": "Misplaced Shoulds",
+    "pillar": "pillar:logic",
+    "summary": "Logic that depends on another party behaving as the strategist thinks they ought to, rather than as their own interests would lead them to behave.",
+    "practitioner_note": "Search the strategy's language for 'should', 'will recognise', 'will see the value'. Each one marks an untested behavioural assumption.",
+    "related": [
+      "concept:must_be_true",
+      "concept:desired_customer_action"
+    ],
+    "sources": [
+      "src:misplaced_shoulds"
+    ]
+  },
+  {
+    "id": "concept:disconfirming_evidence",
+    "type": "concept",
+    "label": "Pre-Agreed Disconfirming Evidence",
+    "pillar": "pillar:logic",
+    "summary": "The observations, named in advance, that would tell the organisation its strategy is not working and should be changed.",
+    "practitioner_note": "Without this, every disappointing result is absorbed as an execution problem, and the strategy becomes unfalsifiable.",
+    "related": [
+      "concept:non_financial_kpis",
+      "concept:strategic_stuckness",
+      "concept:strategy_as_theory"
+    ],
+    "sources": [
+      "src:wwhtbt",
+      "src:strategic_stuckness"
+    ]
+  },
+  {
+    "id": "concept:integrative_thinking",
+    "type": "concept",
+    "label": "Integrative Thinking",
+    "pillar": "pillar:logic",
+    "summary": "Using the tension between two opposing options to construct a third that contains what is valuable in each, instead of trading one off against the other.",
+    "practitioner_note": "Applied to strategy, it turns a deadlocked debate into raw material: what would have to be true for each side to be right becomes the design brief for a better option.",
+    "related": [
+      "concept:assertive_inquiry",
+      "concept:possibilities"
+    ],
+    "sources": [
+      "src:novice_strategist"
+    ]
+  },
+  {
+    "id": "concept:assertive_inquiry",
+    "type": "concept",
+    "label": "Assertive Inquiry",
+    "pillar": "pillar:logic",
+    "summary": "Advancing your own view while genuinely investigating the opposing one - stating your reasoning, then asking what the other person sees that you may not.",
+    "practitioner_note": "The behavioural discipline that makes the rest of the method work in a room with real politics in it.",
+    "related": [
+      "concept:integrative_thinking",
+      "concept:culture_via_questions"
+    ],
+    "sources": [
+      "src:novice_strategist",
+      "src:ceo_advisor"
+    ]
+  },
+  {
+    "id": "concept:cascade_coherence",
+    "type": "concept",
+    "label": "Coherence Across the Cascade",
+    "pillar": "pillar:coherence",
+    "summary": "The property that each choice makes the others more likely to succeed, tested by reading the cascade forwards and backwards.",
+    "practitioner_note": "Read downwards to check that each choice enables the next; read upwards to check that each choice is necessary to the one above. Both directions find different defects.",
+    "related": [
+      "concept:strategy_choice_cascade",
+      "concept:coherence_test",
+      "concept:sacrifice"
+    ],
+    "sources": [
+      "src:fixing_strategy"
+    ]
+  },
+  {
+    "id": "concept:coherence_test",
+    "type": "concept",
+    "label": "Testing the Joints",
+    "pillar": "pillar:coherence",
+    "summary": "Assessing the links between choices rather than the choices themselves, since strategies commonly consist of individually reasonable decisions that do not reinforce one another.",
+    "practitioner_note": "The highest-yield question in an assessment: which pair of choices here is in tension, and which one would you sacrifice?",
+    "part_of": [
+      "concept:cascade_coherence"
+    ],
+    "related": [
+      "concept:htw_not_initiatives"
+    ],
+    "sources": [
+      "src:fixing_strategy"
+    ]
+  },
+  {
+    "id": "concept:sacrifice",
+    "type": "concept",
+    "label": "Sacrifice",
+    "pillar": "pillar:coherence",
+    "summary": "What the organisation gives up as a direct consequence of its choices - the clearest available evidence that choices were actually made.",
+    "practitioner_note": "Ask what the strategy makes the organisation worse at. A strategy with no cost to anyone internally has usually not been decided.",
+    "related": [
+      "concept:where_not_to_play",
+      "concept:resource_alignment",
+      "concept:stuck_between"
+    ],
+    "sources": [
+      "src:thick_thin",
+      "src:fixing_strategy"
+    ]
+  },
+  {
+    "id": "concept:cascading_strategy",
+    "type": "concept",
+    "label": "Cascading Strategy Through Levels",
+    "pillar": "pillar:adoption",
+    "summary": "The idea that strategy exists at each level of an organisation, with each level's choices bounded by those above and enabling those above to hold.",
+    "practitioner_note": "Not a translation exercise. Each unit makes its own Where-to-Play and How-to-Win choices within the constraints it has been given.",
+    "related": [
+      "concept:functional_strategy",
+      "concept:choice_chartering"
+    ],
+    "sources": [
+      "src:choice_chartering",
+      "src:functional_strategy"
+    ]
+  },
+  {
+    "id": "concept:functional_strategy",
+    "type": "concept",
+    "label": "Functional Strategy",
+    "pillar": "pillar:adoption",
+    "summary": "A function's own set of Where-to-Play and How-to-Win choices, made in service of the enterprise's ability to win rather than in pursuit of functional excellence for its own sake.",
+    "practitioner_note": "A function whose strategy would be identical under a different corporate strategy has not made strategic choices.",
+    "related": [
+      "concept:cascading_strategy"
+    ],
+    "sources": [
+      "src:functional_strategy"
+    ]
+  },
+  {
+    "id": "concept:sayability",
+    "type": "concept",
+    "label": "Sayability of a Strategy",
+    "pillar": "pillar:adoption",
+    "summary": "Whether the people who make daily choices can state the strategy plainly enough to use it when a decision comes up.",
+    "practitioner_note": "Test it by asking someone two levels down. What they say is the strategy, whatever the document contains.",
+    "related": [
+      "concept:cascading_strategy",
+      "concept:choice_chartering"
+    ],
+    "sources": [
+      "src:investor_relations",
+      "src:novice_strategist"
+    ]
+  },
+  {
+    "id": "concept:strategic_stuckness",
+    "type": "concept",
+    "label": "Strategic Stuckness",
+    "pillar": "pillar:adoption",
+    "summary": "The condition in which an organisation cannot move because the logic behind an existing choice has gone unexamined for so long that it now functions as a fact.",
+    "practitioner_note": "The unsticking move is not more ideas but re-opening the original must-be-trues and asking which still hold.",
+    "related": [
+      "concept:disconfirming_evidence",
+      "concept:wwhtbt"
+    ],
+    "sources": [
+      "src:strategic_stuckness"
+    ]
+  },
+  {
+    "id": "concept:analysis_paralysis_pattern",
+    "type": "concept",
+    "label": "Analysis as Deferral",
+    "pillar": "pillar:logic",
+    "summary": "The pattern of commissioning further study in the hope that enough evidence will remove the need to make a judgement.",
+    "practitioner_note": "Distinguish from legitimate testing by asking which decision the work would change, and by when.",
+    "related": [
+      "concept:no_algorithm",
+      "concept:faux_rigour",
+      "concept:cheapest_test"
+    ],
+    "sources": [
+      "src:faux_science"
+    ]
+  },
+  {
+    "id": "concept:creative_offense",
+    "type": "concept",
+    "label": "Choosing Offence",
+    "pillar": "pillar:how_to_win",
+    "summary": "Framing strategy as an attempt to create a position rivals must respond to, rather than as a defence of the position currently held.",
+    "practitioner_note": "Defensive strategies inherit the arena and the terms of competition, which means accepting somebody else's How-to-Win as the standard.",
+    "related": [
+      "concept:how_to_win",
+      "concept:dynamic_advantage",
+      "concept:incrementalism_limits"
+    ],
+    "sources": [
+      "src:creative_offense"
+    ]
+  },
+  {
+    "id": "concept:framework_reconciliation",
+    "type": "concept",
+    "label": "Other Frameworks as Inputs, Not Substitutes",
+    "pillar": "pillar:definition",
+    "summary": "The position that tools like jobs-to-be-done, business-model canvases, scorecards, objectives-and-key-results and blue-ocean moves feed a strategy without being one - each answers a narrower question than where to play and how to win.",
+    "practitioner_note": "Practitioners almost always arrive holding one of these. The productive move is to ask what question the tool answered, and then which cascade choice still has no answer, rather than to argue about the tool.",
+    "related": [
+      "concept:strategy_choice_cascade",
+      "concept:strategy_vs_plan",
+      "concept:htw_not_initiatives"
+    ],
+    "sources": [
+      "src:jobs_to_be_done_playing_to_win",
+      "src:business_model_generation_playing_to_win",
+      "src:balanced_scorecard_playing_to_win",
+      "src:blue_ocean_strategy_playing_to_win",
+      "src:7_powers_playing_to_win",
+      "src:good_strategy_bad_strategy_playing_to_win",
+      "src:stop_letting_okrs_masquerade_as_strategy",
+      "src:it_s_time_to_toss_swot_analysis_into_the_ashbin_of_strategy",
+      "src:michael_porter_s_three_great_strategy_contributions"
+    ]
+  },
+  {
+    "id": "concept:execution_dichotomy",
+    "type": "concept",
+    "label": "The Strategy/Execution Divide as a False One",
+    "pillar": "pillar:adoption",
+    "summary": "The argument that splitting work into strategy above and execution below is itself the defect: what gets called execution is a stream of consequential choices, and treating it as mere delivery leaves those choices ungoverned.",
+    "practitioner_note": "Listen for 'the strategy is fine, it is execution that failed'. That sentence usually means choices were made downstream by people who were never told what the strategy required of them.",
+    "related": [
+      "concept:cascading_strategy",
+      "concept:choice_chartering",
+      "concept:sayability"
+    ],
+    "sources": [
+      "src:why_execution_is_a_bankrupt_management_concept",
+      "src:why_you_should_be_afraid_of_great_execution",
+      "src:strategy_is_what_you_do_not_what_you_say",
+      "src:finishing_strategy",
+      "src:getting_it_done"
+    ]
+  },
+  {
+    "id": "concept:context_conditional_strategy",
+    "type": "concept",
+    "label": "Same Questions, Different Answers by Context",
+    "pillar": "pillar:definition",
+    "summary": "The observation that the choices a strategy must make hold across settings - startup, fragmented industry, natural monopoly, social sector, university, business-to-business - while what counts as a good answer, and what evidence is available, changes considerably.",
+    "practitioner_note": "Establish the setting before applying any test. A rubric written for a branded consumer business will mark a sound social-sector or regulated-monopoly strategy as deficient for reasons that do not apply to it.",
+    "related": [
+      "concept:no_competition_arena",
+      "concept:arena_attractiveness"
+    ],
+    "sources": [
+      "src:strategy_for_startups",
+      "src:strategy_for_start_ups_redux",
+      "src:strategy_in_highly_fragmented_industries",
+      "src:strategy_in_high_growth_industries",
+      "src:strategy_for_natural_monopolies",
+      "src:is_strategy_in_b2b_dramatically_different_than_in_b2c",
+      "src:strategy_at_human_scale"
+    ]
+  },
+  {
+    "id": "concept:no_competition_arena",
+    "type": "concept",
+    "label": "Winning Without a Market",
+    "pillar": "pillar:customer",
+    "summary": "The case of an organisation whose desired action is not a purchase - enrolment, donation, compliance, adoption of a practice - and which may face no direct rival, where the discipline of choosing an arena and a way of winning still applies to the attention and alternatives of the people it serves.",
+    "practitioner_note": "The absence of a competitor is not the absence of an alternative. Ask what those people would otherwise do with the time, money or attention being sought.",
+    "related": [
+      "concept:desired_customer_action",
+      "concept:context_conditional_strategy",
+      "concept:relative_position"
+    ],
+    "sources": [
+      "src:strategy_for_organizations_without_competition",
+      "src:playing_to_win_for_social_sector_organizations",
+      "src:the_trickiness_of_university_strategy",
+      "src:strategy_for_natural_monopolies"
+    ]
+  },
+  {
+    "id": "concept:reliability_vs_validity",
+    "type": "concept",
+    "label": "Reliability versus Validity",
+    "pillar": "pillar:logic",
+    "summary": "The distinction between a method that produces the same answer repeatedly and a method that produces the right answer. Strategy work rewards the second, while most management measurement is built to deliver the first.",
+    "practitioner_note": "A reliable process applied to a strategic question yields consistent, defensible, wrong conclusions - and its consistency is what makes them hard to challenge.",
+    "related": [
+      "concept:faux_rigour",
+      "concept:no_algorithm",
+      "concept:strategy_as_theory"
+    ],
+    "sources": [
+      "src:reliability_versus_validity_in_strategy",
+      "src:singing_the_data_analytics_blues",
+      "src:how_to_prevent_data_analytics_from_wrecking_your_strategy",
+      "src:the_myth_of_objectivity_strategy",
+      "src:manipulation_of_quantities_appreciation_of_qualities",
+      "src:the_delusion_of_revenue_forecasting"
+    ]
+  },
+  {
+    "id": "concept:possibility_generation",
+    "type": "concept",
+    "label": "Where Possibilities Come From",
+    "pillar": "pillar:logic",
+    "summary": "The creative half of the method: possibilities have to be invented before they can be reverse-engineered, and inventing them draws on design practice rather than on analysis of what already exists.",
+    "practitioner_note": "Most teams can evaluate options competently and generate them badly. If every possibility on the table is a variant of current operations, the generation step has not happened yet.",
+    "part_of": [
+      "concept:scsp"
+    ],
+    "related": [
+      "concept:possibilities",
+      "concept:integrative_thinking",
+      "concept:creative_offense"
+    ],
+    "sources": [
+      "src:generating_strategy_possibilities",
+      "src:generating_creative_strategy_possibilities",
+      "src:strategy_design_thinking",
+      "src:the_design_school_advantage",
+      "src:the_impossibility_theorem"
+    ]
+  },
+  {
+    "id": "concept:ai_in_strategy_practice",
+    "type": "concept",
+    "label": "What AI Changes About Strategy Work",
+    "pillar": "pillar:logic",
+    "summary": "The question of which parts of strategy work are automatable. Gathering, summarising and pattern-finding are; choosing among possibilities under irreducible uncertainty, and owning the sacrifice that choice entails, are not.",
+    "practitioner_note": "Directly relevant to how an assistant should behave in this work: it can widen the option set and stress-test logic, but the choice has to be made by whoever will live with it.",
+    "related": [
+      "concept:no_algorithm",
+      "concept:reliability_vs_validity",
+      "concept:faux_rigour"
+    ],
+    "sources": [
+      "src:strategy_artificial_intelligence",
+      "src:investment_strategy_artificial_intelligence",
+      "src:a_leaders_role_in_fostering_ai_superpowers",
+      "src:becoming_an_ai_augmented_enterprise"
+    ]
+  },
+  {
+    "id": "concept:corporate_level_choice",
+    "type": "concept",
+    "label": "Corporate-Level Choice",
+    "pillar": "pillar:coherence",
+    "summary": "The distinct question a multi-business parent faces: why these businesses are worth owning together, and what the centre contributes that each could not obtain on its own.",
+    "practitioner_note": "Diversification does not dissolve a weak business strategy; it relocates it. Ask what the centre does that a competent standalone owner would not.",
+    "related": [
+      "concept:cascading_strategy",
+      "concept:cascade_coherence",
+      "concept:sacrifice"
+    ],
+    "sources": [
+      "src:corporate_vs_business_unit_strategy",
+      "src:understanding_the_true_building_blocks_of_corporate_strategy",
+      "src:parenting_styles_management_strategy",
+      "src:diversification_cant_disappear_a",
+      "src:the_secret_to_knitting_strategy_together_corporate_wide"
+    ]
+  },
+  {
+    "id": "concept:cost_effective_differentiation",
+    "type": "concept",
+    "label": "Cost-Effective Differentiation",
+    "pillar": "pillar:how_to_win",
+    "summary": "The refinement that the two routes to advantage are not symmetrical alternatives to be picked blind: a differentiated position still has to be delivered at a cost the resulting premium can carry, so cost discipline serves differentiation rather than competing with it.",
+    "practitioner_note": "This is the honest version of the 'can we do both?' question. Pursuing lowest cost and highest differentiation as twin goals is incoherent; funding a distinctive position efficiently is not.",
+    "part_of": [
+      "concept:two_ways_to_win"
+    ],
+    "related": [
+      "concept:differentiation_pays",
+      "concept:cost_advantage_structural",
+      "concept:stuck_between"
+    ],
+    "sources": [
+      "src:can_you_be_both_cost_leader_differentiator",
+      "src:cost_effective_differentiation",
+      "src:untangling_value_proposition_competitive_advantage"
+    ]
+  },
+  {
+    "id": "concept:strategy_as_craft",
+    "type": "concept",
+    "label": "Strategy as a Craft",
+    "pillar": "pillar:practitioner",
+    "summary": "Strategy treated as a practice that improves with deliberate repetition on real choices, rather than as a body of knowledge to be absorbed or a title to be granted.",
+    "practitioner_note": "Someone who has made and lived with three real choices is usually further along than someone who has read widely and decided nothing.",
+    "related": [
+      "concept:coaching_a_novice",
+      "concept:assertive_inquiry"
+    ],
+    "sources": [
+      "src:strategy_as_a_practice",
+      "src:what_makes_for_a_great_strategist",
+      "src:becoming_a_better_strategist",
+      "src:the_lost_art_of_strategy"
+    ]
+  },
+  {
+    "id": "concept:technocrat_vs_strategist",
+    "type": "concept",
+    "label": "The Technocratic and the Strategic Disposition",
+    "pillar": "pillar:practitioner",
+    "summary": "Two habits of mind: one optimises within the constraints as given, the other asks which constraints are actually choices. Both are valuable, but only the second can change where an organisation competes.",
+    "practitioner_note": "A useful tell in conversation: when handed a constraint, does the person immediately start optimising inside it, or ask who chose it and whether it still holds?",
+    "related": [
+      "concept:strategy_as_craft",
+      "concept:reliability_vs_validity",
+      "concept:faux_rigour"
+    ],
+    "sources": [
+      "src:technocrats_vs_strategists",
+      "src:what_is_strategic_thinking"
+    ]
+  },
+  {
+    "id": "concept:chooser_owns_the_choice",
+    "type": "concept",
+    "label": "The Chooser Owns the Choice",
+    "pillar": "pillar:practitioner",
+    "summary": "Strategy cannot be performed on someone's behalf. Whoever will bear the consequences and allocate the resources has to make the choice, whatever help they take in framing it.",
+    "practitioner_note": "This is the boundary that makes coaching legitimate: an adviser can widen the option set and stress-test logic, and must stop short of choosing.",
+    "related": [
+      "concept:strategy_ownership_by_staff",
+      "concept:choice_chartering",
+      "concept:ai_in_strategy_practice"
+    ],
+    "sources": [
+      "src:who_should_do_strategy",
+      "src:the_business_of_strategy_consulting",
+      "src:the_trap_of_presiding_over_strategy"
+    ]
+  },
+  {
+    "id": "concept:strategy_ownership_by_staff",
+    "type": "concept",
+    "label": "The Strategy Function's Proper Job",
+    "pillar": "pillar:practitioner",
+    "summary": "A strategy officer, planning team or finance partner earns their place by making choices possible - framing them, generating possibilities, structuring the logic - rather than by producing the choice as a deliverable.",
+    "practitioner_note": "Where a staff function owns the strategy, the line managers who must act on it have no stake in it, and quietly continue deciding by precedent.",
+    "related": [
+      "concept:chooser_owns_the_choice",
+      "concept:cascading_strategy"
+    ],
+    "sources": [
+      "src:the_proper_role_of_the_chief_strategy_officer",
+      "src:how_to_become_a_strategic_chief_financial_officer",
+      "src:the_business_of_strategy_consulting"
+    ]
+  },
+  {
+    "id": "concept:coaching_a_novice",
+    "type": "concept",
+    "label": "Building Strategic Capability",
+    "pillar": "pillar:practitioner",
+    "summary": "Capability grows by working live choices with someone who asks better questions than you do, and by being held to the logic - not by frameworks taught in the abstract.",
+    "practitioner_note": "The transferable skill is the questioning habit. A novice who leaves with a question they will keep asking has gained more than one who leaves with a filled-in template.",
+    "related": [
+      "concept:strategy_as_craft",
+      "concept:assertive_inquiry",
+      "concept:culture_via_questions"
+    ],
+    "sources": [
+      "src:novice_strategist",
+      "src:becoming_a_better_strategist",
+      "src:asking_great_strategy_questions",
+      "src:ceo_advisor"
+    ]
+  },
+  {
+    "id": "concept:working_with_non_strategists",
+    "type": "concept",
+    "label": "Working With People Who Do Not Think This Way",
+    "pillar": "pillar:practitioner",
+    "summary": "The practical problem of making strategic progress when colleagues or superiors decide intuitively, or treat the current course as settled - which is the normal condition rather than the exception.",
+    "practitioner_note": "Arguing method rarely works. Asking what would have to be true is usually acceptable to an intuitive decision-maker, because it does not require them to concede anything.",
+    "related": [
+      "concept:wwhtbt",
+      "concept:assertive_inquiry",
+      "concept:strategic_stuckness"
+    ],
+    "sources": [
+      "src:dealing_with_intuitive_non_strategists",
+      "src:stop_working_for_loser_strategists",
+      "src:the_work_and_workings_of_leadership_teams"
+    ]
+  }
+]
