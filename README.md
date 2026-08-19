@@ -103,6 +103,7 @@ data/                 the source of truth — hand-editable JSON
   pillars.json  concepts.json  principles.json  traps.json
   tests.json    slots.json     questions.json   sources.json
   edges.json          relationships no node field implies
+  coverage_gaps.json  declared thematic gaps (not a node file)
 src/graphify/
   model.py            load, derive edges, validate integrity
   build.py            sqlite + json + cypher artefacts
@@ -115,8 +116,12 @@ agent/
   coaching_protocol.md session mechanics and failure modes
   tool_contract.md    the functions a runtime should expose
 examples/             a deliberately bad strategy + a mid-session state
-tools/refresh_corpus.py  extend the source index (metadata only)
-tests/                47 tests
+tools/
+  refresh_corpus.py   extend the source index (metadata only)
+  coverage_audit.py   measure structural, citation and thematic coverage
+  weekly_report.py    the scheduled maintenance run
+.github/workflows/weekly-corpus-check.yml
+tests/                83 tests
 ```
 
 Most edges are **derived** from reference fields on the nodes (`probes`,
@@ -143,6 +148,77 @@ Two invariants the tests enforce, both worth keeping:
    crossed the line the agent exists to hold.
 2. Every test carries both pass and fail signals. A test the agent cannot apply
    consistently is worse than no test.
+
+## Evaluating coverage
+
+"Is the content complete?" splits into three questions, only two of which can be
+answered from inside this repository. `tools/coverage_audit.py` reports all three
+and refuses to conflate them:
+
+```bash
+python3 tools/coverage_audit.py                  # markdown report
+python3 tools/coverage_audit.py --json out.json  # machine-readable
+python3 tools/coverage_audit.py --strict         # exit 1 on structural regression
+```
+
+| Coverage | Measurable? | Current |
+|---|---|---|
+| **Structural** — every pillar carries enough tests and questions to run a session; every test probed, every required slot covered, every trap detectable | Yes, fully | complete |
+| **Citation** — how much of the series is indexed | Yes, once the archive is reachable | ~12% (32 posts of an estimated 270) |
+| **Thematic** — whether the concepts span what the series develops | **No** — this is a judgement | declared incomplete, 15 named gaps |
+
+The third row is the honest one. Rather than claim completeness that can't be
+checked, `data/coverage_gaps.json` is an explicit register of themes known to be
+missing or thin — corporate strategy, acquisition logic, pricing, the
+shareholder-value critique, design-and-possibility method, platforms, and others
+— each with its impact, whether it is partly covered already, and what kind of
+node would close it. High-impact entries surface as recommendations on every run,
+so the gaps nag rather than hide.
+
+One register entry is a bug rather than an absence: `gap:public_and_nonprofit`
+records that several tests are phrased in terms of buying at a price, so a sound
+public-sector or non-profit strategy would currently fail `test:customer_action_named`
+for the wrong reason. The audit reports that as a false-negative risk in the
+rubric.
+
+Density floors (`MIN_PER_PILLAR`, `MIN_QUESTIONS_PER_TEST`) are what turn this
+from a description into a check — the audit caught `pillar:winning_aspiration`
+carrying only one test on its first run.
+
+## Weekly maintenance
+
+`.github/workflows/weekly-corpus-check.yml` runs every Tuesday at 09:00 UTC (the
+series published on Mondays) and on demand:
+
+1. Checks the archive for instalments not yet indexed — metadata only.
+2. Re-runs the coverage audit.
+3. Runs graph validation, the full test suite, and the build.
+4. Writes a report to the run summary and a 90-day artifact.
+5. Opens or comments on a single rolling issue labelled `corpus-check` when there
+   is something to look at. Silent when everything is clean.
+
+Exit codes distinguish the three outcomes, so a network failure never masquerades
+as a content finding:
+
+| Code | Meaning |
+|---|---|
+| 0 | clean — nothing new upstream, all checks pass |
+| 1 | attention — new instalments, high-priority recommendations, or archive unreachable |
+| 2 | broken — validation, tests or build failing |
+
+Run it locally the same way CI does:
+
+```bash
+python3 tools/weekly_report.py --out report.md --json report.json
+python3 tools/weekly_report.py --skip-network        # offline checks only
+```
+
+Two caveats worth knowing. **GitHub only fires scheduled workflows from the
+default branch**, so the cron will not run until this is merged to `master`; use
+the "Run workflow" button to test it from a branch. And the job *indexes* new
+posts but deliberately does not decide what they mean — whether an instalment
+introduces a concept, test or trap the graph lacks is a judgement call, so it is
+left to a human or an agent pass rather than automated into the data.
 
 ## Provenance, and an honest limit
 

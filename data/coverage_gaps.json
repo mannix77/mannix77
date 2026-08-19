@@ -1,0 +1,133 @@
+[
+  {
+    "id": "gap:corporate_strategy",
+    "theme": "Corporate strategy across a portfolio of businesses",
+    "why_it_matters": "The cascade as modelled here assumes a single business competing in an arena. A multi-business parent faces a distinct question - why these businesses are worth owning together, and what the centre contributes that they could not buy - which none of the current tests reach.",
+    "would_add": ["concept", "test", "question"],
+    "impact": "high",
+    "status": "not_modelled",
+    "evidence": "Corporate-level choice is a recurring subject in the series; no source in the index has been confirmed for it."
+  },
+  {
+    "id": "gap:ma_logic",
+    "theme": "Acquisitions as a strategic choice",
+    "why_it_matters": "Acquisitions are where capability gaps are most often assumed away, and the graph currently treats 'buy' as one word in slot:capability_gaps with no test on whether the acquisition logic holds.",
+    "would_add": ["test", "question", "trap"],
+    "impact": "high",
+    "status": "not_modelled"
+  },
+  {
+    "id": "gap:pricing",
+    "theme": "Pricing as a strategy choice rather than a finance exercise",
+    "why_it_matters": "Price appears in the graph only inside test:customer_action_named. There is no treatment of pricing architecture as an expression of the How-to-Win, which is a common practitioner failure.",
+    "would_add": ["concept", "test", "question"],
+    "impact": "high",
+    "status": "partially_modelled",
+    "covered_by": ["test:customer_action_named", "test:differentiation_shows_in_behaviour"]
+  },
+  {
+    "id": "gap:shareholder_value_critique",
+    "theme": "Shareholder value maximisation versus customer-first capitalism",
+    "why_it_matters": "A substantial strand of the author's work argues that optimising for shareholder expectations damages strategy. It bears directly on pillar:winning_aspiration - whose win is being defined - and is entirely absent.",
+    "would_add": ["principle", "concept", "trap"],
+    "impact": "high",
+    "status": "not_modelled"
+  },
+  {
+    "id": "gap:design_and_possibility",
+    "theme": "Design thinking and possibility-based problem solving",
+    "why_it_matters": "concept:possibilities and concept:integrative_thinking are thin stubs of a much larger body of method - generative reasoning, causal modelling, prototyping a strategy - that shapes how possibilities get created in the first place.",
+    "would_add": ["concept", "question"],
+    "impact": "high",
+    "status": "partially_modelled",
+    "covered_by": ["concept:possibilities", "concept:integrative_thinking", "concept:assertive_inquiry"]
+  },
+  {
+    "id": "gap:platforms_and_network_effects",
+    "theme": "Two-sided markets, platforms and network effects",
+    "why_it_matters": "Where-to-Play and How-to-Win behave differently when the customer set is two populations who value each other. concept:customer_roles gestures at this but no test distinguishes a platform strategy from a linear one.",
+    "would_add": ["concept", "test", "question"],
+    "impact": "medium",
+    "status": "partially_modelled",
+    "covered_by": ["concept:customer_roles", "test:customer_roles_separated"]
+  },
+  {
+    "id": "gap:public_and_nonprofit",
+    "theme": "Strategy without a commercial market - public sector, non-profit, associations",
+    "why_it_matters": "Several tests are phrased in terms of buying at a price. An organisation whose desired action is enrolment, compliance or donation would fail test:customer_action_named for the wrong reason.",
+    "would_add": ["test", "question"],
+    "impact": "medium",
+    "status": "not_modelled",
+    "note": "This is a false-negative risk in the current rubric, not only a missing topic."
+  },
+  {
+    "id": "gap:regulated_industries",
+    "theme": "Strategy under binding regulatory constraint",
+    "why_it_matters": "In regulated arenas the regulator is a party whose behaviour the strategy depends on, and the graph has no place to put that beyond a generic misplaced-should check.",
+    "would_add": ["concept", "question"],
+    "impact": "medium",
+    "status": "partially_modelled",
+    "covered_by": ["test:no_misplaced_shoulds"]
+  },
+  {
+    "id": "gap:talent_strategy",
+    "theme": "Talent and HR as a functional strategy",
+    "why_it_matters": "concept:functional_strategy is generic. Talent is the function where 'capabilities' claims most often go to die, and it deserves its own test.",
+    "would_add": ["test", "question"],
+    "impact": "medium",
+    "status": "partially_modelled",
+    "covered_by": ["concept:functional_strategy", "test:cascade_to_functions"]
+  },
+  {
+    "id": "gap:brand_strategy",
+    "theme": "Brand as an expression of the promise, not a communications exercise",
+    "why_it_matters": "concept:pttc covers the promise; nothing covers how brand choices either reinforce or contradict it.",
+    "would_add": ["concept", "question"],
+    "impact": "medium",
+    "status": "partially_modelled",
+    "covered_by": ["concept:pttc"]
+  },
+  {
+    "id": "gap:downturn_resilience",
+    "theme": "Strategy in a downturn, and strategic resilience",
+    "why_it_matters": "Cost cutting under pressure is the moment strategies quietly become 'neither low cost nor differentiated'. The graph catches the end state but not the pressure that produces it.",
+    "would_add": ["trap", "question"],
+    "impact": "medium",
+    "status": "partially_modelled",
+    "covered_by": ["trap:stuck_in_the_middle", "test:resource_shift_matches_choices"]
+  },
+  {
+    "id": "gap:ai_and_strategy",
+    "theme": "What AI changes about strategy practice",
+    "why_it_matters": "Recent instalments of the series engage with this directly. It also bears on this repository's own premise - what an agent should and should not do in strategy work.",
+    "would_add": ["concept", "principle"],
+    "impact": "medium",
+    "status": "not_modelled"
+  },
+  {
+    "id": "gap:board_governance",
+    "theme": "The board's role in strategy",
+    "why_it_matters": "Boards approve strategies without owning choices. concept:choice_chartering stops at the executive layer.",
+    "would_add": ["question"],
+    "impact": "low",
+    "status": "partially_modelled",
+    "covered_by": ["concept:choice_chartering", "test:choices_have_owners"]
+  },
+  {
+    "id": "gap:sustainability",
+    "theme": "Sustainability commitments as strategic choices",
+    "why_it_matters": "Usually arrives as an additive priority list, which is exactly the pattern trap:initiative_list describes, but practitioners will not recognise it as the same thing without a named treatment.",
+    "would_add": ["question"],
+    "impact": "low",
+    "status": "partially_modelled",
+    "covered_by": ["trap:initiative_list"]
+  },
+  {
+    "id": "gap:personal_strategy",
+    "theme": "Applying the cascade to a career or an individual",
+    "why_it_matters": "A recurring reader request in the series. Out of scope for an enterprise coaching agent, recorded so the omission is deliberate rather than accidental.",
+    "would_add": [],
+    "impact": "out_of_scope",
+    "status": "deliberately_excluded"
+  }
+]

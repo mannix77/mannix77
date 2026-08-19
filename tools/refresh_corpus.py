@@ -67,26 +67,39 @@ def fetch_page(offset: int, timeout: float = 30.0) -> list[dict[str, Any]]:
     return [{k: post.get(k) for k in KEEP} for post in payload]
 
 
-def fetch_all(limit: int) -> list[dict[str, Any]]:
+def collect(limit: int) -> tuple[list[dict[str, Any]], str | None]:
+    """Fetch metadata, never raising. Returns (posts, error_message_or_None).
+
+    Used by CI, which needs to distinguish "the archive says nothing is new" from
+    "the archive was unreachable" and carry on either way.
+    """
     posts: list[dict[str, Any]] = []
     offset = 0
     while len(posts) < limit:
         try:
             page = fetch_page(offset)
-        except urllib.error.URLError as exc:
+        except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError, ValueError, OSError) as exc:
+            message = f"archive unreachable at offset {offset}: {exc}"
             if not posts:
-                raise SystemExit(
-                    f"could not reach the archive ({exc}).\n"
-                    "If this is a sandboxed environment, outbound access to substack.com is "
-                    "probably blocked - run this from somewhere with network access."
-                ) from None
-            print(f"stopping early at offset {offset}: {exc}", file=sys.stderr)
+                return [], message
+            print(f"stopping early - {message}", file=sys.stderr)
             break
         if not page:
             break
         posts.extend(page)
         offset += PAGE_SIZE
-    return posts[:limit]
+    return posts[:limit], None
+
+
+def fetch_all(limit: int) -> list[dict[str, Any]]:
+    posts, error = collect(limit)
+    if error and not posts:
+        raise SystemExit(
+            f"{error}\n"
+            "If this is a sandboxed environment, outbound access to substack.com is "
+            "probably blocked - run this from somewhere with network access."
+        )
+    return posts
 
 
 def to_source_node(post: dict[str, Any]) -> dict[str, Any] | None:
@@ -149,6 +162,12 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--dry-run", action="store_true", help="report what would change and exit")
     parser.add_argument("--limit", type=int, default=400, help="maximum posts to index")
     parser.add_argument("--today", default=None, help="date stamp to record (YYYY-MM-DD)")
+    parser.add_argument("--report", help="write a machine-readable summary here (for CI)")
+    parser.add_argument(
+        "--tolerate-offline",
+        action="store_true",
+        help="exit 0 when the archive is unreachable, so a scheduled job can carry on",
+    )
     args = parser.parse_args(argv)
 
     if not args.write and not args.dry_run:
@@ -156,17 +175,46 @@ def main(argv: list[str] | None = None) -> int:
 
     today = args.today or __import__("datetime").date.today().isoformat()
 
-    fetched = fetch_all(args.limit)
+    fetched, error = collect(args.limit)
+    if error:
+        print(error, file=sys.stderr)
     print(f"fetched metadata for {len(fetched)} post(s)", file=sys.stderr)
 
     existing = json.loads(SOURCES.read_text(encoding="utf-8"))
     before = len(existing)
     merged, added = merge(existing, fetched, today)
+    new_nodes = merged[before:]
 
     print(f"{before} existing source node(s); {added} new", file=sys.stderr)
 
+    if args.report:
+        Path(args.report).write_text(
+            json.dumps(
+                {
+                    "checked_on": today,
+                    "reachable": error is None,
+                    "error": error,
+                    "fetched": len(fetched),
+                    "existing": before,
+                    "new_count": added,
+                    "new_posts": [
+                        {"id": n["id"], "published": n["published"], "title": n["label"], "url": n["url"]}
+                        for n in new_nodes
+                    ],
+                    "written": bool(args.write),
+                },
+                indent=2,
+                ensure_ascii=False,
+            )
+            + "\n",
+            encoding="utf-8",
+        )
+
+    if error and not fetched:
+        return 0 if args.tolerate_offline else 1
+
     if args.dry_run:
-        for node in merged[before:]:
+        for node in new_nodes:
             print(f"  + {node['id']}  {node['published']}  {node['label']}", file=sys.stderr)
         return 0
 

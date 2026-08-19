@@ -48,6 +48,28 @@
     "sources": ["src:revisiting_definition"]
   },
   {
+    "id": "test:aspiration_names_constituency",
+    "type": "test",
+    "label": "Winning is defined for a named constituency",
+    "pillar": "pillar:winning_aspiration",
+    "statement": "The aspiration says in whose eyes the organisation intends to win - which customers, and which other groups whose judgement it cannot ignore.",
+    "why_it_matters": "An aspiration with no constituency lets the arena be chosen for internal convenience, and leaves the organisation unable to say whose satisfaction would count as success.",
+    "pass_signals": [
+      "A specific group of customers named",
+      "Other constituencies whose judgement matters identified, and the tension between them acknowledged"
+    ],
+    "fail_signals": [
+      "Winning defined only in the organisation's own terms",
+      "Constituency is 'the market', 'shareholders' or 'stakeholders' with no further specification"
+    ],
+    "severity": "major",
+    "weight": 4,
+    "evaluates": ["concept:whose_win", "concept:three_lenses"],
+    "detects": ["trap:aspiration_as_strategy", "trap:financial_targets_only"],
+    "slots": ["slot:aspiration_whose_win"],
+    "sources": ["src:fifth_year", "src:revisiting_definition"]
+  },
+  {
     "id": "test:wtp_exists",
     "type": "test",
     "label": "An arena is specified",

@@ -109,6 +109,27 @@ An element of the **user's** strategy, not of the framework.
 `full_text_ingested` (always `false`), `verified` and `verified_on` recording how
 the citation was confirmed.
 
+## `coverage_gaps.json` — not a node file
+
+`data/coverage_gaps.json` is read by `tools/coverage_audit.py`, not by
+`load_graph`, so its entries are not nodes and do not participate in edges. It
+exists because thematic coverage cannot be verified from inside the repo, and a
+declared unknown is more useful than a silent one.
+
+| Field | Meaning |
+|---|---|
+| `id` | `gap:` prefix |
+| `theme` | What is missing, in one line |
+| `why_it_matters` | What the agent cannot do without it |
+| `impact` | `high` \| `medium` \| `low` \| `out_of_scope` |
+| `status` | `not_modelled` \| `partially_modelled` \| `deliberately_excluded` |
+| `covered_by` | Existing node ids that partly cover it — must resolve, and is required when status is `partially_modelled` |
+| `would_add` | Node types that would close it |
+| `note` | Free text; a note beginning "This is a false-negative" is surfaced as a rubric bug |
+
+Closing a gap means adding the nodes and changing `status`, not deleting the
+entry — the register is the record of what was considered.
+
 ## Strategy state
 
 Not part of the graph — the agent's per-session record. See
