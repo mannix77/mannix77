@@ -6,8 +6,13 @@
     "statement": "A strategy is an integrated set of choices that positions an organisation to win, not a document, a target, or an agenda of activities.",
     "implication": "Assess a strategy as a set of linked choices. If the parts can be reordered or removed without breaking anything, they were never integrated.",
     "coaching_use": "Ask which choice, if reversed, would force every other choice to be redone.",
-    "related": ["principle:coherence_beats_parts"],
-    "sources": ["src:revisiting_definition", "src:fixing_strategy"]
+    "related": [
+      "principle:coherence_beats_parts"
+    ],
+    "sources": [
+      "src:revisiting_definition",
+      "src:fixing_strategy"
+    ]
   },
   {
     "id": "principle:choice_costs_something",
@@ -16,8 +21,12 @@
     "statement": "A choice that gives nothing up is not a choice; real strategy closes off options that reasonable people would want to keep open.",
     "implication": "The presence of explicit sacrifice is the single fastest signal that a strategy is real.",
     "coaching_use": "Ask what the organisation has agreed to be bad at, or to walk away from, as a consequence of this strategy.",
-    "related": ["principle:exclusion_makes_arena_real"],
-    "sources": ["src:publication"]
+    "related": [
+      "principle:exclusion_makes_arena_real"
+    ],
+    "sources": [
+      "src:publication"
+    ]
   },
   {
     "id": "principle:customer_action_is_the_point",
@@ -26,8 +35,12 @@
     "statement": "Strategy works on the choices inside the organisation's control in order to compel an action by a customer that is not in its control: buying enough, at a price that earns attractive returns, over time.",
     "implication": "Both volume and price belong in the success condition. Winning volume at unsustainable prices, or price with too few buyers, is a failed strategy.",
     "coaching_use": "Ask what specific customer behaviour would change if this strategy worked, and how they would notice it.",
-    "related": ["principle:outside_your_control"],
-    "sources": ["src:revisiting_definition"]
+    "related": [
+      "principle:outside_your_control"
+    ],
+    "sources": [
+      "src:revisiting_definition"
+    ]
   },
   {
     "id": "principle:outside_your_control",
@@ -36,8 +49,13 @@
     "statement": "The difference between a plan and a strategy is where the uncertainty sits: plans commit to actions you can execute unilaterally, strategies place bets on how others will respond.",
     "implication": "An artefact containing no bet on someone else's behaviour is a plan, however strategic its title.",
     "coaching_use": "Ask which part of this could fail even if the organisation executes everything perfectly.",
-    "related": ["principle:strategy_is_a_theory"],
-    "sources": ["src:revisiting_definition", "src:fixing_strategy"]
+    "related": [
+      "principle:strategy_is_a_theory"
+    ],
+    "sources": [
+      "src:revisiting_definition",
+      "src:fixing_strategy"
+    ]
   },
   {
     "id": "principle:strategy_is_a_theory",
@@ -46,8 +64,14 @@
     "statement": "A strategy is a theory about how the organisation will win, and like any theory it can be reasoned about, tested, and disproved - but never proved in advance.",
     "implication": "Judge a strategy by the quality of its logic and the honesty of its assumptions, not by the volume of supporting analysis.",
     "coaching_use": "Ask what would have to be observed for the team to conclude the theory was wrong.",
-    "related": ["principle:no_certainty", "principle:test_the_weakest_link"],
-    "sources": ["src:wwhtbt", "src:faux_science"]
+    "related": [
+      "principle:no_certainty",
+      "principle:test_the_weakest_link"
+    ],
+    "sources": [
+      "src:wwhtbt",
+      "src:faux_science"
+    ]
   },
   {
     "id": "principle:no_certainty",
@@ -56,8 +80,12 @@
     "statement": "No amount of analysis produces a provably correct strategy; treating strategy as a data problem trades a hard choice for a comfortable delay.",
     "implication": "More analysis is only worth buying when it changes a decision. Otherwise it is cost dressed as rigour.",
     "coaching_use": "Ask what decision the next study would change, and what the team would do if it could never be run.",
-    "related": ["principle:cheapest_sufficient_test"],
-    "sources": ["src:faux_science"]
+    "related": [
+      "principle:cheapest_sufficient_test"
+    ],
+    "sources": [
+      "src:faux_science"
+    ]
   },
   {
     "id": "principle:ask_what_would_have_to_be_true",
@@ -66,8 +94,15 @@
     "statement": "Asking what would have to be true for a possibility to be a great choice separates the logic of the choice from the evidence for it, which lets a group agree on structure before arguing about facts.",
     "implication": "Groups that cannot agree on what is true can usually agree on what would need to be true - and that agreement is what makes a decision possible.",
     "coaching_use": "Take each option in turn and ask what conditions would have to hold for it to be the obvious answer.",
-    "related": ["principle:test_the_weakest_link", "principle:possibilities_before_recommendation"],
-    "sources": ["src:wwhtbt", "src:scsp", "src:innovation_driven_change"]
+    "related": [
+      "principle:test_the_weakest_link",
+      "principle:possibilities_before_recommendation"
+    ],
+    "sources": [
+      "src:wwhtbt",
+      "src:scsp",
+      "src:innovation_driven_change"
+    ]
   },
   {
     "id": "principle:test_the_weakest_link",
@@ -76,8 +111,13 @@
     "statement": "Among the conditions that must be true, the one the team believes least is the barrier to the choice, and it is the only one worth testing first.",
     "implication": "Effort spent confirming conditions everybody already believes is wasted; the decision turns entirely on the doubtful condition.",
     "coaching_use": "Ask which of the must-be-trues the most sceptical person in the room doubts most.",
-    "related": ["principle:cheapest_sufficient_test"],
-    "sources": ["src:wwhtbt", "src:scsp"]
+    "related": [
+      "principle:cheapest_sufficient_test"
+    ],
+    "sources": [
+      "src:wwhtbt",
+      "src:scsp"
+    ]
   },
   {
     "id": "principle:cheapest_sufficient_test",
@@ -86,8 +126,13 @@
     "statement": "Test the doubtful condition with the least expensive evidence that would actually change the team's mind.",
     "implication": "The design question is not 'what can we learn?' but 'what result would flip this decision?'",
     "coaching_use": "Ask what result would settle the question, and what the cheapest way to obtain that result would be.",
-    "related": ["principle:no_certainty"],
-    "sources": ["src:scsp", "src:scsp_evolution"]
+    "related": [
+      "principle:no_certainty"
+    ],
+    "sources": [
+      "src:scsp",
+      "src:scsp_evolution"
+    ]
   },
   {
     "id": "principle:possibilities_before_recommendation",
@@ -96,8 +141,13 @@
     "statement": "Strategy work should begin with several genuine possibilities framed as stories of how the organisation could win, not with one recommendation seeking support.",
     "implication": "A single option under review invites defence rather than choice; the quality of a decision is bounded by the quality of the alternatives considered.",
     "coaching_use": "Ask what the second and third real possibilities were, and why they were set aside.",
-    "related": ["principle:ask_what_would_have_to_be_true"],
-    "sources": ["src:scsp", "src:scsp_evolution"]
+    "related": [
+      "principle:ask_what_would_have_to_be_true"
+    ],
+    "sources": [
+      "src:scsp",
+      "src:scsp_evolution"
+    ]
   },
   {
     "id": "principle:no_misplaced_shoulds",
@@ -106,8 +156,12 @@
     "statement": "A strategy cannot rest on what customers, partners or competitors ought to do; it must rest on what they can be expected to do given their own incentives.",
     "implication": "Wherever a 'should' appears in the logic, an assumption about someone else's behaviour is being smuggled in unexamined.",
     "coaching_use": "Ask why the other party would act that way if they were purely serving their own interest.",
-    "related": ["principle:customer_action_is_the_point"],
-    "sources": ["src:misplaced_shoulds"]
+    "related": [
+      "principle:customer_action_is_the_point"
+    ],
+    "sources": [
+      "src:misplaced_shoulds"
+    ]
   },
   {
     "id": "principle:exclusion_makes_arena_real",
@@ -116,8 +170,13 @@
     "statement": "Where-to-Play is defined as much by the arenas deliberately left to others as by the ones chosen.",
     "implication": "A stated arena that covers everything the organisation currently touches is a description, not a choice.",
     "coaching_use": "Ask which customers, geographies or channels this strategy consciously declines to serve.",
-    "related": ["principle:choice_costs_something"],
-    "sources": ["src:hidden_wtp", "src:thick_thin"]
+    "related": [
+      "principle:choice_costs_something"
+    ],
+    "sources": [
+      "src:hidden_wtp",
+      "src:thick_thin"
+    ]
   },
   {
     "id": "principle:hidden_arenas",
@@ -126,8 +185,12 @@
     "statement": "Some of the most consequential Where-to-Play choices are never discussed because they were inherited - channels, intermediaries, and the stages of the chain the organisation occupies.",
     "implication": "Inherited arenas should be surfaced and re-chosen deliberately, or they will quietly constrain the How-to-Win.",
     "coaching_use": "Ask which parts of the arena were chosen by this team, and which were simply always there.",
-    "related": ["principle:exclusion_makes_arena_real"],
-    "sources": ["src:hidden_wtp"]
+    "related": [
+      "principle:exclusion_makes_arena_real"
+    ],
+    "sources": [
+      "src:hidden_wtp"
+    ]
   },
   {
     "id": "principle:paired_choice",
@@ -136,8 +199,13 @@
     "statement": "Where-to-Play and How-to-Win are a single paired choice; neither can be evaluated without the other.",
     "implication": "An arena chosen without a way to win in it is a hope, and a way to win specified without an arena is a slogan.",
     "coaching_use": "Ask why this way of winning works better in this arena than in the ones nearby.",
-    "related": ["principle:coherence_beats_parts"],
-    "sources": ["src:thick_thin", "src:powerful_htw"]
+    "related": [
+      "principle:coherence_beats_parts"
+    ],
+    "sources": [
+      "src:thick_thin",
+      "src:powerful_htw"
+    ]
   },
   {
     "id": "principle:two_ways_to_win",
@@ -146,8 +214,13 @@
     "statement": "Sustainable advantage resolves to being able to serve customers at a lower cost than rivals, or to being different in a way customers will pay for; an organisation that is neither is exposed to whoever is.",
     "implication": "A How-to-Win must land on one of these and be honest about the trade-offs the other would have required.",
     "coaching_use": "Ask which of the two this strategy is, and what evidence supports the claim relative to named rivals.",
-    "related": ["principle:advantage_is_relative"],
-    "sources": ["src:powerful_htw", "src:book_club_ch11"]
+    "related": [
+      "principle:advantage_is_relative"
+    ],
+    "sources": [
+      "src:powerful_htw",
+      "src:book_club_ch11"
+    ]
   },
   {
     "id": "principle:advantage_is_relative",
@@ -156,8 +229,13 @@
     "statement": "Winning is defined against alternatives, not against last year; every claim of advantage is a comparative claim and must name the comparison.",
     "implication": "Improvement over one's own past performance is not evidence of advantage.",
     "coaching_use": "Ask 'better than whom, at what, in whose judgement?'",
-    "related": ["principle:two_ways_to_win", "principle:competitor_has_a_vote"],
-    "sources": ["src:book_club_ch11"]
+    "related": [
+      "principle:two_ways_to_win",
+      "principle:competitor_has_a_vote"
+    ],
+    "sources": [
+      "src:book_club_ch11"
+    ]
   },
   {
     "id": "principle:competitor_has_a_vote",
@@ -166,8 +244,13 @@
     "statement": "A strategy must survive the response of competitors who are also trying to win, including their ability to copy the attractive parts.",
     "implication": "If a rival could adopt the same approach without giving anything up, the advantage is temporary at best.",
     "coaching_use": "Ask what the strongest competitor would do on hearing this strategy, and what stops them.",
-    "related": ["principle:advantage_is_relative"],
-    "sources": ["src:what_questions", "src:book_club_ch11"]
+    "related": [
+      "principle:advantage_is_relative"
+    ],
+    "sources": [
+      "src:what_questions",
+      "src:book_club_ch11"
+    ]
   },
   {
     "id": "principle:advantage_is_dynamic",
@@ -176,8 +259,13 @@
     "statement": "Competitive advantage behaves less like a fixed moat and more like a position that has to be re-earned through where the organisation invests its attention and learning.",
     "implication": "Strategies premised on a durable structural barrier tend to underinvest in the questions that would keep the advantage alive.",
     "coaching_use": "Ask what questions this organisation is working on that its competitors are not yet asking.",
-    "related": ["principle:competitor_has_a_vote"],
-    "sources": ["src:what_questions", "src:book_club_ch11"]
+    "related": [
+      "principle:competitor_has_a_vote"
+    ],
+    "sources": [
+      "src:what_questions",
+      "src:book_club_ch11"
+    ]
   },
   {
     "id": "principle:promise_must_be_deliverable",
@@ -186,8 +274,12 @@
     "statement": "The promise made to a customer has to be worth something to them, memorable enough to be recalled at the moment of choice, and specific enough that failure to deliver it would be visible.",
     "implication": "Promises that cannot be audited cannot compel action, because nobody - inside or outside - can tell whether they were kept.",
     "coaching_use": "Ask how a customer would describe the promise in their own words, and how they would know it had been broken.",
-    "related": ["principle:customer_action_is_the_point"],
-    "sources": ["src:regional_strategy"]
+    "related": [
+      "principle:customer_action_is_the_point"
+    ],
+    "sources": [
+      "src:regional_strategy"
+    ]
   },
   {
     "id": "principle:insight_over_description",
@@ -196,8 +288,13 @@
     "statement": "Useful customer understanding explains behaviour in context; demographic and size descriptions of a market rarely explain why anyone chooses anything.",
     "implication": "Segments that cannot be tied to a difference in behaviour will not support a differentiated How-to-Win.",
     "coaching_use": "Ask what these customers do that others do not, and what they are trying to accomplish when they do it.",
-    "related": ["principle:promise_must_be_deliverable"],
-    "sources": ["src:culture_change", "src:revisiting_definition"]
+    "related": [
+      "principle:promise_must_be_deliverable"
+    ],
+    "sources": [
+      "src:culture_change",
+      "src:revisiting_definition"
+    ]
   },
   {
     "id": "principle:capabilities_serve_htw",
@@ -206,8 +303,12 @@
     "statement": "Capabilities earn their place by being necessary to a specific How-to-Win and by reinforcing each other; a capability that would be equally useful under any strategy is table stakes, not advantage.",
     "implication": "A reinforcing system of activities is far harder to copy than any single capability within it.",
     "coaching_use": "Ask which capability would become pointless if the How-to-Win changed, and which ones only work because of the others.",
-    "related": ["principle:coherence_beats_parts"],
-    "sources": ["src:book_club_ch11"]
+    "related": [
+      "principle:coherence_beats_parts"
+    ],
+    "sources": [
+      "src:book_club_ch11"
+    ]
   },
   {
     "id": "principle:systems_make_choices_stick",
@@ -216,8 +317,14 @@
     "statement": "Choices survive only if the organisation's systems - what is measured, funded, reviewed and rewarded - are changed to build and protect them.",
     "implication": "Unsupported choices decay back to whatever the existing systems already reinforce.",
     "coaching_use": "Ask which measure, budget line or standing meeting changes as a direct result of this strategy.",
-    "related": ["principle:leading_measures", "principle:choices_need_owners"],
-    "sources": ["src:management_systems_role", "src:revisiting_management_systems"]
+    "related": [
+      "principle:leading_measures",
+      "principle:choices_need_owners"
+    ],
+    "sources": [
+      "src:management_systems_role",
+      "src:revisiting_management_systems"
+    ]
   },
   {
     "id": "principle:leading_measures",
@@ -226,8 +333,12 @@
     "statement": "Financial results report on a strategy long after it can be corrected; the measures that matter track the specific behaviours and conditions the strategy's logic depends on.",
     "implication": "Every critical assumption should have an indicator attached to it, or the team will learn of failure from the income statement.",
     "coaching_use": "Ask which non-financial indicator would move first if the strategy were working, and which if it were failing.",
-    "related": ["principle:systems_make_choices_stick"],
-    "sources": ["src:non_financial_kpis"]
+    "related": [
+      "principle:systems_make_choices_stick"
+    ],
+    "sources": [
+      "src:non_financial_kpis"
+    ]
   },
   {
     "id": "principle:choices_need_owners",
@@ -236,8 +347,13 @@
     "statement": "Every choice in a strategy needs a named person with the authority to make it and the boundaries within which it is theirs to make.",
     "implication": "Unowned choices are made by default, inconsistently, by whoever is closest to the problem that day.",
     "coaching_use": "Ask who owns each choice, and what they are explicitly free to decide without escalation.",
-    "related": ["principle:cascade_downward", "principle:systems_make_choices_stick"],
-    "sources": ["src:choice_chartering"]
+    "related": [
+      "principle:cascade_downward",
+      "principle:systems_make_choices_stick"
+    ],
+    "sources": [
+      "src:choice_chartering"
+    ]
   },
   {
     "id": "principle:cascade_downward",
@@ -246,8 +362,14 @@
     "statement": "Strategy exists at every level and in every function; each level's choices are constrained by the level above and give the level above its capacity to win.",
     "implication": "Functions need their own Where-to-Play and How-to-Win expressed in service of the whole, not a translated copy of the corporate deck.",
     "coaching_use": "Ask what this strategy asks a specific function or unit to choose differently.",
-    "related": ["principle:choices_need_owners", "principle:sayable_strategy"],
-    "sources": ["src:functional_strategy", "src:choice_chartering"]
+    "related": [
+      "principle:choices_need_owners",
+      "principle:sayable_strategy"
+    ],
+    "sources": [
+      "src:functional_strategy",
+      "src:choice_chartering"
+    ]
   },
   {
     "id": "principle:sayable_strategy",
@@ -256,8 +378,13 @@
     "statement": "A strategy that cannot be stated plainly by the people who have to act on it cannot guide their daily choices.",
     "implication": "Length and polish of the document are unrelated to, and often inversely correlated with, the clarity of the choices.",
     "coaching_use": "Ask the team to state the strategy in a few sentences without the deck, then ask who else could do the same.",
-    "related": ["principle:cascade_downward"],
-    "sources": ["src:investor_relations", "src:novice_strategist"]
+    "related": [
+      "principle:cascade_downward"
+    ],
+    "sources": [
+      "src:investor_relations",
+      "src:novice_strategist"
+    ]
   },
   {
     "id": "principle:coherence_beats_parts",
@@ -266,8 +393,13 @@
     "statement": "Strategies fail as often from individually sensible choices that do not add up as from obviously bad ones.",
     "implication": "Assessment must test the joints between choices, not just the quality of each choice in isolation.",
     "coaching_use": "Walk the cascade in both directions and ask at each step whether the next choice is made easier or harder.",
-    "related": ["principle:integrated_choices", "principle:paired_choice"],
-    "sources": ["src:fixing_strategy"]
+    "related": [
+      "principle:integrated_choices",
+      "principle:paired_choice"
+    ],
+    "sources": [
+      "src:fixing_strategy"
+    ]
   },
   {
     "id": "principle:big_enough_move",
@@ -276,8 +408,12 @@
     "statement": "On a landscape with many competing peaks, small adjacent moves give misleading feedback: they can look like progress while leading nowhere worth arriving.",
     "implication": "Some strategic questions cannot be answered incrementally, and treating them as such reliably produces local optimisation.",
     "coaching_use": "Ask whether this is a step toward a materially different position, or a refinement of the current one.",
-    "related": ["principle:advantage_is_dynamic"],
-    "sources": ["src:rugged_landscapes"]
+    "related": [
+      "principle:advantage_is_dynamic"
+    ],
+    "sources": [
+      "src:rugged_landscapes"
+    ]
   },
   {
     "id": "principle:unstick_by_revisiting_logic",
@@ -286,8 +422,13 @@
     "statement": "Organisations get stuck not for lack of options but because the logic behind an old choice has stopped being examined.",
     "implication": "Reopening the must-be-trues of the existing strategy is usually more productive than generating new ideas on top of it.",
     "coaching_use": "Ask what had to be true when this course was set, and whether those conditions still hold.",
-    "related": ["principle:ask_what_would_have_to_be_true", "principle:revisit_on_evidence"],
-    "sources": ["src:strategic_stuckness"]
+    "related": [
+      "principle:ask_what_would_have_to_be_true",
+      "principle:revisit_on_evidence"
+    ],
+    "sources": [
+      "src:strategic_stuckness"
+    ]
   },
   {
     "id": "principle:revisit_on_evidence",
@@ -296,8 +437,13 @@
     "statement": "A strategy should specify in advance what evidence would justify changing it, so that adaptation is a decision rather than a crisis.",
     "implication": "Without pre-agreed disconfirming evidence, teams defend choices past the point where the facts have moved.",
     "coaching_use": "Ask what the team would need to see, and by when, to conclude a change of course is required.",
-    "related": ["principle:strategy_is_a_theory"],
-    "sources": ["src:wwhtbt", "src:strategic_stuckness"]
+    "related": [
+      "principle:strategy_is_a_theory"
+    ],
+    "sources": [
+      "src:wwhtbt",
+      "src:strategic_stuckness"
+    ]
   },
   {
     "id": "principle:explore_the_opposing_model",
@@ -306,8 +452,13 @@
     "statement": "Better strategies come from taking the strongest opposing view seriously enough to understand what would make it right, rather than from winning the argument against it.",
     "implication": "Disagreement in a strategy discussion is a source of options; suppressing it narrows the choice set to the most senior person's prior.",
     "coaching_use": "Ask what the person who disagrees most is seeing that makes their view reasonable.",
-    "related": ["principle:possibilities_before_recommendation"],
-    "sources": ["src:novice_strategist", "src:ceo_advisor"]
+    "related": [
+      "principle:possibilities_before_recommendation"
+    ],
+    "sources": [
+      "src:novice_strategist",
+      "src:ceo_advisor"
+    ]
   },
   {
     "id": "principle:winning_not_participating",
@@ -316,8 +467,13 @@
     "statement": "The aspiration has to be to win at something specific; playing to participate produces choices that avoid loss rather than create advantage.",
     "implication": "Aspirations that no competitor could contest are usually descriptions of continued survival.",
     "coaching_use": "Ask what winning would look like such that someone else would clearly have lost.",
-    "related": ["principle:choice_costs_something"],
-    "sources": ["src:publication", "src:about"]
+    "related": [
+      "principle:choice_costs_something"
+    ],
+    "sources": [
+      "src:publication",
+      "src:about"
+    ]
   },
   {
     "id": "principle:targets_are_not_aspirations",
@@ -326,7 +482,61 @@
     "statement": "Financial targets are outcomes a strategy might produce, not statements of what winning is or for whom.",
     "implication": "A revenue or margin goal gives no guidance about which arena to enter or how to win in it.",
     "coaching_use": "Ask what has to be true in the market for that number to appear, and for whom the organisation is winning.",
-    "related": ["principle:winning_not_participating", "principle:customer_action_is_the_point"],
-    "sources": ["src:revisiting_definition"]
+    "related": [
+      "principle:winning_not_participating",
+      "principle:customer_action_is_the_point"
+    ],
+    "sources": [
+      "src:revisiting_definition"
+    ]
+  },
+  {
+    "id": "principle:frameworks_are_inputs",
+    "type": "principle",
+    "pillar": "pillar:definition",
+    "statement": "A framework answers one question well; a strategy has to answer all of them. Adopting a tool is not making a choice.",
+    "implication": "Assess what a borrowed framework has settled and what it leaves open, rather than treating its presence as evidence that strategy work has happened.",
+    "coaching_use": "Ask which cascade choice the tool actually made, and which are still unanswered.",
+    "related": [
+      "principle:integrated_choices"
+    ],
+    "sources": [
+      "src:stop_letting_okrs_masquerade_as_strategy",
+      "src:how_to_thwart_strategy_masquerades",
+      "src:the_five_deadliest_strategy_myths"
+    ]
+  },
+  {
+    "id": "principle:execution_is_choice_making",
+    "type": "principle",
+    "pillar": "pillar:adoption",
+    "statement": "What is filed under execution is mostly choice-making by people further from the centre; a strategy that does not reach them has not been implemented, whatever the delivery record says.",
+    "implication": "Attributing a shortfall to execution is usually a claim that nobody wants to test. Look for the choices made downstream and ask what guided them.",
+    "coaching_use": "Ask which choices your teams make weekly, and what they use to decide.",
+    "related": [
+      "principle:cascade_downward",
+      "principle:choices_need_owners"
+    ],
+    "sources": [
+      "src:why_execution_is_a_bankrupt_management_concept",
+      "src:why_you_should_be_afraid_of_great_execution",
+      "src:strategy_is_what_you_do_not_what_you_say"
+    ]
+  },
+  {
+    "id": "principle:context_before_rubric",
+    "type": "principle",
+    "pillar": "pillar:definition",
+    "statement": "Establish the setting before judging a strategy, because the same test can be sound in one context and misleading in another.",
+    "implication": "A rubric applied without regard to context produces confident false findings, which cost more credibility than saying nothing.",
+    "coaching_use": "Ask what kind of organisation this is, and what a win would even look like here, before applying any standard.",
+    "related": [
+      "principle:advantage_is_relative"
+    ],
+    "sources": [
+      "src:strategy_for_organizations_without_competition",
+      "src:playing_to_win_for_social_sector_organizations",
+      "src:strategy_for_startups"
+    ]
   }
 ]

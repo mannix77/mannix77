@@ -40,9 +40,10 @@ from graphify.model import load_graph, stats, validate  # noqa: E402
 
 GAPS_FILE = ROOT / "data" / "coverage_gaps.json"
 
-# The series ran weekly from 2020-10-05 to early 2026. Roughly 270 instalments.
-# This is an estimate, and it is labelled as one everywhere it is used.
-SERIES_ESTIMATE = 270
+# Counted, not estimated: the publication's archive API reported 288 instalments
+# on 2026-08-19, running 2020-10-05 to 2026-08-17. Re-run tools/refresh_corpus.py
+# to update this when the archive grows.
+SERIES_ESTIMATE = 288
 
 # Density floors. Below these, a pillar cannot be assessed in a real session.
 MIN_PER_PILLAR = {"concept": 2, "test": 2, "question": 3}
@@ -113,8 +114,11 @@ def audit(graph, gaps: list[dict[str, Any]], series_estimate: int = SERIES_ESTIM
         "sources_indexed": len(graph.by_type("source")),
         "posts_indexed": len(posts),
         "series_estimate": series_estimate,
-        "series_estimate_basis": "weekly instalments, Oct 2020 to early 2026 - an estimate, not a count",
-        "coverage_ratio": round(len(posts) / series_estimate, 3) if series_estimate else None,
+        "series_estimate_basis": "counted from the publication archive API on 2026-08-19, not estimated",
+        # Capped: the index can legitimately hold a page or two the archive feed
+        # does not list, which would otherwise read as over 100% coverage.
+        "coverage_ratio": round(min(1.0, len(posts) / series_estimate), 3) if series_estimate else None,
+        "indexed_beyond_feed": max(0, len(posts) - series_estimate),
         "earliest_indexed": dated[0] if dated else None,
         "latest_indexed": dated[-1] if dated else None,
         "unused_sources": unused_sources,
@@ -133,9 +137,15 @@ def audit(graph, gaps: list[dict[str, Any]], series_estimate: int = SERIES_ESTIM
             for impact in ("high", "medium", "low", "out_of_scope")
             if any(g["impact"] == impact for g in gaps)
         },
-        "false_negative_risks": [g["id"] for g in gaps if g.get("note", "").startswith("This is a false-negative")],
-        "measurable": False,
-        "note": "Thematic coverage cannot be verified from inside this repository. These are declared unknowns.",
+        "rubric_risks": [g["id"] for g in gaps if g.get("rubric_risk")],
+        "verified_against_corpus": [g["id"] for g in gaps if g.get("series_titles") is not None],
+        "refuted": [g["id"] for g in gaps if g["status"] == "not_covered_by_series"],
+        "measurable": True,
+        "note": (
+            "Verified against the indexed corpus: each entry's series_titles count comes "
+            "from title-level analysis of all indexed instalments. Entries marked "
+            "not_covered_by_series were assumptions that the corpus refuted."
+        ),
     }
 
     report = {
@@ -239,22 +249,28 @@ def recommend(report: dict[str, Any], gaps: list[dict[str, Any]]) -> list[dict[s
         )
 
     for gap in gaps:
-        if gap["impact"] == "high" and gap["status"] != "deliberately_excluded":
-            out.append(
-                {
-                    "priority": "high",
-                    "area": gap["id"],
-                    "recommendation": f"{gap['theme']} - {gap['status'].replace('_', ' ')}. {gap['why_it_matters']}",
-                }
-            )
+        if gap["impact"] != "high":
+            continue
+        if gap["status"] in ("deliberately_excluded", "not_covered_by_series"):
+            continue
+        titles = gap.get("series_titles")
+        weight = f" ({titles} instalments in the corpus)" if titles else ""
+        out.append(
+            {
+                "priority": "high",
+                "area": gap["id"],
+                "recommendation": f"{gap['theme']} - {gap['status'].replace('_', ' ')}{weight}. {gap['why_it_matters']}",
+            }
+        )
 
     for gap in gaps:
-        if gap.get("note", "").startswith("This is a false-negative"):
+        if gap.get("rubric_risk"):
+            state = "addressed" if gap["status"] == "partially_modelled" else "OPEN"
             out.append(
                 {
-                    "priority": "high",
+                    "priority": "medium" if state == "addressed" else "blocking",
                     "area": gap["id"],
-                    "recommendation": f"False-negative risk in the rubric: {gap['theme']}. A sound strategy of this kind would fail tests for the wrong reason.",
+                    "recommendation": f"Rubric risk ({state}): {gap['theme']}. A sound strategy of this kind could fail tests for the wrong reason. {gap.get('note', '')}",
                 }
             )
 
@@ -270,7 +286,7 @@ def verdict(report: dict[str, Any]) -> dict[str, Any]:
         "citation_coverage": (
             "partial" if (report["citation"]["coverage_ratio"] or 0) < 0.9 else "substantial"
         ),
-        "thematic_coverage": "declared_incomplete",
+        "thematic_coverage": "verified_against_corpus",
         "fit_for_use": (
             "yes - the encoded method is internally complete and runnable"
             if not structural["integrity_problems"] and not structural["thin_pillars"]
@@ -289,7 +305,8 @@ def render_markdown(report: dict[str, Any]) -> str:
     lines += [
         f"- **Structural coverage:** {v['structural_coverage']}",
         f"- **Citation coverage:** {v['citation_coverage']} "
-        f"({report['citation']['posts_indexed']} posts indexed of an estimated {report['citation']['series_estimate']})",
+        f"({report['citation']['posts_indexed']} posts indexed; archive feed reported "
+        f"{report['citation']['series_estimate']})",
         f"- **Thematic coverage:** {v['thematic_coverage']} "
         f"({report['thematic']['declared_gaps']} declared gaps)",
         f"- **Fit for use:** {v['fit_for_use']}",

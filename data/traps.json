@@ -12,10 +12,18 @@
       "Every element is within the organisation's unilateral control"
     ],
     "why_costly": "Execution can be flawless while the organisation still loses, because no claim was ever made about why customers would choose it.",
-    "confused_with": ["concept:strategy_vs_plan"],
-    "mitigated_by": ["test:contains_a_bet", "test:htw_exists"],
+    "confused_with": [
+      "concept:strategy_vs_plan"
+    ],
+    "mitigated_by": [
+      "test:contains_a_bet",
+      "test:htw_exists"
+    ],
     "coaching_move": "Do not tell them it is a plan. Ask which part could fail even with perfect execution, and let the absence of an answer do the work.",
-    "sources": ["src:revisiting_definition", "src:fixing_strategy"]
+    "sources": [
+      "src:revisiting_definition",
+      "src:fixing_strategy"
+    ]
   },
   {
     "id": "trap:initiative_list",
@@ -30,10 +38,17 @@
       "The implied claim is being somewhat better at many things"
     ],
     "why_costly": "Investment spreads evenly, no advantage compounds, and the organisation ends up distinctive at nothing.",
-    "confused_with": ["concept:htw_not_initiatives"],
-    "mitigated_by": ["test:htw_single_logic", "test:htw_resolves_to_advantage_type"],
+    "confused_with": [
+      "concept:htw_not_initiatives"
+    ],
+    "mitigated_by": [
+      "test:htw_single_logic",
+      "test:htw_resolves_to_advantage_type"
+    ],
     "coaching_move": "Ask what the list implies about the customer's decision, then ask which one item the whole logic depends on.",
-    "sources": ["src:powerful_htw"]
+    "sources": [
+      "src:powerful_htw"
+    ]
   },
   {
     "id": "trap:aspiration_as_strategy",
@@ -47,10 +62,17 @@
       "Would be signed by every competitor without amendment"
     ],
     "why_costly": "Gives no guidance on any actual decision, so daily choices continue to be made on precedent and preference.",
-    "confused_with": ["concept:winning_aspiration"],
-    "mitigated_by": ["test:aspiration_is_contestable", "test:wtp_exists"],
+    "confused_with": [
+      "concept:winning_aspiration"
+    ],
+    "mitigated_by": [
+      "test:aspiration_is_contestable",
+      "test:wtp_exists"
+    ],
     "coaching_move": "Ask what winning would look like such that a specific competitor had clearly lost.",
-    "sources": ["src:publication"]
+    "sources": [
+      "src:publication"
+    ]
   },
   {
     "id": "trap:financial_targets_only",
@@ -64,10 +86,17 @@
       "Same document would serve any arena"
     ],
     "why_costly": "Numbers cannot arbitrate between two arenas or two ways of winning, so the hard choices remain unmade while everyone feels aligned.",
-    "confused_with": ["concept:aspiration_vs_target"],
-    "mitigated_by": ["test:aspiration_is_contestable", "test:customer_action_named"],
+    "confused_with": [
+      "concept:aspiration_vs_target"
+    ],
+    "mitigated_by": [
+      "test:aspiration_is_contestable",
+      "test:customer_action_named"
+    ],
     "coaching_move": "Ask what has to become true in the market for that number to appear, and for whom the organisation is winning when it does.",
-    "sources": ["src:revisiting_definition"]
+    "sources": [
+      "src:revisiting_definition"
+    ]
   },
   {
     "id": "trap:everything_to_everyone",
@@ -81,10 +110,18 @@
       "Exclusions named are ones the organisation could not serve anyway"
     ],
     "why_costly": "Capabilities and systems cannot be configured for advantage in an unbounded arena, so the organisation competes as a generalist against specialists.",
-    "confused_with": ["concept:where_not_to_play"],
-    "mitigated_by": ["test:wtp_has_exclusions", "test:sacrifice_is_visible"],
+    "confused_with": [
+      "concept:where_not_to_play"
+    ],
+    "mitigated_by": [
+      "test:wtp_has_exclusions",
+      "test:sacrifice_is_visible"
+    ],
     "coaching_move": "Ask which customers the organisation would be content for a competitor to take, and what it would decline if offered tomorrow.",
-    "sources": ["src:thick_thin", "src:hidden_wtp"]
+    "sources": [
+      "src:thick_thin",
+      "src:hidden_wtp"
+    ]
   },
   {
     "id": "trap:inherited_arena",
@@ -98,10 +135,17 @@
       "The arena matches the organisation chart"
     ],
     "why_costly": "The unexamined part of the arena silently constrains the How-to-Win, and the party standing between the organisation and its customer has its own strategy.",
-    "confused_with": ["concept:hidden_wtp"],
-    "mitigated_by": ["test:wtp_dimensions_covered", "test:customer_roles_separated"],
+    "confused_with": [
+      "concept:hidden_wtp"
+    ],
+    "mitigated_by": [
+      "test:wtp_dimensions_covered",
+      "test:customer_roles_separated"
+    ],
     "coaching_move": "Ask which parts of the arena this team chose and which were simply always there.",
-    "sources": ["src:hidden_wtp"]
+    "sources": [
+      "src:hidden_wtp"
+    ]
   },
   {
     "id": "trap:demographic_segments",
@@ -115,10 +159,17 @@
       "The differentiated offer is the same for every segment"
     ],
     "why_costly": "A How-to-Win aimed at a segment that shares no behaviour cannot be sharp, because there is no common decision to win.",
-    "confused_with": ["concept:behavioural_segments"],
-    "mitigated_by": ["test:segments_behavioural", "test:customer_insight_present"],
+    "confused_with": [
+      "concept:behavioural_segments"
+    ],
+    "mitigated_by": [
+      "test:segments_behavioural",
+      "test:customer_insight_present"
+    ],
     "coaching_move": "Ask what these customers do differently from the ones excluded, and what they are trying to get done when they choose.",
-    "sources": ["src:culture_change"]
+    "sources": [
+      "src:culture_change"
+    ]
   },
   {
     "id": "trap:missing_customer",
@@ -132,10 +183,17 @@
       "Success measures are all internal"
     ],
     "why_costly": "If nobody has identified the action being sought, there is no way to tell whether the strategy is working until the revenue does or does not arrive.",
-    "confused_with": ["concept:desired_customer_action"],
-    "mitigated_by": ["test:customer_action_named", "test:pttc_exists"],
+    "confused_with": [
+      "concept:desired_customer_action"
+    ],
+    "mitigated_by": [
+      "test:customer_action_named",
+      "test:pttc_exists"
+    ],
     "coaching_move": "Ask what a specific customer would do differently on a specific day if this strategy succeeded.",
-    "sources": ["src:revisiting_definition"]
+    "sources": [
+      "src:revisiting_definition"
+    ]
   },
   {
     "id": "trap:unpaid_differentiation",
@@ -149,10 +207,18 @@
       "No claim about willingness to pay, switching or retention"
     ],
     "why_costly": "The organisation carries the cost of being different and collects none of the return, which is worse than being undifferentiated and cheap.",
-    "confused_with": ["concept:differentiation_pays"],
-    "mitigated_by": ["test:differentiation_shows_in_behaviour", "test:pttc_is_auditable"],
+    "confused_with": [
+      "concept:differentiation_pays"
+    ],
+    "mitigated_by": [
+      "test:differentiation_shows_in_behaviour",
+      "test:pttc_is_auditable"
+    ],
     "coaching_move": "Ask what customers give up elsewhere in order to have this, and how the team knows.",
-    "sources": ["src:powerful_htw", "src:regional_strategy"]
+    "sources": [
+      "src:powerful_htw",
+      "src:regional_strategy"
+    ]
   },
   {
     "id": "trap:stuck_in_the_middle",
@@ -166,10 +232,18 @@
       "Cost programme and premium programme running in parallel"
     ],
     "why_costly": "Leaves the organisation attackable from both directions by competitors who have made a choice.",
-    "confused_with": ["concept:two_ways_to_win", "concept:stuck_between"],
-    "mitigated_by": ["test:htw_resolves_to_advantage_type", "test:sacrifice_is_visible"],
+    "confused_with": [
+      "concept:two_ways_to_win",
+      "concept:stuck_between"
+    ],
+    "mitigated_by": [
+      "test:htw_resolves_to_advantage_type",
+      "test:sacrifice_is_visible"
+    ],
     "coaching_move": "Ask which of the two the organisation would protect if it could only keep one, and what that implies for next year's budget.",
-    "sources": ["src:powerful_htw"]
+    "sources": [
+      "src:powerful_htw"
+    ]
   },
   {
     "id": "trap:copycat_htw",
@@ -183,10 +257,19 @@
       "Nothing in the strategy a competitor would find surprising"
     ],
     "why_costly": "Convergence to the same practices removes the basis for customer preference and shifts competition to price.",
-    "confused_with": ["concept:how_to_win", "concept:creative_offense"],
-    "mitigated_by": ["test:htw_is_distinctive", "test:imitation_barrier_exists"],
+    "confused_with": [
+      "concept:how_to_win",
+      "concept:creative_offense"
+    ],
+    "mitigated_by": [
+      "test:htw_is_distinctive",
+      "test:imitation_barrier_exists"
+    ],
     "coaching_move": "Ask what this strategy asks the organisation to do that its strongest competitor would refuse to do.",
-    "sources": ["src:creative_offense", "src:powerful_htw"]
+    "sources": [
+      "src:creative_offense",
+      "src:powerful_htw"
+    ]
   },
   {
     "id": "trap:moat_thinking",
@@ -200,10 +283,19 @@
       "Competitor analysis frozen at the current state"
     ],
     "why_costly": "Positions that are not re-earned decay quietly, and the organisation notices only when the erosion reaches the financials.",
-    "confused_with": ["concept:dynamic_advantage", "concept:barriers_to_imitation"],
-    "mitigated_by": ["test:advantage_renewal_logic", "test:competitor_response_considered"],
+    "confused_with": [
+      "concept:dynamic_advantage",
+      "concept:barriers_to_imitation"
+    ],
+    "mitigated_by": [
+      "test:advantage_renewal_logic",
+      "test:competitor_response_considered"
+    ],
     "coaching_move": "Ask what would have to happen for this advantage to be worth less in three years, and who would have to notice first.",
-    "sources": ["src:what_questions", "src:book_club_ch11"]
+    "sources": [
+      "src:what_questions",
+      "src:book_club_ch11"
+    ]
   },
   {
     "id": "trap:internal_only_logic",
@@ -217,10 +309,17 @@
       "Market share gains assumed without saying from whom"
     ],
     "why_costly": "Share comes from somebody, and that somebody gets a vote. Ignoring it makes the plan's arithmetic fictional.",
-    "confused_with": ["concept:competitor_response"],
-    "mitigated_by": ["test:competitor_response_considered", "test:relative_claim_named"],
+    "confused_with": [
+      "concept:competitor_response"
+    ],
+    "mitigated_by": [
+      "test:competitor_response_considered",
+      "test:relative_claim_named"
+    ],
     "coaching_move": "Ask whose customers these are today, and what that competitor does the morning after this becomes public.",
-    "sources": ["src:what_questions"]
+    "sources": [
+      "src:what_questions"
+    ]
   },
   {
     "id": "trap:capability_wishlist",
@@ -234,10 +333,19 @@
       "No account of how gaps get closed, or of what gets defunded"
     ],
     "why_costly": "Investment goes to general improvement rather than to the few activities that would create advantage.",
-    "confused_with": ["concept:capabilities", "concept:table_stakes"],
-    "mitigated_by": ["test:capabilities_traced_to_htw", "test:capability_gaps_named"],
+    "confused_with": [
+      "concept:capabilities",
+      "concept:table_stakes"
+    ],
+    "mitigated_by": [
+      "test:capabilities_traced_to_htw",
+      "test:capability_gaps_named"
+    ],
     "coaching_move": "Ask which capability becomes pointless if the How-to-Win changes, and which two only work because of each other.",
-    "sources": ["src:book_club_ch11", "src:revisiting_management_systems"]
+    "sources": [
+      "src:book_club_ch11",
+      "src:revisiting_management_systems"
+    ]
   },
   {
     "id": "trap:assumed_capability",
@@ -251,10 +359,17 @@
       "History of similar builds is not mentioned"
     ],
     "why_costly": "The most common single point of failure inside otherwise coherent strategies, and it surfaces late.",
-    "confused_with": ["concept:capability_gap"],
-    "mitigated_by": ["test:capability_gaps_named", "test:barriers_identified"],
+    "confused_with": [
+      "concept:capability_gap"
+    ],
+    "mitigated_by": [
+      "test:capability_gaps_named",
+      "test:barriers_identified"
+    ],
     "coaching_move": "Ask which required capability the organisation has never demonstrated, and what evidence exists that it could build it in time.",
-    "sources": ["src:revisiting_management_systems"]
+    "sources": [
+      "src:revisiting_management_systems"
+    ]
   },
   {
     "id": "trap:no_management_systems",
@@ -268,10 +383,18 @@
       "No named owner for any choice"
     ],
     "why_costly": "The organisation reverts to whatever the existing systems already reward, and the strategy becomes a document people remember fondly.",
-    "confused_with": ["concept:management_systems"],
-    "mitigated_by": ["test:systems_change_named", "test:choices_have_owners"],
+    "confused_with": [
+      "concept:management_systems"
+    ],
+    "mitigated_by": [
+      "test:systems_change_named",
+      "test:choices_have_owners"
+    ],
     "coaching_move": "Ask what is different on Monday morning: which measure, which budget line, which standing agenda item.",
-    "sources": ["src:management_systems_role", "src:revisiting_management_systems"]
+    "sources": [
+      "src:management_systems_role",
+      "src:revisiting_management_systems"
+    ]
   },
   {
     "id": "trap:lagging_measures_only",
@@ -285,10 +408,17 @@
       "First review point is a year out"
     ],
     "why_costly": "The organisation learns its theory was wrong from the income statement, when the cheapest correction window has closed.",
-    "confused_with": ["concept:non_financial_kpis"],
-    "mitigated_by": ["test:leading_indicators_exist", "test:disconfirming_evidence_named"],
+    "confused_with": [
+      "concept:non_financial_kpis"
+    ],
+    "mitigated_by": [
+      "test:leading_indicators_exist",
+      "test:disconfirming_evidence_named"
+    ],
     "coaching_move": "Ask which observable thing would move first if the strategy were working, and which if it were quietly failing.",
-    "sources": ["src:non_financial_kpis"]
+    "sources": [
+      "src:non_financial_kpis"
+    ]
   },
   {
     "id": "trap:untested_assumptions",
@@ -302,10 +432,19 @@
       "Confidence expressed without reference to any test"
     ],
     "why_costly": "The organisation cannot tell which part of its theory is load-bearing, so it tests the easy things and bets the company on the doubtful one.",
-    "confused_with": ["concept:wwhtbt", "concept:must_be_true"],
-    "mitigated_by": ["test:must_be_trues_listed", "test:barriers_identified"],
+    "confused_with": [
+      "concept:wwhtbt",
+      "concept:must_be_true"
+    ],
+    "mitigated_by": [
+      "test:must_be_trues_listed",
+      "test:barriers_identified"
+    ],
     "coaching_move": "Take the strategy as given and ask what would have to be true about customers, competitors, capabilities and economics for it to be a great choice.",
-    "sources": ["src:wwhtbt", "src:scsp"]
+    "sources": [
+      "src:wwhtbt",
+      "src:scsp"
+    ]
   },
   {
     "id": "trap:single_option",
@@ -319,10 +458,18 @@
       "The rejected options were never specified enough to evaluate"
     ],
     "why_costly": "The quality of a decision is bounded by the quality of the alternatives considered, and here there was one.",
-    "confused_with": ["concept:possibilities"],
-    "mitigated_by": ["test:real_alternatives_considered", "test:must_be_trues_listed"],
+    "confused_with": [
+      "concept:possibilities"
+    ],
+    "mitigated_by": [
+      "test:real_alternatives_considered",
+      "test:must_be_trues_listed"
+    ],
     "coaching_move": "Ask what the second genuinely different possibility was, and what would have had to be true for it to win.",
-    "sources": ["src:scsp", "src:scsp_evolution"]
+    "sources": [
+      "src:scsp",
+      "src:scsp_evolution"
+    ]
   },
   {
     "id": "trap:faux_science",
@@ -336,10 +483,18 @@
       "No possible output of the analysis would have changed the recommendation"
     ],
     "why_costly": "Manufactures certainty where judgement was required, and makes the resulting choice harder to revisit because it looks proven.",
-    "confused_with": ["concept:faux_rigour", "concept:no_algorithm"],
-    "mitigated_by": ["test:tests_designed_for_barriers", "test:uncertainty_acknowledged"],
+    "confused_with": [
+      "concept:faux_rigour",
+      "concept:no_algorithm"
+    ],
+    "mitigated_by": [
+      "test:tests_designed_for_barriers",
+      "test:uncertainty_acknowledged"
+    ],
     "coaching_move": "Ask what result from that analysis would have led the team to a different decision.",
-    "sources": ["src:faux_science"]
+    "sources": [
+      "src:faux_science"
+    ]
   },
   {
     "id": "trap:analysis_paralysis",
@@ -353,10 +508,18 @@
       "Nobody can say what evidence would be sufficient"
     ],
     "why_costly": "Delay is itself a choice, usually in favour of the status quo, and it is made without anyone owning it.",
-    "confused_with": ["concept:analysis_paralysis_pattern", "concept:cheapest_test"],
-    "mitigated_by": ["test:tests_designed_for_barriers", "test:decision_point_named"],
+    "confused_with": [
+      "concept:analysis_paralysis_pattern",
+      "concept:cheapest_test"
+    ],
+    "mitigated_by": [
+      "test:tests_designed_for_barriers",
+      "test:decision_point_named"
+    ],
     "coaching_move": "Ask what decision the next study would change, and what the team would choose if it could never be run.",
-    "sources": ["src:faux_science"]
+    "sources": [
+      "src:faux_science"
+    ]
   },
   {
     "id": "trap:misplaced_shoulds",
@@ -370,10 +533,17 @@
       "Competitor restraint assumed without a reason"
     ],
     "why_costly": "The bet is on other people's virtue, which is not a competitive asset.",
-    "confused_with": ["concept:misplaced_should"],
-    "mitigated_by": ["test:no_misplaced_shoulds", "test:competitor_response_considered"],
+    "confused_with": [
+      "concept:misplaced_should"
+    ],
+    "mitigated_by": [
+      "test:no_misplaced_shoulds",
+      "test:competitor_response_considered"
+    ],
     "coaching_move": "Ask why that party would act that way if they were purely serving their own interest.",
-    "sources": ["src:misplaced_shoulds"]
+    "sources": [
+      "src:misplaced_shoulds"
+    ]
   },
   {
     "id": "trap:sunk_logic",
@@ -387,10 +557,17 @@
       "Discussion of alternatives treated as disloyalty"
     ],
     "why_costly": "The organisation keeps paying for a theory whose premises have expired, and mistakes persistence for commitment.",
-    "confused_with": ["concept:strategic_stuckness"],
-    "mitigated_by": ["test:disconfirming_evidence_named", "test:must_be_trues_listed"],
+    "confused_with": [
+      "concept:strategic_stuckness"
+    ],
+    "mitigated_by": [
+      "test:disconfirming_evidence_named",
+      "test:must_be_trues_listed"
+    ],
     "coaching_move": "Ask what had to be true when this course was set, and which of those conditions still hold today.",
-    "sources": ["src:strategic_stuckness"]
+    "sources": [
+      "src:strategic_stuckness"
+    ]
   },
   {
     "id": "trap:strategy_in_a_drawer",
@@ -404,10 +581,19 @@
       "No function has translated it into its own choices"
     ],
     "why_costly": "The thousands of small choices made daily continue to be governed by precedent, so the strategy has no effect on behaviour.",
-    "confused_with": ["concept:sayability", "concept:cascading_strategy"],
-    "mitigated_by": ["test:strategy_is_sayable", "test:cascade_to_functions"],
+    "confused_with": [
+      "concept:sayability",
+      "concept:cascading_strategy"
+    ],
+    "mitigated_by": [
+      "test:strategy_is_sayable",
+      "test:cascade_to_functions"
+    ],
     "coaching_move": "Ask who else could state this in their own words, and what a specific function is now choosing differently.",
-    "sources": ["src:investor_relations", "src:functional_strategy"]
+    "sources": [
+      "src:investor_relations",
+      "src:functional_strategy"
+    ]
   },
   {
     "id": "trap:consensus_strategy",
@@ -421,10 +607,18 @@
       "Nothing was defunded to fund the strategy"
     ],
     "why_costly": "Produces the middle position - neither low cost nor differentiated - with the additional cost of everyone believing they agreed.",
-    "confused_with": ["concept:sacrifice", "concept:stuck_between"],
-    "mitigated_by": ["test:sacrifice_is_visible", "test:coherence_across_pairs"],
+    "confused_with": [
+      "concept:sacrifice",
+      "concept:stuck_between"
+    ],
+    "mitigated_by": [
+      "test:sacrifice_is_visible",
+      "test:coherence_across_pairs"
+    ],
     "coaching_move": "Ask who gave something up when this was decided, and what it was.",
-    "sources": ["src:fixing_strategy"]
+    "sources": [
+      "src:fixing_strategy"
+    ]
   },
   {
     "id": "trap:incremental_pilots",
@@ -438,10 +632,18 @@
       "Success criteria are engagement or learning rather than a decision"
     ],
     "why_costly": "On a landscape with many peaks, incremental feedback reliably leads to a local summit and away from the ones worth having.",
-    "confused_with": ["concept:incrementalism_limits", "concept:rugged_landscape"],
-    "mitigated_by": ["test:move_is_material", "test:tests_designed_for_barriers"],
+    "confused_with": [
+      "concept:incrementalism_limits",
+      "concept:rugged_landscape"
+    ],
+    "mitigated_by": [
+      "test:move_is_material",
+      "test:tests_designed_for_barriers"
+    ],
     "coaching_move": "Ask what these pilots could prove, what they structurally cannot, and which choice they are meant to unlock.",
-    "sources": ["src:rugged_landscapes"]
+    "sources": [
+      "src:rugged_landscapes"
+    ]
   },
   {
     "id": "trap:vague_language",
@@ -455,9 +657,70 @@
       "Disagreement is impossible because the meaning is unfixed"
     ],
     "why_costly": "Unfalsifiable language creates the feeling of alignment while leaving every real disagreement unresolved and every choice unmade.",
-    "confused_with": ["concept:sayability"],
-    "mitigated_by": ["test:claims_are_falsifiable", "test:strategy_is_sayable"],
+    "confused_with": [
+      "concept:sayability"
+    ],
+    "mitigated_by": [
+      "test:claims_are_falsifiable",
+      "test:strategy_is_sayable"
+    ],
     "coaching_move": "Substitute the strongest competitor's name into the statement and ask whether it is still false.",
-    "sources": ["src:fixing_strategy", "src:novice_strategist"]
+    "sources": [
+      "src:fixing_strategy",
+      "src:novice_strategist"
+    ]
+  },
+  {
+    "id": "trap:framework_as_strategy",
+    "type": "trap",
+    "label": "A Framework Standing In for a Strategy",
+    "pillar": "pillar:definition",
+    "summary": "A borrowed tool - objectives and key results, a scorecard, a canvas, a matrix, a maturity model - occupies the place where the choices should be, and its completeness is mistaken for strategic completeness.",
+    "signals": [
+      "The artefact is organised around a tool's template rather than around choices",
+      "Objectives and key results, or a scorecard, presented as the strategy itself",
+      "The tool has been filled in completely while no arena or way of winning is stated",
+      "Discussion centres on the tool's mechanics rather than on what the organisation will give up"
+    ],
+    "why_costly": "The tool's structure supplies a feeling of rigour and completeness, which makes the missing choices much harder to notice than a blank page would.",
+    "confused_with": [
+      "concept:framework_reconciliation"
+    ],
+    "mitigated_by": [
+      "test:framework_not_mistaken_for_strategy",
+      "test:htw_exists"
+    ],
+    "coaching_move": "Ask what question the tool answered, then walk the cascade and ask which choices remain unanswered.",
+    "sources": [
+      "src:stop_letting_okrs_masquerade_as_strategy",
+      "src:it_s_time_to_toss_swot_analysis_into_the_ashbin_of_strategy",
+      "src:how_to_thwart_strategy_masquerades"
+    ]
+  },
+  {
+    "id": "trap:execution_alibi",
+    "type": "trap",
+    "label": "Execution as the Standing Explanation",
+    "pillar": "pillar:adoption",
+    "summary": "Every disappointing result is attributed to delivery, which protects the strategy from examination and leaves the downstream choices that actually produced the result unexamined.",
+    "signals": [
+      "'The strategy is right, execution is the problem' as a recurring conclusion",
+      "Remedies are consistently about discipline, accountability or pace",
+      "Nobody can name a choice made downstream that the strategy should have governed",
+      "The strategy has never been revised in response to results"
+    ],
+    "why_costly": "It makes the strategy unfalsifiable while directing effort at the people least able to change the outcome.",
+    "confused_with": [
+      "concept:execution_dichotomy"
+    ],
+    "mitigated_by": [
+      "test:downstream_choices_governed",
+      "test:disconfirming_evidence_named"
+    ],
+    "coaching_move": "Ask which specific downstream choice went the wrong way, and what the person making it had to go on.",
+    "sources": [
+      "src:why_execution_is_a_bankrupt_management_concept",
+      "src:why_you_should_be_afraid_of_great_execution"
+    ]
   }
 ]

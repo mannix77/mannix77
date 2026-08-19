@@ -1,133 +1,512 @@
 [
   {
-    "id": "gap:corporate_strategy",
-    "theme": "Corporate strategy across a portfolio of businesses",
-    "why_it_matters": "The cascade as modelled here assumes a single business competing in an arena. A multi-business parent faces a distinct question - why these businesses are worth owning together, and what the centre contributes that they could not buy - which none of the current tests reach.",
-    "would_add": ["concept", "test", "question"],
+    "id": "gap:framework_reconciliation",
+    "theme": "Positioning the framework against other strategy tools",
+    "why_it_matters": "The largest single cluster in the corpus, and practitioners nearly always arrive holding one of these tools. An agent that cannot say what a scorecard or an objectives-and-key-results set has and has not settled will argue about the tool instead of finding the missing choice.",
+    "would_add": [],
+    "impact": "high",
+    "status": "partially_modelled",
+    "covered_by": [
+      "concept:framework_reconciliation",
+      "principle:frameworks_are_inputs",
+      "trap:framework_as_strategy",
+      "test:framework_not_mistaken_for_strategy"
+    ],
+    "series_titles": 15,
+    "evidence": [
+      "src:jobs_to_be_done_playing_to_win",
+      "src:balanced_scorecard_playing_to_win",
+      "src:blue_ocean_strategy_playing_to_win",
+      "src:stop_letting_okrs_masquerade_as_strategy",
+      "src:it_s_time_to_toss_swot_analysis_into_the_ashbin_of_strategy"
+    ],
+    "note": "Undeclared before the corpus was indexed. Now modelled, though 15 posts could support considerably more depth."
+  },
+  {
+    "id": "gap:context_variants",
+    "theme": "How the answers change by setting - startup, fragmented, monopoly, social sector, university, B2B, scale",
+    "why_it_matters": "The second largest cluster. Applying a rubric written for a branded commercial business to any of these settings produces confident false findings, which cost more credibility than saying nothing.",
+    "would_add": [],
+    "impact": "high",
+    "status": "partially_modelled",
+    "covered_by": [
+      "concept:context_conditional_strategy",
+      "concept:no_competition_arena",
+      "principle:context_before_rubric",
+      "test:context_fit_acknowledged"
+    ],
+    "series_titles": 14,
+    "evidence": [
+      "src:strategy_for_startups",
+      "src:strategy_for_natural_monopolies",
+      "src:strategy_for_organizations_without_competition",
+      "src:strategy_in_highly_fragmented_industries",
+      "src:is_strategy_in_b2b_dramatically_different_than_in_b2c"
+    ],
+    "note": "Undeclared before indexing. Each named setting could justify its own conditional test set."
+  },
+  {
+    "id": "gap:strategist_role",
+    "theme": "Who does strategy, and what makes someone good at it",
+    "why_it_matters": "A substantial cluster about the practitioner rather than the artefact - the chief strategy officer's remit, whether a finance chief can be strategic, what distinguishes a strategist from a technocrat, how to train a novice, and how to work for someone who is not one. The graph assesses strategies and says nothing about the people making them.",
+    "would_add": [
+      "concept",
+      "question"
+    ],
     "impact": "high",
     "status": "not_modelled",
-    "evidence": "Corporate-level choice is a recurring subject in the series; no source in the index has been confirmed for it."
+    "series_titles": 12,
+    "evidence": [
+      "src:the_proper_role_of_the_chief_strategy_officer",
+      "src:who_should_do_strategy",
+      "src:what_makes_for_a_great_strategist",
+      "src:technocrats_vs_strategists",
+      "src:how_to_become_a_strategic_chief_financial_officer"
+    ],
+    "note": "The clearest remaining high-impact gap. Bears directly on the coaching relationship, since the agent is talking to one of these people."
   },
   {
-    "id": "gap:ma_logic",
-    "theme": "Acquisitions as a strategic choice",
-    "why_it_matters": "Acquisitions are where capability gaps are most often assumed away, and the graph currently treats 'buy' as one word in slot:capability_gaps with no test on whether the acquisition logic holds.",
-    "would_add": ["test", "question", "trap"],
-    "impact": "high",
-    "status": "not_modelled"
-  },
-  {
-    "id": "gap:pricing",
-    "theme": "Pricing as a strategy choice rather than a finance exercise",
-    "why_it_matters": "Price appears in the graph only inside test:customer_action_named. There is no treatment of pricing architecture as an expression of the How-to-Win, which is a common practitioner failure.",
-    "would_add": ["concept", "test", "question"],
-    "impact": "high",
-    "status": "partially_modelled",
-    "covered_by": ["test:customer_action_named", "test:differentiation_shows_in_behaviour"]
-  },
-  {
-    "id": "gap:shareholder_value_critique",
-    "theme": "Shareholder value maximisation versus customer-first capitalism",
-    "why_it_matters": "A substantial strand of the author's work argues that optimising for shareholder expectations damages strategy. It bears directly on pillar:winning_aspiration - whose win is being defined - and is entirely absent.",
-    "would_add": ["principle", "concept", "trap"],
-    "impact": "high",
-    "status": "not_modelled"
-  },
-  {
-    "id": "gap:design_and_possibility",
-    "theme": "Design thinking and possibility-based problem solving",
-    "why_it_matters": "concept:possibilities and concept:integrative_thinking are thin stubs of a much larger body of method - generative reasoning, causal modelling, prototyping a strategy - that shapes how possibilities get created in the first place.",
-    "would_add": ["concept", "question"],
+    "id": "gap:execution_dichotomy",
+    "theme": "The strategy/execution split as the defect rather than the remedy",
+    "why_it_matters": "'The strategy is right, execution failed' is the single most common way a strategy escapes examination. Without a named treatment, the agent has no way to challenge it.",
+    "would_add": [],
     "impact": "high",
     "status": "partially_modelled",
-    "covered_by": ["concept:possibilities", "concept:integrative_thinking", "concept:assertive_inquiry"]
-  },
-  {
-    "id": "gap:platforms_and_network_effects",
-    "theme": "Two-sided markets, platforms and network effects",
-    "why_it_matters": "Where-to-Play and How-to-Win behave differently when the customer set is two populations who value each other. concept:customer_roles gestures at this but no test distinguishes a platform strategy from a linear one.",
-    "would_add": ["concept", "test", "question"],
-    "impact": "medium",
-    "status": "partially_modelled",
-    "covered_by": ["concept:customer_roles", "test:customer_roles_separated"]
-  },
-  {
-    "id": "gap:public_and_nonprofit",
-    "theme": "Strategy without a commercial market - public sector, non-profit, associations",
-    "why_it_matters": "Several tests are phrased in terms of buying at a price. An organisation whose desired action is enrolment, compliance or donation would fail test:customer_action_named for the wrong reason.",
-    "would_add": ["test", "question"],
-    "impact": "medium",
-    "status": "not_modelled",
-    "note": "This is a false-negative risk in the current rubric, not only a missing topic."
-  },
-  {
-    "id": "gap:regulated_industries",
-    "theme": "Strategy under binding regulatory constraint",
-    "why_it_matters": "In regulated arenas the regulator is a party whose behaviour the strategy depends on, and the graph has no place to put that beyond a generic misplaced-should check.",
-    "would_add": ["concept", "question"],
-    "impact": "medium",
-    "status": "partially_modelled",
-    "covered_by": ["test:no_misplaced_shoulds"]
-  },
-  {
-    "id": "gap:talent_strategy",
-    "theme": "Talent and HR as a functional strategy",
-    "why_it_matters": "concept:functional_strategy is generic. Talent is the function where 'capabilities' claims most often go to die, and it deserves its own test.",
-    "would_add": ["test", "question"],
-    "impact": "medium",
-    "status": "partially_modelled",
-    "covered_by": ["concept:functional_strategy", "test:cascade_to_functions"]
-  },
-  {
-    "id": "gap:brand_strategy",
-    "theme": "Brand as an expression of the promise, not a communications exercise",
-    "why_it_matters": "concept:pttc covers the promise; nothing covers how brand choices either reinforce or contradict it.",
-    "would_add": ["concept", "question"],
-    "impact": "medium",
-    "status": "partially_modelled",
-    "covered_by": ["concept:pttc"]
-  },
-  {
-    "id": "gap:downturn_resilience",
-    "theme": "Strategy in a downturn, and strategic resilience",
-    "why_it_matters": "Cost cutting under pressure is the moment strategies quietly become 'neither low cost nor differentiated'. The graph catches the end state but not the pressure that produces it.",
-    "would_add": ["trap", "question"],
-    "impact": "medium",
-    "status": "partially_modelled",
-    "covered_by": ["trap:stuck_in_the_middle", "test:resource_shift_matches_choices"]
+    "covered_by": [
+      "concept:execution_dichotomy",
+      "principle:execution_is_choice_making",
+      "trap:execution_alibi",
+      "test:downstream_choices_governed"
+    ],
+    "series_titles": 5,
+    "evidence": [
+      "src:why_execution_is_a_bankrupt_management_concept",
+      "src:why_you_should_be_afraid_of_great_execution",
+      "src:strategy_is_what_you_do_not_what_you_say"
+    ],
+    "note": "Undeclared before indexing."
   },
   {
     "id": "gap:ai_and_strategy",
     "theme": "What AI changes about strategy practice",
-    "why_it_matters": "Recent instalments of the series engage with this directly. It also bears on this repository's own premise - what an agent should and should not do in strategy work.",
-    "would_add": ["concept", "principle"],
+    "why_it_matters": "Eight posts, several among the most recent in the corpus. Also bears on this repository's own premise: what an assistant should and should not do in strategy work.",
+    "would_add": [
+      "principle"
+    ],
+    "impact": "high",
+    "status": "partially_modelled",
+    "covered_by": [
+      "concept:ai_in_strategy_practice",
+      "q:logic_what_would_ai_not_settle"
+    ],
+    "series_titles": 8,
+    "evidence": [
+      "src:strategy_artificial_intelligence",
+      "src:investment_strategy_artificial_intelligence",
+      "src:a_leaders_role_in_fostering_ai_superpowers",
+      "src:becoming_an_ai_augmented_enterprise"
+    ],
+    "note": "I rated this medium before indexing. Eight posts, trending recent, means it should have been high."
+  },
+  {
+    "id": "gap:corporate_strategy",
+    "theme": "Corporate strategy across a portfolio of businesses",
+    "why_it_matters": "The cascade as modelled assumes a single business in an arena. A multi-business parent faces a distinct question - why these businesses are worth owning together - which the original test set did not reach.",
+    "would_add": [
+      "question"
+    ],
+    "impact": "high",
+    "status": "partially_modelled",
+    "covered_by": [
+      "concept:corporate_level_choice",
+      "test:corporate_parent_adds_value",
+      "q:coh_why_owned_together"
+    ],
+    "series_titles": 7,
+    "evidence": [
+      "src:corporate_vs_business_unit_strategy",
+      "src:understanding_the_true_building_blocks_of_corporate_strategy",
+      "src:parenting_styles_management_strategy",
+      "src:diversification_cant_disappear_a"
+    ],
+    "note": "Declared before indexing and confirmed by it - 7 dedicated posts."
+  },
+  {
+    "id": "gap:design_and_possibility",
+    "theme": "Design thinking and where possibilities come from",
+    "why_it_matters": "Teams evaluate options competently and generate them badly. Without this, the agent can test a choice set but cannot notice that the choice set is the binding constraint.",
+    "would_add": [
+      "concept"
+    ],
+    "impact": "high",
+    "status": "partially_modelled",
+    "covered_by": [
+      "concept:possibility_generation",
+      "concept:possibilities",
+      "concept:integrative_thinking",
+      "test:possibilities_were_invented"
+    ],
+    "series_titles": 8,
+    "evidence": [
+      "src:generating_strategy_possibilities",
+      "src:generating_creative_strategy_possibilities",
+      "src:strategy_design_thinking",
+      "src:the_design_school_advantage"
+    ],
+    "note": "Declared as thin before indexing and confirmed - 8 posts. Still thinner in the graph than the corpus warrants."
+  },
+  {
+    "id": "gap:data_analytics_critique",
+    "theme": "Reliability versus validity, and analytics that wreck strategy",
+    "why_it_matters": "A consistent process applied to a strategic question yields defensible wrong answers, and its consistency is what makes them hard to challenge. Distinct from the faux-rigour treatment already present.",
+    "would_add": [
+      "question"
+    ],
     "impact": "medium",
-    "status": "not_modelled"
+    "status": "partially_modelled",
+    "covered_by": [
+      "concept:reliability_vs_validity",
+      "concept:faux_rigour",
+      "test:method_is_valid_not_merely_reliable"
+    ],
+    "series_titles": 9,
+    "evidence": [
+      "src:reliability_versus_validity_in_strategy",
+      "src:singing_the_data_analytics_blues",
+      "src:the_myth_of_objectivity_strategy",
+      "src:manipulation_of_quantities_appreciation_of_qualities"
+    ],
+    "note": "Undeclared before indexing; the reliability/validity distinction was the specific thing missing."
+  },
+  {
+    "id": "gap:public_and_nonprofit",
+    "theme": "Strategy without a commercial market",
+    "why_it_matters": "This was a rubric bug, not only a missing topic: several tests were phrased in terms of buying at a price, so a sound social-sector, public or membership strategy failed test:customer_action_named for the wrong reason.",
+    "would_add": [],
+    "impact": "medium",
+    "status": "partially_modelled",
+    "covered_by": [
+      "concept:no_competition_arena",
+      "test:context_fit_acknowledged",
+      "test:customer_action_named",
+      "q:cust_action_without_purchase"
+    ],
+    "series_titles": 4,
+    "evidence": [
+      "src:playing_to_win_for_social_sector_organizations",
+      "src:strategy_for_organizations_without_competition",
+      "src:the_trickiness_of_university_strategy",
+      "src:strategy_for_natural_monopolies"
+    ],
+    "note": "Rubric bug now fixed: test:customer_action_named accepts a non-purchase exchange and carries a context_note. The corpus confirms the series addresses this directly.",
+    "rubric_risk": true
+  },
+  {
+    "id": "gap:cost_and_differentiation_nuance",
+    "theme": "Whether an organisation can pursue cost and differentiation together",
+    "why_it_matters": "A second rubric risk found by indexing. The original test asserted a hard either/or, but the corpus treats the question with more nuance - a distinctive position still has to be delivered at a cost its premium can carry. An over-rigid test would mark a coherent strategy as confused.",
+    "would_add": [],
+    "impact": "medium",
+    "status": "partially_modelled",
+    "covered_by": [
+      "concept:cost_effective_differentiation",
+      "q:htw_cost_serving_differentiation",
+      "test:htw_resolves_to_advantage_type"
+    ],
+    "series_titles": 3,
+    "evidence": [
+      "src:can_you_be_both_cost_leader_differentiator",
+      "src:cost_effective_differentiation",
+      "src:untangling_value_proposition_competitive_advantage"
+    ],
+    "note": "The test still requires a primary route to be chosen, which is right; the added concept and question give the agent the coherent version of 'both' so it does not over-reject.",
+    "rubric_risk": true
+  },
+  {
+    "id": "gap:competitive_dynamics_specifics",
+    "theme": "Specific competitive mechanics - substitutes, first-mover costs, hold-up, monopolist behaviour, races to the bottom",
+    "why_it_matters": "pillar:competition covers response and imitation generically. These named mechanics are what practitioners actually face, and each implies a different must-be-true.",
+    "would_add": [
+      "concept",
+      "question"
+    ],
+    "impact": "medium",
+    "status": "partially_modelled",
+    "covered_by": [
+      "concept:competitor_response",
+      "concept:relative_position",
+      "concept:barriers_to_imitation"
+    ],
+    "series_titles": 9,
+    "evidence": [
+      "src:substitutes_strategy",
+      "src:first_mover_advantages_versus_pioneering",
+      "src:strategy_and_opportunistic_hold_up"
+    ],
+    "note": "Undeclared before indexing."
+  },
+  {
+    "id": "gap:incentives_and_accountability",
+    "theme": "Pay for performance, single-point accountability and how responsibility is assigned",
+    "why_it_matters": "pillar:management_systems covers measures and ownership but treats incentive design as unproblematic, where the corpus argues the standard approaches actively work against strategy.",
+    "would_add": [
+      "concept",
+      "test"
+    ],
+    "impact": "medium",
+    "status": "not_modelled",
+    "series_titles": 6,
+    "evidence": [
+      "src:it_s_time_to_accept_that_pay_for_performance_doesn_t_work",
+      "src:the_delusion_of_single_point_accountability"
+    ],
+    "note": "Undeclared before indexing. Note the tension with test:choices_have_owners, which assumes named single owners are straightforwardly good."
+  },
+  {
+    "id": "gap:time_and_horizon",
+    "theme": "Strategy and time - horizons, discontinuity, exploration versus exploitation",
+    "why_it_matters": "The graph is largely timeless. When a choice must be made, how long it should hold, and how to balance exploiting the current position against exploring the next are all unmodelled.",
+    "would_add": [
+      "concept",
+      "question"
+    ],
+    "impact": "medium",
+    "status": "not_modelled",
+    "series_titles": 6,
+    "evidence": [
+      "src:strategy_time",
+      "src:balancing_exploration_and_exploitation"
+    ],
+    "note": "Undeclared before indexing."
+  },
+  {
+    "id": "gap:communication_and_buyin",
+    "theme": "Communicating a strategy and getting genuine buy-in",
+    "why_it_matters": "pillar:adoption tests whether a strategy is sayable and cascaded, but not how agreement is actually won or why shared vocabulary breaks down.",
+    "would_add": [
+      "question"
+    ],
+    "impact": "medium",
+    "status": "partially_modelled",
+    "covered_by": [
+      "concept:sayability",
+      "test:strategy_is_sayable",
+      "test:cascade_to_functions"
+    ],
+    "series_titles": 6,
+    "evidence": [
+      "src:compelling_communication_for_your_strategy",
+      "src:how_to_get_buy_in_for_your_strategy",
+      "src:are_you_building_a_strategy_tower_of_babel"
+    ],
+    "note": "Undeclared before indexing."
+  },
+  {
+    "id": "gap:platforms_and_network_effects",
+    "theme": "Two-sided markets, platforms and network effects",
+    "why_it_matters": "Where-to-Play and How-to-Win behave differently when the customer set is two populations that value each other. No test distinguishes a platform strategy from a linear one.",
+    "would_add": [
+      "concept",
+      "test",
+      "question"
+    ],
+    "impact": "medium",
+    "status": "not_modelled",
+    "series_titles": 3,
+    "evidence": [
+      "src:platform_businesses_strategy",
+      "src:platform_business_taxonomy"
+    ],
+    "note": "Declared before indexing and confirmed, though with fewer dedicated posts than expected."
+  },
+  {
+    "id": "gap:brand_strategy",
+    "theme": "Brand as an expression of the promise",
+    "why_it_matters": "concept:pttc covers the promise; nothing covers how brand choices reinforce or contradict it, or the claim that marketing and strategy are one discipline.",
+    "would_add": [
+      "concept",
+      "question"
+    ],
+    "impact": "medium",
+    "status": "not_modelled",
+    "series_titles": 3,
+    "evidence": [
+      "src:strategy_branding",
+      "src:how_brands_grow_playing_to_win"
+    ],
+    "note": "Declared before indexing and confirmed."
   },
   {
     "id": "gap:board_governance",
     "theme": "The board's role in strategy",
-    "why_it_matters": "Boards approve strategies without owning choices. concept:choice_chartering stops at the executive layer.",
-    "would_add": ["question"],
-    "impact": "low",
-    "status": "partially_modelled",
-    "covered_by": ["concept:choice_chartering", "test:choices_have_owners"]
+    "why_it_matters": "Three dedicated posts, including how management should use a board rather than merely report to it. concept:choice_chartering stops at the executive layer.",
+    "would_add": [
+      "concept",
+      "question"
+    ],
+    "impact": "medium",
+    "status": "not_modelled",
+    "series_titles": 3,
+    "evidence": [
+      "src:strategy_boards_of_directors",
+      "src:how_to_be_a_good_board_member",
+      "src:how_management_can_most_effectively_utilize_boards"
+    ],
+    "note": "I rated this low before indexing; three dedicated posts makes it medium."
   },
   {
-    "id": "gap:sustainability",
-    "theme": "Sustainability commitments as strategic choices",
-    "why_it_matters": "Usually arrives as an additive priority list, which is exactly the pattern trap:initiative_list describes, but practitioners will not recognise it as the same thing without a named treatment.",
-    "would_add": ["question"],
+    "id": "gap:sustainability_and_purpose",
+    "theme": "Sustainability and corporate purpose as strategic choices",
+    "why_it_matters": "Usually arrives as an additive priority list, which trap:initiative_list describes but which practitioners will not recognise as the same thing without a named treatment. The corpus also argues promise should take precedence over purpose.",
+    "would_add": [
+      "concept",
+      "question"
+    ],
+    "impact": "medium",
+    "status": "not_modelled",
+    "series_titles": 4,
+    "evidence": [
+      "src:sustainability_strategy",
+      "src:corporate_purpose_strategy",
+      "src:promise_over_purpose",
+      "src:thinking_intelligently_about_corporate"
+    ],
+    "note": "I rated this low before indexing; four posts plus the promise-over-purpose argument makes it medium."
+  },
+  {
+    "id": "gap:segmentation_depth",
+    "theme": "Segmentation, identifiability and the problem with averages",
+    "why_it_matters": "concept:behavioural_segments requires segments to be behavioural but says nothing about whether a segment can actually be identified and reached, which is what makes a segmentation usable.",
+    "would_add": [
+      "concept",
+      "test"
+    ],
     "impact": "low",
     "status": "partially_modelled",
-    "covered_by": ["trap:initiative_list"]
+    "covered_by": [
+      "concept:behavioural_segments",
+      "test:segments_behavioural"
+    ],
+    "series_titles": 4,
+    "evidence": [
+      "src:segmentation_strategy",
+      "src:identifiability_and_segmentation_strategy",
+      "src:strategists_stop_obsessing_about_averages"
+    ],
+    "note": "Undeclared before indexing."
+  },
+  {
+    "id": "gap:talent_strategy",
+    "theme": "Talent and HR as a functional strategy",
+    "why_it_matters": "Talent is the function where capability claims most often go to die.",
+    "would_add": [
+      "question"
+    ],
+    "impact": "low",
+    "status": "partially_modelled",
+    "covered_by": [
+      "concept:functional_strategy",
+      "test:cascade_to_functions",
+      "test:capability_gaps_named"
+    ],
+    "series_titles": 1,
+    "evidence": [
+      "src:talent_strategy_in_2022"
+    ],
+    "note": "I rated this medium before indexing. One dedicated post means low."
+  },
+  {
+    "id": "gap:regulated_industries",
+    "theme": "Strategy under binding regulatory or policy constraint",
+    "why_it_matters": "In regulated arenas the regulator is a party whose behaviour the strategy depends on.",
+    "would_add": [
+      "question"
+    ],
+    "impact": "low",
+    "status": "partially_modelled",
+    "covered_by": [
+      "test:no_misplaced_shoulds",
+      "concept:context_conditional_strategy"
+    ],
+    "series_titles": 1,
+    "evidence": [
+      "src:tariffs_strategy"
+    ],
+    "note": "I rated this medium before indexing. The corpus addresses it once, on tariffs, so low."
+  },
+  {
+    "id": "gap:downturn_resilience",
+    "theme": "Strategy under cost pressure and disruption",
+    "why_it_matters": "Cost cutting under pressure is the moment a strategy quietly becomes neither low cost nor differentiated.",
+    "would_add": [
+      "trap"
+    ],
+    "impact": "low",
+    "status": "partially_modelled",
+    "covered_by": [
+      "trap:stuck_in_the_middle",
+      "test:resource_shift_matches_choices"
+    ],
+    "series_titles": 2,
+    "evidence": [
+      "src:dangerous_cost_reduction_projects",
+      "src:strategy_disruption_you"
+    ],
+    "note": "I rated this medium before indexing. Thinner than expected in the corpus."
+  },
+  {
+    "id": "gap:pricing",
+    "theme": "Pricing as a strategy choice rather than a finance exercise",
+    "why_it_matters": "Price now appears in test:customer_action_named as part of the success condition, which is where the corpus puts it.",
+    "would_add": [],
+    "impact": "low",
+    "status": "not_covered_by_series",
+    "covered_by": [
+      "test:customer_action_named",
+      "test:differentiation_shows_in_behaviour"
+    ],
+    "series_titles": 0,
+    "note": "I rated this HIGH before indexing, on the assumption that a practitioner series would treat pricing directly. Zero dedicated posts. That rating came from my own priors about practitioner pain, not from this corpus."
+  },
+  {
+    "id": "gap:ma_logic",
+    "theme": "Acquisitions as a strategic choice",
+    "why_it_matters": "Acquisition remains a route for closing a capability gap, and slot:capability_gaps already accepts 'buy' as an option.",
+    "would_add": [],
+    "impact": "out_of_scope",
+    "status": "not_covered_by_series",
+    "covered_by": [
+      "slot:capability_gaps",
+      "test:capability_gaps_named"
+    ],
+    "series_titles": 0,
+    "note": "I rated this HIGH before indexing and claimed it was 'a recurring subject in the series'. Zero dedicated posts across 288. That claim was fabricated inference, and this entry stands as the record of it."
+  },
+  {
+    "id": "gap:shareholder_value_critique",
+    "theme": "Shareholder value maximisation versus customer-first capitalism",
+    "why_it_matters": "It bears on pillar:winning_aspiration - whose win is being defined - so it would matter if the corpus developed it.",
+    "would_add": [],
+    "impact": "low",
+    "status": "not_covered_by_series",
+    "series_titles": 1,
+    "evidence": [
+      "src:investor_relations"
+    ],
+    "note": "I rated this HIGH before indexing, describing it as 'a substantial strand of the author's work'. That is true of the author's books and journal articles but not of this Substack series, which touches it once. A gap register must be scoped to the corpus it claims to cover."
   },
   {
     "id": "gap:personal_strategy",
     "theme": "Applying the cascade to a career or an individual",
-    "why_it_matters": "A recurring reader request in the series. Out of scope for an enterprise coaching agent, recorded so the omission is deliberate rather than accidental.",
+    "why_it_matters": "Out of scope for an enterprise coaching agent, recorded so the omission stays deliberate.",
     "would_add": [],
     "impact": "out_of_scope",
-    "status": "deliberately_excluded"
+    "status": "deliberately_excluded",
+    "series_titles": 4,
+    "evidence": [
+      "src:your_personal_playing_to_win_strategy",
+      "src:personal_effectiveness_strategy"
+    ],
+    "note": "The corpus covers this more than I assumed when I first excluded it - four posts. Still excluded, but now by choice against known evidence rather than by guess."
   }
 ]

@@ -6,14 +6,29 @@
     "pillar": "pillar:definition",
     "statement": "Some part of this could fail even if the organisation executes everything it controls perfectly.",
     "why_it_matters": "This is the line between a plan and a strategy. If nothing depends on an outside party's response, there is no competitive claim to assess.",
-    "pass_signals": ["A claim about how customers or competitors will respond", "An acknowledged way of losing that is not an execution failure"],
-    "fail_signals": ["Every element is within unilateral control", "Success defined as completing activities on time"],
+    "pass_signals": [
+      "A claim about how customers or competitors will respond",
+      "An acknowledged way of losing that is not an execution failure"
+    ],
+    "fail_signals": [
+      "Every element is within unilateral control",
+      "Success defined as completing activities on time"
+    ],
     "severity": "blocking",
     "weight": 5,
-    "evaluates": ["concept:strategy_vs_plan", "concept:desired_customer_action"],
-    "detects": ["trap:plan_as_strategy"],
-    "slots": ["slot:customer_action"],
-    "sources": ["src:revisiting_definition"]
+    "evaluates": [
+      "concept:strategy_vs_plan",
+      "concept:desired_customer_action"
+    ],
+    "detects": [
+      "trap:plan_as_strategy"
+    ],
+    "slots": [
+      "slot:customer_action"
+    ],
+    "sources": [
+      "src:revisiting_definition"
+    ]
   },
   {
     "id": "test:claims_are_falsifiable",
@@ -22,14 +37,28 @@
     "pillar": "pillar:definition",
     "statement": "The central statements are specific enough that they would read as false if a competitor's name were substituted.",
     "why_it_matters": "Language every competitor would also endorse creates the feeling of alignment while leaving every real choice unmade.",
-    "pass_signals": ["Named customers, arenas, exclusions or magnitudes", "A statement a rival would dispute"],
-    "fail_signals": ["Customer-centric, innovative, world-class as load-bearing terms", "Survives substitution of any competitor's name"],
+    "pass_signals": [
+      "Named customers, arenas, exclusions or magnitudes",
+      "A statement a rival would dispute"
+    ],
+    "fail_signals": [
+      "Customer-centric, innovative, world-class as load-bearing terms",
+      "Survives substitution of any competitor's name"
+    ],
     "severity": "major",
     "weight": 4,
-    "evaluates": ["concept:sayability"],
-    "detects": ["trap:vague_language"],
-    "slots": ["slot:articulation"],
-    "sources": ["src:fixing_strategy"]
+    "evaluates": [
+      "concept:sayability"
+    ],
+    "detects": [
+      "trap:vague_language"
+    ],
+    "slots": [
+      "slot:articulation"
+    ],
+    "sources": [
+      "src:fixing_strategy"
+    ]
   },
   {
     "id": "test:aspiration_is_contestable",
@@ -38,14 +67,31 @@
     "pillar": "pillar:winning_aspiration",
     "statement": "The definition of winning names a market condition that a competitor could deny them, rather than a financial result or an ambition.",
     "why_it_matters": "An aspiration nobody could contest gives no direction to any subsequent choice.",
-    "pass_signals": ["Winning stated in terms of a position with named customers", "Possible to describe what losing looks like"],
-    "fail_signals": ["Aspiration is a revenue, margin or share number", "Aspiration is a vision any competitor would sign"],
+    "pass_signals": [
+      "Winning stated in terms of a position with named customers",
+      "Possible to describe what losing looks like"
+    ],
+    "fail_signals": [
+      "Aspiration is a revenue, margin or share number",
+      "Aspiration is a vision any competitor would sign"
+    ],
     "severity": "major",
     "weight": 4,
-    "evaluates": ["concept:winning_aspiration", "concept:aspiration_vs_target"],
-    "detects": ["trap:aspiration_as_strategy", "trap:financial_targets_only"],
-    "slots": ["slot:aspiration_win_definition", "slot:aspiration_whose_win"],
-    "sources": ["src:revisiting_definition"]
+    "evaluates": [
+      "concept:winning_aspiration",
+      "concept:aspiration_vs_target"
+    ],
+    "detects": [
+      "trap:aspiration_as_strategy",
+      "trap:financial_targets_only"
+    ],
+    "slots": [
+      "slot:aspiration_win_definition",
+      "slot:aspiration_whose_win"
+    ],
+    "sources": [
+      "src:revisiting_definition"
+    ]
   },
   {
     "id": "test:aspiration_names_constituency",
@@ -64,10 +110,21 @@
     ],
     "severity": "major",
     "weight": 4,
-    "evaluates": ["concept:whose_win", "concept:three_lenses"],
-    "detects": ["trap:aspiration_as_strategy", "trap:financial_targets_only"],
-    "slots": ["slot:aspiration_whose_win"],
-    "sources": ["src:fifth_year", "src:revisiting_definition"]
+    "evaluates": [
+      "concept:whose_win",
+      "concept:three_lenses"
+    ],
+    "detects": [
+      "trap:aspiration_as_strategy",
+      "trap:financial_targets_only"
+    ],
+    "slots": [
+      "slot:aspiration_whose_win"
+    ],
+    "sources": [
+      "src:fifth_year",
+      "src:revisiting_definition"
+    ]
   },
   {
     "id": "test:wtp_exists",
@@ -76,14 +133,29 @@
     "pillar": "pillar:where_to_play",
     "statement": "The strategy states which customers, offerings and channels it is competing in.",
     "why_it_matters": "Without an arena there is nothing for a way of winning to be true of.",
-    "pass_signals": ["Customers and offerings named", "Scope stated on more than one dimension"],
-    "fail_signals": ["Arena is the organisation's entire current footprint", "Arena stated as a market size"],
+    "pass_signals": [
+      "Customers and offerings named",
+      "Scope stated on more than one dimension"
+    ],
+    "fail_signals": [
+      "Arena is the organisation's entire current footprint",
+      "Arena stated as a market size"
+    ],
     "severity": "blocking",
     "weight": 5,
-    "evaluates": ["concept:where_to_play"],
-    "detects": ["trap:aspiration_as_strategy"],
-    "slots": ["slot:wtp_customers", "slot:wtp_offering"],
-    "sources": ["src:hidden_wtp"]
+    "evaluates": [
+      "concept:where_to_play"
+    ],
+    "detects": [
+      "trap:aspiration_as_strategy"
+    ],
+    "slots": [
+      "slot:wtp_customers",
+      "slot:wtp_offering"
+    ],
+    "sources": [
+      "src:hidden_wtp"
+    ]
   },
   {
     "id": "test:wtp_has_exclusions",
@@ -92,14 +164,29 @@
     "pillar": "pillar:where_to_play",
     "statement": "At least one exclusion is something the organisation could plausibly have pursued and someone internally wanted.",
     "why_it_matters": "Exclusion is what turns a description of the business into a choice, and it is the fastest available signal that a choice was made.",
-    "pass_signals": ["Named customers or segments left to others", "An opportunity that would be declined if offered"],
-    "fail_signals": ["No exclusions stated", "Exclusions are markets the organisation could not serve anyway"],
+    "pass_signals": [
+      "Named customers or segments left to others",
+      "An opportunity that would be declined if offered"
+    ],
+    "fail_signals": [
+      "No exclusions stated",
+      "Exclusions are markets the organisation could not serve anyway"
+    ],
     "severity": "major",
     "weight": 5,
-    "evaluates": ["concept:where_not_to_play", "concept:sacrifice"],
-    "detects": ["trap:everything_to_everyone"],
-    "slots": ["slot:wtp_exclusions"],
-    "sources": ["src:thick_thin"]
+    "evaluates": [
+      "concept:where_not_to_play",
+      "concept:sacrifice"
+    ],
+    "detects": [
+      "trap:everything_to_everyone"
+    ],
+    "slots": [
+      "slot:wtp_exclusions"
+    ],
+    "sources": [
+      "src:thick_thin"
+    ]
   },
   {
     "id": "test:wtp_dimensions_covered",
@@ -108,14 +195,32 @@
     "pillar": "pillar:where_to_play",
     "statement": "Offering, customer, geography, channel and stage of the chain have each been considered, including the ones that were inherited rather than chosen.",
     "why_it_matters": "Unexamined arena dimensions constrain the way of winning without anyone having decided that they should.",
-    "pass_signals": ["Channel and route to market addressed explicitly", "Team can say which dimensions they chose and which they inherited"],
-    "fail_signals": ["Channel absent from the strategy", "Arena mirrors the current organisation chart"],
+    "pass_signals": [
+      "Channel and route to market addressed explicitly",
+      "Team can say which dimensions they chose and which they inherited"
+    ],
+    "fail_signals": [
+      "Channel absent from the strategy",
+      "Arena mirrors the current organisation chart"
+    ],
     "severity": "major",
     "weight": 3,
-    "evaluates": ["concept:wtp_dimensions", "concept:hidden_wtp"],
-    "detects": ["trap:inherited_arena"],
-    "slots": ["slot:wtp_channel", "slot:wtp_stage", "slot:wtp_geography"],
-    "sources": ["src:hidden_wtp", "src:regional_strategy"]
+    "evaluates": [
+      "concept:wtp_dimensions",
+      "concept:hidden_wtp"
+    ],
+    "detects": [
+      "trap:inherited_arena"
+    ],
+    "slots": [
+      "slot:wtp_channel",
+      "slot:wtp_stage",
+      "slot:wtp_geography"
+    ],
+    "sources": [
+      "src:hidden_wtp",
+      "src:regional_strategy"
+    ]
   },
   {
     "id": "test:arena_can_support_returns",
@@ -124,14 +229,25 @@
     "pillar": "pillar:where_to_play",
     "statement": "Somebody in this arena earns returns worth having, so the problem is position rather than structure.",
     "why_it_matters": "'We are not winning here' and 'nobody wins here' call for entirely different responses.",
-    "pass_signals": ["An existing player earns attractive returns", "A structural reason returns are available"],
-    "fail_signals": ["Every participant is losing money and the strategy is to try harder"],
+    "pass_signals": [
+      "An existing player earns attractive returns",
+      "A structural reason returns are available"
+    ],
+    "fail_signals": [
+      "Every participant is losing money and the strategy is to try harder"
+    ],
     "severity": "minor",
     "weight": 2,
-    "evaluates": ["concept:arena_attractiveness"],
+    "evaluates": [
+      "concept:arena_attractiveness"
+    ],
     "detects": [],
-    "slots": ["slot:wtp_offering"],
-    "sources": ["src:book_club_ch11"]
+    "slots": [
+      "slot:wtp_offering"
+    ],
+    "sources": [
+      "src:book_club_ch11"
+    ]
   },
   {
     "id": "test:segments_behavioural",
@@ -140,14 +256,28 @@
     "pillar": "pillar:customer",
     "statement": "The chosen customers are distinguished by what they are trying to accomplish and how they choose, not by size, sector or demographic band.",
     "why_it_matters": "A segment that shares no common decision offers nothing specific to win.",
-    "pass_signals": ["Description of what these customers are trying to get done", "Behaviour that differs from excluded customers"],
-    "fail_signals": ["Segments cut by revenue band, headcount or region only", "Same offer aimed at every segment"],
+    "pass_signals": [
+      "Description of what these customers are trying to get done",
+      "Behaviour that differs from excluded customers"
+    ],
+    "fail_signals": [
+      "Segments cut by revenue band, headcount or region only",
+      "Same offer aimed at every segment"
+    ],
     "severity": "major",
     "weight": 4,
-    "evaluates": ["concept:behavioural_segments"],
-    "detects": ["trap:demographic_segments"],
-    "slots": ["slot:wtp_customers"],
-    "sources": ["src:culture_change"]
+    "evaluates": [
+      "concept:behavioural_segments"
+    ],
+    "detects": [
+      "trap:demographic_segments"
+    ],
+    "slots": [
+      "slot:wtp_customers"
+    ],
+    "sources": [
+      "src:culture_change"
+    ]
   },
   {
     "id": "test:customer_insight_present",
@@ -156,30 +286,66 @@
     "pillar": "pillar:customer",
     "statement": "The understanding of the customer would predict how they respond to something that does not exist yet.",
     "why_it_matters": "Research about existing offerings explains the past; insight into context is what allows a differentiated offer to be designed.",
-    "pass_signals": ["An account of behaviour in context that explains why they choose as they do", "A surprising observation the team can defend"],
-    "fail_signals": ["Only satisfaction scores and stated preferences", "Customer understanding entirely secondhand"],
+    "pass_signals": [
+      "An account of behaviour in context that explains why they choose as they do",
+      "A surprising observation the team can defend"
+    ],
+    "fail_signals": [
+      "Only satisfaction scores and stated preferences",
+      "Customer understanding entirely secondhand"
+    ],
     "severity": "major",
     "weight": 4,
-    "evaluates": ["concept:customer_insight", "concept:three_lenses"],
-    "detects": ["trap:demographic_segments", "trap:missing_customer"],
-    "slots": ["slot:customer_insight"],
-    "sources": ["src:culture_change", "src:fifth_year"]
+    "evaluates": [
+      "concept:customer_insight",
+      "concept:three_lenses"
+    ],
+    "detects": [
+      "trap:demographic_segments",
+      "trap:missing_customer"
+    ],
+    "slots": [
+      "slot:customer_insight"
+    ],
+    "sources": [
+      "src:culture_change",
+      "src:fifth_year"
+    ]
   },
   {
     "id": "test:customer_action_named",
     "type": "test",
-    "label": "The desired customer action is named, with quantity and price",
+    "label": "The desired action is named, at a scale and on terms that are sustainable",
     "pillar": "pillar:customer",
-    "statement": "A specific customer behaviour is stated, at a scale and a price that would produce attractive returns.",
-    "why_it_matters": "Volume without acceptable price and price without sufficient volume are both failures, so both belong in the success condition.",
-    "pass_signals": ["An observable behaviour named", "A sense of how many and at what price"],
-    "fail_signals": ["Success stated as awareness or engagement", "Success stated as an internal milestone", "Price left out entirely"],
+    "statement": "A specific behaviour is stated for the people whose action the strategy needs, at a scale and on terms that would sustain the organisation. In a commercial setting the terms are price; where the action is not a purchase, they are whatever the person gives up - time, attention, effort, a donation, a change of practice - and whatever sustains the organisation providing it.",
+    "why_it_matters": "Volume on unsustainable terms and good terms at insufficient volume are both failures, so both belong in the success condition. Stating the terms in the setting's own currency keeps the test honest for organisations that do not sell anything.",
+    "pass_signals": [
+      "An observable behaviour named for a specific group",
+      "A sense of how many, and on what terms",
+      "Where there is no purchase, the cost to the person and the basis of sustainability are both stated"
+    ],
+    "fail_signals": [
+      "Success stated as awareness or engagement",
+      "Success stated as an internal milestone",
+      "Scale asserted with no account of what makes it sustainable",
+      "In a commercial setting, price left out entirely"
+    ],
+    "context_note": "Do not fail a social-sector, public, membership or internal-service strategy merely for the absence of a price. Assess the equivalent exchange instead, and see test:context_fit_acknowledged.",
     "severity": "blocking",
     "weight": 5,
-    "evaluates": ["concept:desired_customer_action"],
-    "detects": ["trap:missing_customer", "trap:financial_targets_only"],
-    "slots": ["slot:customer_action"],
-    "sources": ["src:revisiting_definition"]
+    "evaluates": [
+      "concept:desired_customer_action"
+    ],
+    "detects": [
+      "trap:missing_customer",
+      "trap:financial_targets_only"
+    ],
+    "slots": [
+      "slot:customer_action"
+    ],
+    "sources": [
+      "src:revisiting_definition"
+    ]
   },
   {
     "id": "test:pttc_exists",
@@ -188,14 +354,27 @@
     "pillar": "pillar:customer",
     "statement": "The strategy states what is promised to the chosen customer, in terms the customer would recognise.",
     "why_it_matters": "The promise is what motivates the action; without it the strategy describes what the organisation will do rather than why anyone would respond.",
-    "pass_signals": ["A promise a customer could repeat in their own words"],
-    "fail_signals": ["Only internal capability language", "A promise that is a list of features"],
+    "pass_signals": [
+      "A promise a customer could repeat in their own words"
+    ],
+    "fail_signals": [
+      "Only internal capability language",
+      "A promise that is a list of features"
+    ],
     "severity": "major",
     "weight": 4,
-    "evaluates": ["concept:pttc"],
-    "detects": ["trap:missing_customer"],
-    "slots": ["slot:customer_promise"],
-    "sources": ["src:regional_strategy"]
+    "evaluates": [
+      "concept:pttc"
+    ],
+    "detects": [
+      "trap:missing_customer"
+    ],
+    "slots": [
+      "slot:customer_promise"
+    ],
+    "sources": [
+      "src:regional_strategy"
+    ]
   },
   {
     "id": "test:pttc_is_auditable",
@@ -204,14 +383,28 @@
     "pillar": "pillar:customer",
     "statement": "It would be evident, to the customer and internally, if the promise were not delivered.",
     "why_it_matters": "A promise nobody can fail is a promise nobody relies on, and it cannot be managed against.",
-    "pass_signals": ["Failure would be visible and attributable", "Someone inside is accountable for it"],
-    "fail_signals": ["Promise phrased so that it is always technically kept"],
+    "pass_signals": [
+      "Failure would be visible and attributable",
+      "Someone inside is accountable for it"
+    ],
+    "fail_signals": [
+      "Promise phrased so that it is always technically kept"
+    ],
     "severity": "major",
     "weight": 3,
-    "evaluates": ["concept:pttc"],
-    "detects": ["trap:unpaid_differentiation", "trap:vague_language"],
-    "slots": ["slot:customer_promise"],
-    "sources": ["src:regional_strategy"]
+    "evaluates": [
+      "concept:pttc"
+    ],
+    "detects": [
+      "trap:unpaid_differentiation",
+      "trap:vague_language"
+    ],
+    "slots": [
+      "slot:customer_promise"
+    ],
+    "sources": [
+      "src:regional_strategy"
+    ]
   },
   {
     "id": "test:customer_roles_separated",
@@ -220,14 +413,29 @@
     "pillar": "pillar:customer",
     "statement": "Where different parties use, choose, pay for and distribute the offering, each has a stated desired action.",
     "why_it_matters": "A strategy that compels only the end user, while an intermediary controls the choice, will not produce the action it needs.",
-    "pass_signals": ["Separate promises where interests diverge", "Intermediary's own upside stated"],
-    "fail_signals": ["Single undifferentiated 'customer' where several parties are involved"],
+    "pass_signals": [
+      "Separate promises where interests diverge",
+      "Intermediary's own upside stated"
+    ],
+    "fail_signals": [
+      "Single undifferentiated 'customer' where several parties are involved"
+    ],
     "severity": "major",
     "weight": 3,
-    "evaluates": ["concept:customer_roles", "concept:hidden_wtp"],
-    "detects": ["trap:inherited_arena"],
-    "slots": ["slot:wtp_channel", "slot:customer_action"],
-    "sources": ["src:hidden_wtp"]
+    "evaluates": [
+      "concept:customer_roles",
+      "concept:hidden_wtp"
+    ],
+    "detects": [
+      "trap:inherited_arena"
+    ],
+    "slots": [
+      "slot:wtp_channel",
+      "slot:customer_action"
+    ],
+    "sources": [
+      "src:hidden_wtp"
+    ]
   },
   {
     "id": "test:htw_exists",
@@ -236,14 +444,28 @@
     "pillar": "pillar:how_to_win",
     "statement": "The strategy says why a customer in this arena would choose this organisation over the alternatives.",
     "why_it_matters": "Without this, the strategy describes where it will compete and what it will build, but never why it would win.",
-    "pass_signals": ["A reason for preference stated from the customer's side"],
-    "fail_signals": ["How-to-Win box contains goals or activities", "The reason is that the organisation will try hard"],
+    "pass_signals": [
+      "A reason for preference stated from the customer's side"
+    ],
+    "fail_signals": [
+      "How-to-Win box contains goals or activities",
+      "The reason is that the organisation will try hard"
+    ],
     "severity": "blocking",
     "weight": 5,
-    "evaluates": ["concept:how_to_win"],
-    "detects": ["trap:plan_as_strategy", "trap:initiative_list"],
-    "slots": ["slot:htw_logic"],
-    "sources": ["src:powerful_htw"]
+    "evaluates": [
+      "concept:how_to_win"
+    ],
+    "detects": [
+      "trap:plan_as_strategy",
+      "trap:initiative_list"
+    ],
+    "slots": [
+      "slot:htw_logic"
+    ],
+    "sources": [
+      "src:powerful_htw"
+    ]
   },
   {
     "id": "test:htw_single_logic",
@@ -252,14 +474,29 @@
     "pillar": "pillar:how_to_win",
     "statement": "The How-to-Win reads as a causal chain in which the elements need each other, rather than as items joined by 'and'.",
     "why_it_matters": "A portfolio of sensible improvements spreads investment evenly and produces no compounding advantage.",
-    "pass_signals": ["Because-therefore structure", "Removing one element breaks the rest"],
-    "fail_signals": ["Numbered list of programmes", "Any item could be dropped without consequence"],
+    "pass_signals": [
+      "Because-therefore structure",
+      "Removing one element breaks the rest"
+    ],
+    "fail_signals": [
+      "Numbered list of programmes",
+      "Any item could be dropped without consequence"
+    ],
     "severity": "major",
     "weight": 5,
-    "evaluates": ["concept:htw_not_initiatives", "concept:how_to_win"],
-    "detects": ["trap:initiative_list"],
-    "slots": ["slot:htw_logic"],
-    "sources": ["src:powerful_htw"]
+    "evaluates": [
+      "concept:htw_not_initiatives",
+      "concept:how_to_win"
+    ],
+    "detects": [
+      "trap:initiative_list"
+    ],
+    "slots": [
+      "slot:htw_logic"
+    ],
+    "sources": [
+      "src:powerful_htw"
+    ]
   },
   {
     "id": "test:htw_resolves_to_advantage_type",
@@ -268,14 +505,30 @@
     "pillar": "pillar:how_to_win",
     "statement": "The way of winning lands on a structural cost position or on differentiation, and the trade-offs the other route would have required are acknowledged.",
     "why_it_matters": "An organisation that is neither can be attacked on price by the low-cost player and on value by the differentiated one.",
-    "pass_signals": ["One route chosen explicitly", "Trade-offs of the unchosen route named"],
-    "fail_signals": ["Best quality at the best price with no mechanism", "Cost and premium programmes running in parallel"],
+    "pass_signals": [
+      "One route chosen explicitly",
+      "Trade-offs of the unchosen route named"
+    ],
+    "fail_signals": [
+      "Best quality at the best price with no mechanism",
+      "Cost and premium programmes running in parallel"
+    ],
     "severity": "major",
     "weight": 5,
-    "evaluates": ["concept:two_ways_to_win", "concept:stuck_between"],
-    "detects": ["trap:stuck_in_the_middle", "trap:initiative_list"],
-    "slots": ["slot:htw_advantage_type"],
-    "sources": ["src:powerful_htw"]
+    "evaluates": [
+      "concept:two_ways_to_win",
+      "concept:stuck_between"
+    ],
+    "detects": [
+      "trap:stuck_in_the_middle",
+      "trap:initiative_list"
+    ],
+    "slots": [
+      "slot:htw_advantage_type"
+    ],
+    "sources": [
+      "src:powerful_htw"
+    ]
   },
   {
     "id": "test:cost_advantage_is_structural",
@@ -284,14 +537,28 @@
     "pillar": "pillar:how_to_win",
     "statement": "Where the route is cost, the advantage comes from doing different things or doing them differently, not from effort or temporary input prices.",
     "why_it_matters": "Cost positions that any competitor could match by trying harder are not advantages.",
-    "pass_signals": ["A named structural difference in the activity set", "A competitor would have to give something up to match it"],
-    "fail_signals": ["Cost advantage from discipline, scale assumed but unearned, or a supplier deal"],
+    "pass_signals": [
+      "A named structural difference in the activity set",
+      "A competitor would have to give something up to match it"
+    ],
+    "fail_signals": [
+      "Cost advantage from discipline, scale assumed but unearned, or a supplier deal"
+    ],
     "severity": "major",
     "weight": 3,
-    "evaluates": ["concept:cost_advantage_structural"],
-    "detects": ["trap:copycat_htw"],
-    "slots": ["slot:htw_advantage_type", "slot:htw_logic"],
-    "sources": ["src:powerful_htw"]
+    "evaluates": [
+      "concept:cost_advantage_structural"
+    ],
+    "detects": [
+      "trap:copycat_htw"
+    ],
+    "slots": [
+      "slot:htw_advantage_type",
+      "slot:htw_logic"
+    ],
+    "sources": [
+      "src:powerful_htw"
+    ]
   },
   {
     "id": "test:differentiation_shows_in_behaviour",
@@ -300,14 +567,30 @@
     "pillar": "pillar:how_to_win",
     "statement": "Where the route is differentiation, the difference changes what customers do - what they pay, whether they switch, whether they stay.",
     "why_it_matters": "Difference the customer does not value is cost carried without return.",
-    "pass_signals": ["Evidence of willingness to pay, switching or retention", "Customers give something up to have it"],
-    "fail_signals": ["Differentiators are internally admired features", "Evidence is awards or internal opinion"],
+    "pass_signals": [
+      "Evidence of willingness to pay, switching or retention",
+      "Customers give something up to have it"
+    ],
+    "fail_signals": [
+      "Differentiators are internally admired features",
+      "Evidence is awards or internal opinion"
+    ],
     "severity": "major",
     "weight": 4,
-    "evaluates": ["concept:differentiation_pays"],
-    "detects": ["trap:unpaid_differentiation"],
-    "slots": ["slot:htw_advantage_type", "slot:customer_promise"],
-    "sources": ["src:powerful_htw", "src:regional_strategy"]
+    "evaluates": [
+      "concept:differentiation_pays"
+    ],
+    "detects": [
+      "trap:unpaid_differentiation"
+    ],
+    "slots": [
+      "slot:htw_advantage_type",
+      "slot:customer_promise"
+    ],
+    "sources": [
+      "src:powerful_htw",
+      "src:regional_strategy"
+    ]
   },
   {
     "id": "test:htw_is_distinctive",
@@ -316,14 +599,30 @@
     "pillar": "pillar:how_to_win",
     "statement": "The strategy asks the organisation to do something its strongest competitor would not choose to do.",
     "why_it_matters": "Adopting what the leaders already do cannot produce advantage over the leaders.",
-    "pass_signals": ["Something a named rival would decline", "A choice that looks wrong from a competitor's position"],
-    "fail_signals": ["Central logic is closing benchmark gaps", "Nothing here would surprise a competitor"],
+    "pass_signals": [
+      "Something a named rival would decline",
+      "A choice that looks wrong from a competitor's position"
+    ],
+    "fail_signals": [
+      "Central logic is closing benchmark gaps",
+      "Nothing here would surprise a competitor"
+    ],
     "severity": "major",
     "weight": 4,
-    "evaluates": ["concept:creative_offense", "concept:how_to_win"],
-    "detects": ["trap:copycat_htw"],
-    "slots": ["slot:htw_logic", "slot:htw_why_not_copied"],
-    "sources": ["src:creative_offense"]
+    "evaluates": [
+      "concept:creative_offense",
+      "concept:how_to_win"
+    ],
+    "detects": [
+      "trap:copycat_htw"
+    ],
+    "slots": [
+      "slot:htw_logic",
+      "slot:htw_why_not_copied"
+    ],
+    "sources": [
+      "src:creative_offense"
+    ]
   },
   {
     "id": "test:wtp_htw_paired",
@@ -332,14 +631,32 @@
     "pillar": "pillar:coherence",
     "statement": "This way of winning works better in this arena than in the adjacent ones, and this arena is a poor fit for the obvious alternative ways of winning.",
     "why_it_matters": "Where-to-Play and How-to-Win are one paired choice; either alone can look reasonable while the pair is incoherent.",
-    "pass_signals": ["A reason the pairing is mutually reinforcing", "The logic would weaken in a neighbouring arena"],
-    "fail_signals": ["The way of winning would apply anywhere", "The arena was chosen before any way of winning was considered"],
+    "pass_signals": [
+      "A reason the pairing is mutually reinforcing",
+      "The logic would weaken in a neighbouring arena"
+    ],
+    "fail_signals": [
+      "The way of winning would apply anywhere",
+      "The arena was chosen before any way of winning was considered"
+    ],
     "severity": "major",
     "weight": 5,
-    "evaluates": ["concept:cascade_coherence", "concept:where_to_play", "concept:how_to_win"],
-    "detects": ["trap:initiative_list"],
-    "slots": ["slot:wtp_customers", "slot:htw_logic"],
-    "sources": ["src:thick_thin", "src:powerful_htw"]
+    "evaluates": [
+      "concept:cascade_coherence",
+      "concept:where_to_play",
+      "concept:how_to_win"
+    ],
+    "detects": [
+      "trap:initiative_list"
+    ],
+    "slots": [
+      "slot:wtp_customers",
+      "slot:htw_logic"
+    ],
+    "sources": [
+      "src:thick_thin",
+      "src:powerful_htw"
+    ]
   },
   {
     "id": "test:relative_claim_named",
@@ -348,14 +665,27 @@
     "pillar": "pillar:competition",
     "statement": "Claims of being better specify better than whom, at what, and in whose judgement - including what the customer does today instead.",
     "why_it_matters": "Improvement against one's own past is not evidence of advantage, and 'doing nothing' is often the strongest competitor.",
-    "pass_signals": ["Named alternatives including substitutes and the status quo"],
-    "fail_signals": ["Comparisons only to the organisation's own history", "Competitors appear only in a landscape slide"],
+    "pass_signals": [
+      "Named alternatives including substitutes and the status quo"
+    ],
+    "fail_signals": [
+      "Comparisons only to the organisation's own history",
+      "Competitors appear only in a landscape slide"
+    ],
     "severity": "major",
     "weight": 4,
-    "evaluates": ["concept:relative_position"],
-    "detects": ["trap:internal_only_logic"],
-    "slots": ["slot:competitor_set"],
-    "sources": ["src:book_club_ch11"]
+    "evaluates": [
+      "concept:relative_position"
+    ],
+    "detects": [
+      "trap:internal_only_logic"
+    ],
+    "slots": [
+      "slot:competitor_set"
+    ],
+    "sources": [
+      "src:book_club_ch11"
+    ]
   },
   {
     "id": "test:competitor_response_considered",
@@ -364,14 +694,28 @@
     "pillar": "pillar:competition",
     "statement": "Named rivals' likely responses are stated, along with why those responses do not neutralise the strategy.",
     "why_it_matters": "Share comes from somebody, and that somebody gets to respond.",
-    "pass_signals": ["Specific rival, specific plausible response, specific reason it fails or is unattractive to them"],
-    "fail_signals": ["No response anticipated", "Rivals assumed to be slow or passive without reason"],
+    "pass_signals": [
+      "Specific rival, specific plausible response, specific reason it fails or is unattractive to them"
+    ],
+    "fail_signals": [
+      "No response anticipated",
+      "Rivals assumed to be slow or passive without reason"
+    ],
     "severity": "major",
     "weight": 5,
-    "evaluates": ["concept:competitor_response"],
-    "detects": ["trap:internal_only_logic", "trap:moat_thinking"],
-    "slots": ["slot:competitor_response"],
-    "sources": ["src:what_questions"]
+    "evaluates": [
+      "concept:competitor_response"
+    ],
+    "detects": [
+      "trap:internal_only_logic",
+      "trap:moat_thinking"
+    ],
+    "slots": [
+      "slot:competitor_response"
+    ],
+    "sources": [
+      "src:what_questions"
+    ]
   },
   {
     "id": "test:imitation_barrier_exists",
@@ -380,14 +724,29 @@
     "pillar": "pillar:competition",
     "statement": "A competitor who fully understood this strategy would have to sacrifice something they value to match it.",
     "why_it_matters": "Trade-offs, not secrecy, are what make advantage durable; anything a rival could simply add is copyable.",
-    "pass_signals": ["A named trade-off a rival would refuse", "Advantage depends on a system rather than a single element"],
-    "fail_signals": ["Barrier is a head start, a secret, or being first"],
+    "pass_signals": [
+      "A named trade-off a rival would refuse",
+      "Advantage depends on a system rather than a single element"
+    ],
+    "fail_signals": [
+      "Barrier is a head start, a secret, or being first"
+    ],
     "severity": "major",
     "weight": 4,
-    "evaluates": ["concept:barriers_to_imitation", "concept:reinforcing_activity_system"],
-    "detects": ["trap:copycat_htw", "trap:moat_thinking"],
-    "slots": ["slot:htw_why_not_copied"],
-    "sources": ["src:book_club_ch11"]
+    "evaluates": [
+      "concept:barriers_to_imitation",
+      "concept:reinforcing_activity_system"
+    ],
+    "detects": [
+      "trap:copycat_htw",
+      "trap:moat_thinking"
+    ],
+    "slots": [
+      "slot:htw_why_not_copied"
+    ],
+    "sources": [
+      "src:book_club_ch11"
+    ]
   },
   {
     "id": "test:advantage_renewal_logic",
@@ -396,14 +755,29 @@
     "pillar": "pillar:competition",
     "statement": "The strategy says how the position gets re-earned - what the organisation will learn or invest in ahead of competitors - rather than assuming a barrier that holds.",
     "why_it_matters": "Advantage treated as permanent gets underfunded, and erodes before anyone is watching for it.",
-    "pass_signals": ["A statement of which questions this organisation works on ahead of rivals", "An account of how the advantage could decay"],
-    "fail_signals": ["Advantage described as a durable moat", "Competitive picture frozen at today"],
+    "pass_signals": [
+      "A statement of which questions this organisation works on ahead of rivals",
+      "An account of how the advantage could decay"
+    ],
+    "fail_signals": [
+      "Advantage described as a durable moat",
+      "Competitive picture frozen at today"
+    ],
     "severity": "minor",
     "weight": 3,
-    "evaluates": ["concept:dynamic_advantage"],
-    "detects": ["trap:moat_thinking"],
-    "slots": ["slot:htw_why_not_copied", "slot:disconfirming_evidence"],
-    "sources": ["src:what_questions"]
+    "evaluates": [
+      "concept:dynamic_advantage"
+    ],
+    "detects": [
+      "trap:moat_thinking"
+    ],
+    "slots": [
+      "slot:htw_why_not_copied",
+      "slot:disconfirming_evidence"
+    ],
+    "sources": [
+      "src:what_questions"
+    ]
   },
   {
     "id": "test:move_is_material",
@@ -412,14 +786,30 @@
     "pillar": "pillar:competition",
     "statement": "This is a step towards a materially different position rather than a refinement of the current one, or the team can say why refinement is sufficient.",
     "why_it_matters": "Where the landscape has many peaks, incremental moves give encouraging feedback while leading to a local summit.",
-    "pass_signals": ["A stated target position that differs from today", "Pilots tied to a specific choice they would unlock"],
-    "fail_signals": ["Strategy consists of pilots and options", "Success criteria are learning or engagement only"],
+    "pass_signals": [
+      "A stated target position that differs from today",
+      "Pilots tied to a specific choice they would unlock"
+    ],
+    "fail_signals": [
+      "Strategy consists of pilots and options",
+      "Success criteria are learning or engagement only"
+    ],
     "severity": "minor",
     "weight": 3,
-    "evaluates": ["concept:incrementalism_limits", "concept:rugged_landscape"],
-    "detects": ["trap:incremental_pilots"],
-    "slots": ["slot:htw_logic", "slot:resource_shift"],
-    "sources": ["src:rugged_landscapes"]
+    "evaluates": [
+      "concept:incrementalism_limits",
+      "concept:rugged_landscape"
+    ],
+    "detects": [
+      "trap:incremental_pilots"
+    ],
+    "slots": [
+      "slot:htw_logic",
+      "slot:resource_shift"
+    ],
+    "sources": [
+      "src:rugged_landscapes"
+    ]
   },
   {
     "id": "test:capabilities_traced_to_htw",
@@ -428,14 +818,29 @@
     "pillar": "pillar:capabilities",
     "statement": "Every capability named would become less important if the How-to-Win changed, and the ones that would not are identified as table stakes.",
     "why_it_matters": "Capabilities that serve any strategy equally spread investment and produce distinction in nothing.",
-    "pass_signals": ["Each capability mapped to a step in the winning logic", "Table stakes separated from distinctive"],
-    "fail_signals": ["Capabilities named as 'digital', 'talent', 'data'", "No capability would change if the strategy changed"],
+    "pass_signals": [
+      "Each capability mapped to a step in the winning logic",
+      "Table stakes separated from distinctive"
+    ],
+    "fail_signals": [
+      "Capabilities named as 'digital', 'talent', 'data'",
+      "No capability would change if the strategy changed"
+    ],
     "severity": "major",
     "weight": 4,
-    "evaluates": ["concept:capabilities", "concept:table_stakes"],
-    "detects": ["trap:capability_wishlist"],
-    "slots": ["slot:capabilities_required"],
-    "sources": ["src:book_club_ch11"]
+    "evaluates": [
+      "concept:capabilities",
+      "concept:table_stakes"
+    ],
+    "detects": [
+      "trap:capability_wishlist"
+    ],
+    "slots": [
+      "slot:capabilities_required"
+    ],
+    "sources": [
+      "src:book_club_ch11"
+    ]
   },
   {
     "id": "test:capabilities_reinforce",
@@ -444,14 +849,26 @@
     "pillar": "pillar:capabilities",
     "statement": "Some capabilities are valuable mainly because of the presence of the others.",
     "why_it_matters": "A reinforcing system is much harder to copy than any capability within it.",
-    "pass_signals": ["Named pairs that only work together"],
-    "fail_signals": ["A flat list of independent competencies"],
+    "pass_signals": [
+      "Named pairs that only work together"
+    ],
+    "fail_signals": [
+      "A flat list of independent competencies"
+    ],
     "severity": "minor",
     "weight": 3,
-    "evaluates": ["concept:reinforcing_activity_system"],
-    "detects": ["trap:capability_wishlist"],
-    "slots": ["slot:capability_reinforcement"],
-    "sources": ["src:book_club_ch11"]
+    "evaluates": [
+      "concept:reinforcing_activity_system"
+    ],
+    "detects": [
+      "trap:capability_wishlist"
+    ],
+    "slots": [
+      "slot:capability_reinforcement"
+    ],
+    "sources": [
+      "src:book_club_ch11"
+    ]
   },
   {
     "id": "test:capability_gaps_named",
@@ -460,14 +877,29 @@
     "pillar": "pillar:capabilities",
     "statement": "Required capabilities the organisation does not have are named, with a route for each - build, buy, partner, or change the strategy.",
     "why_it_matters": "Assumed capability is the most common single point of failure inside an otherwise coherent strategy, and it surfaces late.",
-    "pass_signals": ["Honest gap list with owners and time", "At least one gap the organisation has never demonstrated it can close, treated as a risk"],
-    "fail_signals": ["Required capabilities stated as intentions", "No gaps identified at all"],
+    "pass_signals": [
+      "Honest gap list with owners and time",
+      "At least one gap the organisation has never demonstrated it can close, treated as a risk"
+    ],
+    "fail_signals": [
+      "Required capabilities stated as intentions",
+      "No gaps identified at all"
+    ],
     "severity": "major",
     "weight": 4,
-    "evaluates": ["concept:capability_gap"],
-    "detects": ["trap:assumed_capability", "trap:capability_wishlist"],
-    "slots": ["slot:capability_gaps"],
-    "sources": ["src:revisiting_management_systems"]
+    "evaluates": [
+      "concept:capability_gap"
+    ],
+    "detects": [
+      "trap:assumed_capability",
+      "trap:capability_wishlist"
+    ],
+    "slots": [
+      "slot:capability_gaps"
+    ],
+    "sources": [
+      "src:revisiting_management_systems"
+    ]
   },
   {
     "id": "test:systems_change_named",
@@ -476,14 +908,28 @@
     "pillar": "pillar:management_systems",
     "statement": "At least one measure, budget line, review, routine or incentive changes as a direct result of the strategy.",
     "why_it_matters": "Unsupported choices decay back to whatever the existing systems already reward.",
-    "pass_signals": ["A named change someone would notice within a month"],
-    "fail_signals": ["Management systems box empty or filled with 'governance'", "Same metrics and meeting agendas as last year"],
+    "pass_signals": [
+      "A named change someone would notice within a month"
+    ],
+    "fail_signals": [
+      "Management systems box empty or filled with 'governance'",
+      "Same metrics and meeting agendas as last year"
+    ],
     "severity": "major",
     "weight": 5,
-    "evaluates": ["concept:management_systems"],
-    "detects": ["trap:no_management_systems"],
-    "slots": ["slot:systems_changes"],
-    "sources": ["src:management_systems_role", "src:revisiting_management_systems"]
+    "evaluates": [
+      "concept:management_systems"
+    ],
+    "detects": [
+      "trap:no_management_systems"
+    ],
+    "slots": [
+      "slot:systems_changes"
+    ],
+    "sources": [
+      "src:management_systems_role",
+      "src:revisiting_management_systems"
+    ]
   },
   {
     "id": "test:leading_indicators_exist",
@@ -492,14 +938,28 @@
     "pillar": "pillar:management_systems",
     "statement": "The conditions the logic depends on have observable indicators attached, which would move before the financials.",
     "why_it_matters": "Otherwise the organisation learns its theory was wrong from the income statement, after the cheap correction window has closed.",
-    "pass_signals": ["Indicators derived from the must-be-trues", "Something measurable within the current quarter"],
-    "fail_signals": ["All measures are financial or share", "First checkpoint is a year out"],
+    "pass_signals": [
+      "Indicators derived from the must-be-trues",
+      "Something measurable within the current quarter"
+    ],
+    "fail_signals": [
+      "All measures are financial or share",
+      "First checkpoint is a year out"
+    ],
     "severity": "major",
     "weight": 4,
-    "evaluates": ["concept:non_financial_kpis"],
-    "detects": ["trap:lagging_measures_only"],
-    "slots": ["slot:leading_indicators"],
-    "sources": ["src:non_financial_kpis"]
+    "evaluates": [
+      "concept:non_financial_kpis"
+    ],
+    "detects": [
+      "trap:lagging_measures_only"
+    ],
+    "slots": [
+      "slot:leading_indicators"
+    ],
+    "sources": [
+      "src:non_financial_kpis"
+    ]
   },
   {
     "id": "test:choices_have_owners",
@@ -508,14 +968,27 @@
     "pillar": "pillar:management_systems",
     "statement": "It is clear who makes each choice and what they may decide without escalation.",
     "why_it_matters": "Unowned choices get made by default, inconsistently, by whoever is nearest the problem.",
-    "pass_signals": ["Named owners with stated decision rights"],
-    "fail_signals": ["Ownership at committee level only", "Nobody can say who decides"],
+    "pass_signals": [
+      "Named owners with stated decision rights"
+    ],
+    "fail_signals": [
+      "Ownership at committee level only",
+      "Nobody can say who decides"
+    ],
     "severity": "major",
     "weight": 3,
-    "evaluates": ["concept:choice_chartering"],
-    "detects": ["trap:no_management_systems"],
-    "slots": ["slot:choice_owners"],
-    "sources": ["src:choice_chartering"]
+    "evaluates": [
+      "concept:choice_chartering"
+    ],
+    "detects": [
+      "trap:no_management_systems"
+    ],
+    "slots": [
+      "slot:choice_owners"
+    ],
+    "sources": [
+      "src:choice_chartering"
+    ]
   },
   {
     "id": "test:resource_shift_matches_choices",
@@ -524,14 +997,30 @@
     "pillar": "pillar:management_systems",
     "statement": "Something is being defunded or deprioritised to fund the strategy, not only added.",
     "why_it_matters": "Where resources actually go is the organisation's operative strategy, whatever the document says.",
-    "pass_signals": ["A named reduction or exit", "Senior time reallocated"],
-    "fail_signals": ["All new initiatives, no reductions", "Funded from unspecified efficiencies"],
+    "pass_signals": [
+      "A named reduction or exit",
+      "Senior time reallocated"
+    ],
+    "fail_signals": [
+      "All new initiatives, no reductions",
+      "Funded from unspecified efficiencies"
+    ],
     "severity": "major",
     "weight": 4,
-    "evaluates": ["concept:resource_alignment", "concept:sacrifice"],
-    "detects": ["trap:consensus_strategy", "trap:no_management_systems"],
-    "slots": ["slot:resource_shift"],
-    "sources": ["src:revisiting_management_systems"]
+    "evaluates": [
+      "concept:resource_alignment",
+      "concept:sacrifice"
+    ],
+    "detects": [
+      "trap:consensus_strategy",
+      "trap:no_management_systems"
+    ],
+    "slots": [
+      "slot:resource_shift"
+    ],
+    "sources": [
+      "src:revisiting_management_systems"
+    ]
   },
   {
     "id": "test:real_alternatives_considered",
@@ -540,14 +1029,30 @@
     "pillar": "pillar:logic",
     "statement": "At least one alternative differed in Where-to-Play, was specified well enough to evaluate, and was set aside for a stated reason.",
     "why_it_matters": "The quality of a decision is bounded by the quality of the alternatives considered.",
-    "pass_signals": ["A second possibility with a different arena", "A reason it was rejected that refers to what would have had to be true"],
-    "fail_signals": ["Alternatives named only to be dismissed", "All options share the same arena"],
+    "pass_signals": [
+      "A second possibility with a different arena",
+      "A reason it was rejected that refers to what would have had to be true"
+    ],
+    "fail_signals": [
+      "Alternatives named only to be dismissed",
+      "All options share the same arena"
+    ],
     "severity": "major",
     "weight": 4,
-    "evaluates": ["concept:possibilities", "concept:scsp"],
-    "detects": ["trap:single_option"],
-    "slots": ["slot:alternatives_considered"],
-    "sources": ["src:scsp", "src:scsp_evolution"]
+    "evaluates": [
+      "concept:possibilities",
+      "concept:scsp"
+    ],
+    "detects": [
+      "trap:single_option"
+    ],
+    "slots": [
+      "slot:alternatives_considered"
+    ],
+    "sources": [
+      "src:scsp",
+      "src:scsp_evolution"
+    ]
   },
   {
     "id": "test:must_be_trues_listed",
@@ -556,14 +1061,32 @@
     "pillar": "pillar:logic",
     "statement": "The conditions that would each have to hold for this to be a great choice are stated as falsifiable claims about the world.",
     "why_it_matters": "Until the logic is reverse-engineered, nobody can tell which part of the theory is load-bearing.",
-    "pass_signals": ["Conditions spanning customers, competitors, capabilities, channel and economics", "Each written so it could be shown false"],
-    "fail_signals": ["No assumptions stated", "A risk register with mitigations instead of conditions", "Conditions phrased as intentions"],
+    "pass_signals": [
+      "Conditions spanning customers, competitors, capabilities, channel and economics",
+      "Each written so it could be shown false"
+    ],
+    "fail_signals": [
+      "No assumptions stated",
+      "A risk register with mitigations instead of conditions",
+      "Conditions phrased as intentions"
+    ],
     "severity": "blocking",
     "weight": 5,
-    "evaluates": ["concept:wwhtbt", "concept:must_be_true"],
-    "detects": ["trap:untested_assumptions", "trap:sunk_logic"],
-    "slots": ["slot:must_be_trues"],
-    "sources": ["src:wwhtbt", "src:scsp"]
+    "evaluates": [
+      "concept:wwhtbt",
+      "concept:must_be_true"
+    ],
+    "detects": [
+      "trap:untested_assumptions",
+      "trap:sunk_logic"
+    ],
+    "slots": [
+      "slot:must_be_trues"
+    ],
+    "sources": [
+      "src:wwhtbt",
+      "src:scsp"
+    ]
   },
   {
     "id": "test:barriers_identified",
@@ -572,14 +1095,30 @@
     "pillar": "pillar:logic",
     "statement": "The team can say which must-be-true they believe least, and why.",
     "why_it_matters": "The decision turns on the doubtful condition; effort spent confirming what everyone already believes is wasted.",
-    "pass_signals": ["A named barrier", "Disagreement located on a specific condition"],
-    "fail_signals": ["All conditions asserted with equal confidence", "The most sceptical person's doubt is unrecorded"],
+    "pass_signals": [
+      "A named barrier",
+      "Disagreement located on a specific condition"
+    ],
+    "fail_signals": [
+      "All conditions asserted with equal confidence",
+      "The most sceptical person's doubt is unrecorded"
+    ],
     "severity": "major",
     "weight": 5,
-    "evaluates": ["concept:barriers_to_choice"],
-    "detects": ["trap:untested_assumptions", "trap:assumed_capability"],
-    "slots": ["slot:barriers_to_choice"],
-    "sources": ["src:wwhtbt", "src:scsp"]
+    "evaluates": [
+      "concept:barriers_to_choice"
+    ],
+    "detects": [
+      "trap:untested_assumptions",
+      "trap:assumed_capability"
+    ],
+    "slots": [
+      "slot:barriers_to_choice"
+    ],
+    "sources": [
+      "src:wwhtbt",
+      "src:scsp"
+    ]
   },
   {
     "id": "test:tests_designed_for_barriers",
@@ -588,14 +1127,33 @@
     "pillar": "pillar:logic",
     "statement": "For each barrier there is a test that could change the team's mind, with pass and fail criteria agreed in advance.",
     "why_it_matters": "Tests designed after the data arrives always pass; tests aimed at undoubted conditions teach nothing.",
-    "pass_signals": ["Cheapest sufficient evidence identified", "Pass and fail thresholds set beforehand"],
-    "fail_signals": ["Testing plan is more analysis of the whole opportunity", "No result would change the decision", "No date by which the choice is made"],
+    "pass_signals": [
+      "Cheapest sufficient evidence identified",
+      "Pass and fail thresholds set beforehand"
+    ],
+    "fail_signals": [
+      "Testing plan is more analysis of the whole opportunity",
+      "No result would change the decision",
+      "No date by which the choice is made"
+    ],
     "severity": "major",
     "weight": 4,
-    "evaluates": ["concept:cheapest_test", "concept:scsp"],
-    "detects": ["trap:faux_science", "trap:analysis_paralysis", "trap:incremental_pilots"],
-    "slots": ["slot:tests_planned"],
-    "sources": ["src:scsp", "src:scsp_evolution"]
+    "evaluates": [
+      "concept:cheapest_test",
+      "concept:scsp"
+    ],
+    "detects": [
+      "trap:faux_science",
+      "trap:analysis_paralysis",
+      "trap:incremental_pilots"
+    ],
+    "slots": [
+      "slot:tests_planned"
+    ],
+    "sources": [
+      "src:scsp",
+      "src:scsp_evolution"
+    ]
   },
   {
     "id": "test:decision_point_named",
@@ -604,14 +1162,29 @@
     "pillar": "pillar:logic",
     "statement": "The team has said when it will decide, and what it would choose if no further evidence arrived.",
     "why_it_matters": "Delay is a choice in favour of the status quo, usually made without anyone owning it.",
-    "pass_signals": ["A decision date", "A stated default choice absent new evidence"],
-    "fail_signals": ["Next step is always another piece of work", "Nobody can say what evidence would be sufficient"],
+    "pass_signals": [
+      "A decision date",
+      "A stated default choice absent new evidence"
+    ],
+    "fail_signals": [
+      "Next step is always another piece of work",
+      "Nobody can say what evidence would be sufficient"
+    ],
     "severity": "minor",
     "weight": 3,
-    "evaluates": ["concept:analysis_paralysis_pattern", "concept:no_algorithm"],
-    "detects": ["trap:analysis_paralysis"],
-    "slots": ["slot:tests_planned"],
-    "sources": ["src:faux_science"]
+    "evaluates": [
+      "concept:analysis_paralysis_pattern",
+      "concept:no_algorithm"
+    ],
+    "detects": [
+      "trap:analysis_paralysis"
+    ],
+    "slots": [
+      "slot:tests_planned"
+    ],
+    "sources": [
+      "src:faux_science"
+    ]
   },
   {
     "id": "test:uncertainty_acknowledged",
@@ -620,14 +1193,28 @@
     "pillar": "pillar:logic",
     "statement": "The strategy does not present judgement as calculation, and its quantification is used where data can actually settle a question.",
     "why_it_matters": "Manufactured certainty makes a choice harder to revisit later, because it looks proven rather than chosen.",
-    "pass_signals": ["Stated where the team is betting rather than knowing"],
-    "fail_signals": ["Multi-year projections to the decimal", "Analysis whose every possible result supports the same recommendation"],
+    "pass_signals": [
+      "Stated where the team is betting rather than knowing"
+    ],
+    "fail_signals": [
+      "Multi-year projections to the decimal",
+      "Analysis whose every possible result supports the same recommendation"
+    ],
     "severity": "minor",
     "weight": 3,
-    "evaluates": ["concept:faux_rigour", "concept:strategy_as_theory"],
-    "detects": ["trap:faux_science"],
-    "slots": ["slot:must_be_trues"],
-    "sources": ["src:faux_science"]
+    "evaluates": [
+      "concept:faux_rigour",
+      "concept:strategy_as_theory"
+    ],
+    "detects": [
+      "trap:faux_science"
+    ],
+    "slots": [
+      "slot:must_be_trues"
+    ],
+    "sources": [
+      "src:faux_science"
+    ]
   },
   {
     "id": "test:no_misplaced_shoulds",
@@ -636,14 +1223,28 @@
     "pillar": "pillar:logic",
     "statement": "Every assumption about another party's behaviour is justified by that party's own interests.",
     "why_it_matters": "A bet on other people's virtue is not a competitive asset.",
-    "pass_signals": ["Each external party's upside stated in their terms"],
-    "fail_signals": ["'Customers should value', 'the market will recognise'", "Partner cooperation or competitor restraint assumed without reason"],
+    "pass_signals": [
+      "Each external party's upside stated in their terms"
+    ],
+    "fail_signals": [
+      "'Customers should value', 'the market will recognise'",
+      "Partner cooperation or competitor restraint assumed without reason"
+    ],
     "severity": "major",
     "weight": 4,
-    "evaluates": ["concept:misplaced_should"],
-    "detects": ["trap:misplaced_shoulds"],
-    "slots": ["slot:must_be_trues", "slot:competitor_response"],
-    "sources": ["src:misplaced_shoulds"]
+    "evaluates": [
+      "concept:misplaced_should"
+    ],
+    "detects": [
+      "trap:misplaced_shoulds"
+    ],
+    "slots": [
+      "slot:must_be_trues",
+      "slot:competitor_response"
+    ],
+    "sources": [
+      "src:misplaced_shoulds"
+    ]
   },
   {
     "id": "test:disconfirming_evidence_named",
@@ -652,14 +1253,30 @@
     "pillar": "pillar:logic",
     "statement": "The team has named the observations, and a timeframe, that would mean the strategy should change.",
     "why_it_matters": "Without this, every disappointing result is absorbed as an execution problem and the strategy becomes unfalsifiable.",
-    "pass_signals": ["Specific observable signals with a review point"],
-    "fail_signals": ["Nothing would count as evidence against", "Shortfalls consistently explained as delivery issues"],
+    "pass_signals": [
+      "Specific observable signals with a review point"
+    ],
+    "fail_signals": [
+      "Nothing would count as evidence against",
+      "Shortfalls consistently explained as delivery issues"
+    ],
     "severity": "major",
     "weight": 4,
-    "evaluates": ["concept:disconfirming_evidence", "concept:strategic_stuckness"],
-    "detects": ["trap:sunk_logic", "trap:lagging_measures_only"],
-    "slots": ["slot:disconfirming_evidence"],
-    "sources": ["src:wwhtbt", "src:strategic_stuckness"]
+    "evaluates": [
+      "concept:disconfirming_evidence",
+      "concept:strategic_stuckness"
+    ],
+    "detects": [
+      "trap:sunk_logic",
+      "trap:lagging_measures_only"
+    ],
+    "slots": [
+      "slot:disconfirming_evidence"
+    ],
+    "sources": [
+      "src:wwhtbt",
+      "src:strategic_stuckness"
+    ]
   },
   {
     "id": "test:sacrifice_is_visible",
@@ -668,14 +1285,30 @@
     "pillar": "pillar:coherence",
     "statement": "The choices cost the organisation something it wanted - an opportunity declined, a capability deprioritised, a constituency's priority traded away.",
     "why_it_matters": "A strategy in which nobody lost anything has usually not been decided, only assembled.",
-    "pass_signals": ["A named trade-off and who bore it"],
-    "fail_signals": ["Every constituency's priority survived", "Multiple stated top priorities"],
+    "pass_signals": [
+      "A named trade-off and who bore it"
+    ],
+    "fail_signals": [
+      "Every constituency's priority survived",
+      "Multiple stated top priorities"
+    ],
     "severity": "major",
     "weight": 5,
-    "evaluates": ["concept:sacrifice"],
-    "detects": ["trap:consensus_strategy", "trap:everything_to_everyone", "trap:stuck_in_the_middle"],
-    "slots": ["slot:sacrifice"],
-    "sources": ["src:fixing_strategy", "src:thick_thin"]
+    "evaluates": [
+      "concept:sacrifice"
+    ],
+    "detects": [
+      "trap:consensus_strategy",
+      "trap:everything_to_everyone",
+      "trap:stuck_in_the_middle"
+    ],
+    "slots": [
+      "slot:sacrifice"
+    ],
+    "sources": [
+      "src:fixing_strategy",
+      "src:thick_thin"
+    ]
   },
   {
     "id": "test:coherence_across_pairs",
@@ -684,14 +1317,32 @@
     "pillar": "pillar:coherence",
     "statement": "Reading the cascade down, each choice makes the next easier; reading it up, each choice is necessary to the one above.",
     "why_it_matters": "Strategies fail as often from individually sensible choices that do not add up as from obviously bad ones.",
-    "pass_signals": ["Both passes complete without a break", "Tensions between choices named and resolved"],
-    "fail_signals": ["Boxes filled independently", "A capability or system that serves no stated choice"],
+    "pass_signals": [
+      "Both passes complete without a break",
+      "Tensions between choices named and resolved"
+    ],
+    "fail_signals": [
+      "Boxes filled independently",
+      "A capability or system that serves no stated choice"
+    ],
     "severity": "major",
     "weight": 5,
-    "evaluates": ["concept:cascade_coherence", "concept:coherence_test"],
-    "detects": ["trap:consensus_strategy", "trap:capability_wishlist"],
-    "slots": ["slot:htw_logic", "slot:capabilities_required", "slot:systems_changes"],
-    "sources": ["src:fixing_strategy"]
+    "evaluates": [
+      "concept:cascade_coherence",
+      "concept:coherence_test"
+    ],
+    "detects": [
+      "trap:consensus_strategy",
+      "trap:capability_wishlist"
+    ],
+    "slots": [
+      "slot:htw_logic",
+      "slot:capabilities_required",
+      "slot:systems_changes"
+    ],
+    "sources": [
+      "src:fixing_strategy"
+    ]
   },
   {
     "id": "test:strategy_is_sayable",
@@ -700,14 +1351,29 @@
     "pillar": "pillar:adoption",
     "statement": "The user can state the choices in a few plain sentences that name the customer, the arena, the way of winning and what is excluded.",
     "why_it_matters": "A strategy the people making daily choices cannot state cannot guide those choices.",
-    "pass_signals": ["A short spoken version that survives without slides"],
-    "fail_signals": ["Requires the deck", "People a level or two down describe something different"],
+    "pass_signals": [
+      "A short spoken version that survives without slides"
+    ],
+    "fail_signals": [
+      "Requires the deck",
+      "People a level or two down describe something different"
+    ],
     "severity": "major",
     "weight": 4,
-    "evaluates": ["concept:sayability"],
-    "detects": ["trap:strategy_in_a_drawer", "trap:vague_language"],
-    "slots": ["slot:articulation"],
-    "sources": ["src:investor_relations", "src:novice_strategist"]
+    "evaluates": [
+      "concept:sayability"
+    ],
+    "detects": [
+      "trap:strategy_in_a_drawer",
+      "trap:vague_language"
+    ],
+    "slots": [
+      "slot:articulation"
+    ],
+    "sources": [
+      "src:investor_relations",
+      "src:novice_strategist"
+    ]
   },
   {
     "id": "test:cascade_to_functions",
@@ -716,13 +1382,225 @@
     "pillar": "pillar:adoption",
     "statement": "At least one function or unit can say what it now chooses differently, and what it will stop doing, because of this strategy.",
     "why_it_matters": "A function whose plans would be identical under a different corporate strategy has made no strategic choice.",
-    "pass_signals": ["A function's own arena and way of winning, in service of the whole"],
-    "fail_signals": ["Corporate strategy restated at function level", "No function has changed anything"],
+    "pass_signals": [
+      "A function's own arena and way of winning, in service of the whole"
+    ],
+    "fail_signals": [
+      "Corporate strategy restated at function level",
+      "No function has changed anything"
+    ],
     "severity": "minor",
     "weight": 3,
-    "evaluates": ["concept:functional_strategy", "concept:cascading_strategy"],
-    "detects": ["trap:strategy_in_a_drawer"],
-    "slots": ["slot:cascade_to_units"],
-    "sources": ["src:functional_strategy", "src:choice_chartering"]
+    "evaluates": [
+      "concept:functional_strategy",
+      "concept:cascading_strategy"
+    ],
+    "detects": [
+      "trap:strategy_in_a_drawer"
+    ],
+    "slots": [
+      "slot:cascade_to_units"
+    ],
+    "sources": [
+      "src:functional_strategy",
+      "src:choice_chartering"
+    ]
+  },
+  {
+    "id": "test:framework_not_mistaken_for_strategy",
+    "type": "test",
+    "label": "Borrowed frameworks are inputs, not the strategy",
+    "pillar": "pillar:definition",
+    "statement": "Where a tool or framework is present, the team can say which question it answered and which cascade choices remain open.",
+    "why_it_matters": "A completed template supplies a strong feeling of rigour, which conceals missing choices more effectively than an empty page would.",
+    "pass_signals": [
+      "The tool is described as feeding a choice rather than being one",
+      "The team can name what the tool does not settle"
+    ],
+    "fail_signals": [
+      "Objectives and key results, a scorecard or a canvas presented as the strategy",
+      "The artefact is organised around a template rather than around choices"
+    ],
+    "severity": "major",
+    "weight": 4,
+    "evaluates": [
+      "concept:framework_reconciliation"
+    ],
+    "detects": [
+      "trap:framework_as_strategy",
+      "trap:initiative_list"
+    ],
+    "slots": [
+      "slot:articulation",
+      "slot:htw_logic"
+    ],
+    "sources": [
+      "src:stop_letting_okrs_masquerade_as_strategy",
+      "src:how_to_thwart_strategy_masquerades"
+    ]
+  },
+  {
+    "id": "test:context_fit_acknowledged",
+    "type": "test",
+    "label": "The setting is established before the standards are applied",
+    "pillar": "pillar:definition",
+    "statement": "The kind of organisation and arena is clear - commercial, social sector, regulated, monopoly, startup - and what would count as winning has been stated in terms that fit it.",
+    "why_it_matters": "Tests written for a branded commercial business mark sound strategies in other settings as deficient for reasons that do not apply, which destroys the credibility of the whole assessment.",
+    "pass_signals": [
+      "The setting is stated and the definition of winning suits it",
+      "Where there is no purchase or no direct rival, the desired action and the alternatives are still named"
+    ],
+    "fail_signals": [
+      "Commercial framing applied to an organisation that has no customers in that sense",
+      "The team cannot say what winning would mean in their own setting"
+    ],
+    "severity": "minor",
+    "weight": 3,
+    "evaluates": [
+      "concept:context_conditional_strategy",
+      "concept:no_competition_arena"
+    ],
+    "detects": [],
+    "slots": [
+      "slot:aspiration_win_definition",
+      "slot:customer_action"
+    ],
+    "sources": [
+      "src:strategy_for_organizations_without_competition",
+      "src:playing_to_win_for_social_sector_organizations",
+      "src:the_trickiness_of_university_strategy"
+    ]
+  },
+  {
+    "id": "test:downstream_choices_governed",
+    "type": "test",
+    "label": "The choices made downstream are governed by the strategy",
+    "pillar": "pillar:adoption",
+    "statement": "The team can name choices made below the leadership level that the strategy should shape, and say what the people making them have to go on.",
+    "why_it_matters": "Most of what is later called execution is choice-making at a distance from the centre. A strategy that never reaches those choices cannot be said to have been implemented.",
+    "pass_signals": [
+      "Specific recurring downstream choices named, with the guidance available for them",
+      "An example of a downstream choice that changed because of the strategy"
+    ],
+    "fail_signals": [
+      "Shortfalls consistently attributed to execution or discipline",
+      "Nobody can name a downstream choice the strategy governs"
+    ],
+    "severity": "major",
+    "weight": 4,
+    "evaluates": [
+      "concept:execution_dichotomy",
+      "concept:choice_chartering"
+    ],
+    "detects": [
+      "trap:execution_alibi",
+      "trap:strategy_in_a_drawer"
+    ],
+    "slots": [
+      "slot:choice_owners",
+      "slot:cascade_to_units"
+    ],
+    "sources": [
+      "src:why_execution_is_a_bankrupt_management_concept",
+      "src:strategy_is_what_you_do_not_what_you_say"
+    ]
+  },
+  {
+    "id": "test:corporate_parent_adds_value",
+    "type": "test",
+    "label": "The centre earns its place",
+    "pillar": "pillar:coherence",
+    "statement": "Where several businesses are owned together, there is a stated reason each is better off inside this parent than as a competently owned standalone.",
+    "why_it_matters": "Without it, corporate strategy reduces to a funding mechanism, and a weak business strategy is relocated rather than fixed.",
+    "pass_signals": [
+      "A named contribution from the centre that a standalone owner could not supply",
+      "The businesses share something that would be costly to replicate separately"
+    ],
+    "fail_signals": [
+      "The centre's role is capital allocation and reporting only",
+      "Diversification offered as the answer to a weak position"
+    ],
+    "severity": "minor",
+    "weight": 3,
+    "evaluates": [
+      "concept:corporate_level_choice"
+    ],
+    "detects": [],
+    "slots": [
+      "slot:sacrifice",
+      "slot:htw_logic"
+    ],
+    "sources": [
+      "src:corporate_vs_business_unit_strategy",
+      "src:diversification_cant_disappear_a",
+      "src:parenting_styles_management_strategy"
+    ]
+  },
+  {
+    "id": "test:method_is_valid_not_merely_reliable",
+    "type": "test",
+    "label": "The method aims at being right, not merely repeatable",
+    "pillar": "pillar:logic",
+    "statement": "The team can say why their process would surface a right answer, not only a consistent one, and where its consistency might be hiding an error.",
+    "why_it_matters": "A reliable process applied to a strategic question produces defensible wrong conclusions, and its very consistency makes them hard to challenge.",
+    "pass_signals": [
+      "Acknowledgement of where the process could be consistently wrong",
+      "Qualitative evidence admitted alongside what is countable"
+    ],
+    "fail_signals": [
+      "Confidence rests on the process having been followed",
+      "Only what is measurable was allowed into the decision"
+    ],
+    "severity": "minor",
+    "weight": 3,
+    "evaluates": [
+      "concept:reliability_vs_validity"
+    ],
+    "detects": [
+      "trap:faux_science",
+      "trap:analysis_paralysis"
+    ],
+    "slots": [
+      "slot:must_be_trues",
+      "slot:alternatives_considered"
+    ],
+    "sources": [
+      "src:reliability_versus_validity_in_strategy",
+      "src:the_myth_of_objectivity_strategy"
+    ]
+  },
+  {
+    "id": "test:possibilities_were_invented",
+    "type": "test",
+    "label": "The possibilities were generated, not just gathered",
+    "pillar": "pillar:logic",
+    "statement": "At least one possibility on the table did not exist before this work started, rather than all of them being variants of current operations.",
+    "why_it_matters": "Teams evaluate options competently and generate them badly; if every option is an extrapolation of today, the choice set is the real constraint.",
+    "pass_signals": [
+      "A possibility that had to be invented, with an account of where it came from",
+      "Options that differ in arena, not only in degree"
+    ],
+    "fail_signals": [
+      "Every option is a variant of the current operating model",
+      "Options were assembled from what is already being proposed internally"
+    ],
+    "severity": "major",
+    "weight": 4,
+    "evaluates": [
+      "concept:possibility_generation",
+      "concept:possibilities"
+    ],
+    "detects": [
+      "trap:single_option",
+      "trap:copycat_htw"
+    ],
+    "slots": [
+      "slot:alternatives_considered"
+    ],
+    "sources": [
+      "src:generating_strategy_possibilities",
+      "src:generating_creative_strategy_possibilities",
+      "src:the_design_school_advantage"
+    ]
   }
 ]

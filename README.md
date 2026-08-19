@@ -10,11 +10,11 @@ drafts, or completes the strategy.
 
 ```
                         ┌────────────────────────┐
-   user's strategy ───► │  assess  (44 tests)    │ ──► readiness + gaps
+   user's strategy ───► │  assess  (51 tests)    │ ──► readiness + gaps
                         └───────────┬────────────┘
                                     │
                         ┌───────────▼────────────┐
-                        │  ask  (96 questions)   │ ──► one or two questions,
+                        │  ask  (110 questions)  │ ──► one or two questions,
                         └───────────┬────────────┘      each traced to a gap
                                     │
                           user answers ──► state updated ──► loop
@@ -22,18 +22,18 @@ drafts, or completes the strategy.
 
 ## What is in the graph
 
-336 nodes, 1,636 edges, across eight node types:
+628 nodes, 1,907 edges, across eight node types:
 
 | Type | Count | What it is |
 |---|---|---|
 | `pillar` | 11 | The areas a strategy has to answer for, in assessment order |
-| `concept` | 59 | The vocabulary — Where-to-Play, Promise to the Customer, barriers to choice… |
-| `principle` | 33 | Normative rules, each with how to use it in coaching |
-| `trap` | 27 | Failure patterns, with observable signals and the coaching move for each |
-| `test` | 44 | Checkable propositions with pass/fail signals, severity and weight |
+| `concept` | 68 | The vocabulary — Where-to-Play, Promise to the Customer, barriers to choice… |
+| `principle` | 36 | Normative rules, each with how to use it in coaching |
+| `trap` | 29 | Failure patterns, with observable signals and the coaching move for each |
+| `test` | 51 | Checkable propositions with pass/fail signals, severity and weight |
 | `slot` | 31 | The elements of the *user's* strategy the agent tracks state for |
-| `question` | 96 | The coaching questions, each probing a test and covering a slot |
-| `source` | 35 | Cited pieces from the series, by title and URL |
+| `question` | 110 | The coaching questions, each probing a test and covering a slot |
+| `source` | 292 | The indexed series — every instalment by title, URL and date |
 
 The eleven pillars, in the order the agent works them:
 
@@ -121,7 +121,7 @@ tools/
   coverage_audit.py   measure structural, citation and thematic coverage
   weekly_report.py    the scheduled maintenance run
 .github/workflows/weekly-corpus-check.yml
-tests/                83 tests
+tests/                88 tests
 ```
 
 Most edges are **derived** from reference fields on the nodes (`probes`,
@@ -164,22 +164,37 @@ python3 tools/coverage_audit.py --strict         # exit 1 on structural regressi
 | Coverage | Measurable? | Current |
 |---|---|---|
 | **Structural** — every pillar carries enough tests and questions to run a session; every test probed, every required slot covered, every trap detectable | Yes, fully | complete |
-| **Citation** — how much of the series is indexed | Yes, once the archive is reachable | ~12% (32 posts of an estimated 270) |
-| **Thematic** — whether the concepts span what the series develops | **No** — this is a judgement | declared incomplete, 15 named gaps |
+| **Citation** — how much of the series is indexed | Yes | 289 posts indexed; the archive feed reports 288 |
+| **Thematic** — whether the concepts span what the series develops | Yes, now that the corpus is indexed | verified, 26 registered gaps |
 
-The third row is the honest one. Rather than claim completeness that can't be
-checked, `data/coverage_gaps.json` is an explicit register of themes known to be
-missing or thin — corporate strategy, acquisition logic, pricing, the
-shareholder-value critique, design-and-possibility method, platforms, and others
-— each with its impact, whether it is partly covered already, and what kind of
-node would close it. High-impact entries surface as recommendations on every run,
-so the gaps nag rather than hide.
+`data/coverage_gaps.json` is the register: 26 entries, each carrying a
+`series_titles` count derived from title-level analysis of every indexed
+instalment, so an entry's weight is evidence rather than opinion. High-impact
+entries surface as recommendations on every run.
 
-One register entry is a bug rather than an absence: `gap:public_and_nonprofit`
-records that several tests are phrased in terms of buying at a price, so a sound
-public-sector or non-profit strategy would currently fail `test:customer_action_named`
-for the wrong reason. The audit reports that as a false-negative risk in the
-rubric.
+**The register is also the record of what I got wrong.** Before the corpus was
+reachable, the register was built from assumption, and indexing refuted three of
+its five high-impact entries — acquisition logic (0 instalments, where I had
+claimed it was "a recurring subject"), pricing (0), and the shareholder-value
+critique (1, and prominent in the author's books rather than this series).
+Those entries are kept with `status: not_covered_by_series` and a note saying
+what was assumed, rather than quietly deleted; a test enforces that they keep
+their explanation.
+
+Indexing also found six themes the register never declared, two of them larger
+than anything in it: positioning the framework against other strategy tools
+(15 instalments) and how the answers change by setting (14).
+
+Two entries are **rubric risks** — cases where a sound strategy would fail a test
+for the wrong reason. Both were found this way and both are now addressed:
+
+- `gap:public_and_nonprofit` — several tests were phrased in terms of buying at a
+  price. `test:customer_action_named` now accepts a non-purchase exchange and
+  carries a `context_note`.
+- `gap:cost_and_differentiation_nuance` — the rubric asserted a hard either/or
+  between cost and differentiation, where the series treats the question with more
+  nuance. `concept:cost_effective_differentiation` gives the agent the coherent
+  version of "both" so it does not over-reject.
 
 Density floors (`MIN_PER_PILLAR`, `MIN_QUESTIONS_PER_TEST`) are what turn this
 from a description into a check — the audit caught `pillar:winning_aspiration`
@@ -228,18 +243,23 @@ with citations pointing to where the theme is developed. No article text is
 reproduced, stored, or excerpted anywhere in this repo, and `tools/refresh_corpus.py`
 collects metadata only (title, URL, date) by design.
 
-**The source index is partial.** The environment this was built in blocks
-outbound access to `substack.com`, `rogerlmartin.com` and `medium.com` at the
-network proxy, so full-text retrieval and archive crawling were not possible.
-The 35 cited pieces were verified through web search and confirmed to exist by
-title and URL; the series itself ran weekly from October 2020 to early 2026 and
-is considerably larger. `tools/refresh_corpus.py --dry-run` will index the rest
-from anywhere with network access.
+**The source index is bibliographic.** All 289 instalments are indexed by title,
+URL and publication date — the full run from 2020-10-05 to 2026-08-17. That is
+deliberately all it holds: `tools/refresh_corpus.py` has no code path that
+retrieves or stores article bodies, and a test rejects any body field that
+appears in an API response.
 
-What this means in practice: the *method* encoded here — the pillars, tests,
-traps and questions — is complete enough to run real coaching sessions, because
-it rests on the framework as a whole rather than on any single post. The
-*citation coverage* is the part that improves when the refresh tool can run.
+**How the thematic assessment was made.** Gap weights come from title-level
+analysis across the indexed corpus — counting how many instalments address a
+theme — not from reading and summarising article text. That is enough to tell
+whether a theme is a 15-instalment cluster or a single mention, which is what the
+register needed in order to stop being guesswork.
+
+The first index also exposed a silent-truncation bug worth noting: the archive
+endpoint returns fewer rows than requested while more remain, and the original
+paginator advanced by a fixed page size, so it skipped 27 instalments and
+reported a complete-looking 261. It now advances by rows actually returned and
+de-duplicates by URL.
 
 Original material: [Strategy Practitioner Insights](https://rogerlmartin.substack.com/)
 by Roger L. Martin, and the author's own

@@ -232,10 +232,31 @@ class TestInterview(unittest.TestCase):
         self.assertEqual([q["id"] for q in first], [q["id"] for q in second])
 
     def test_trap_hints_pull_in_detecting_questions(self):
-        state = assess.StrategyState(trap_hints=["trap:misplaced_shoulds"], asked=["q:open_what_is_it"])
+        """A hinted trap surfaces once the higher-priority work is done.
+
+        The policy deliberately ranks missing required slots above suspected
+        traps, so with an empty state the queue is legitimately full of slot
+        questions. Fill the slots and the trap hint must then come through.
+        """
+        state = assess.StrategyState(
+            slots={s["id"]: "filled" for s in GRAPH.by_type("slot")},
+            trap_hints=["trap:misplaced_shoulds"],
+            asked=["q:open_what_is_it"],
+        )
         asks = interview.next_questions(GRAPH, state, limit=20)
         detected = {t for a in asks for t in a["detects"]}
         self.assertIn("trap:misplaced_shoulds", detected)
+
+    def test_trap_hints_are_not_starved_forever(self):
+        """With slots filled, a hinted trap must outrank generic breadth questions."""
+        state = assess.StrategyState(
+            slots={s["id"]: "filled" for s in GRAPH.by_type("slot")},
+            trap_hints=["trap:execution_alibi"],
+            asked=["q:open_what_is_it"],
+        )
+        asks = interview.next_questions(GRAPH, state, limit=5)
+        reasons = {a["reason"] for a in asks}
+        self.assertIn("a suspected pattern needs confirming", reasons)
 
     def test_session_plan_does_not_mutate_state(self):
         state = assess.StrategyState()

@@ -52,9 +52,17 @@ KEEP = ("title", "canonical_url", "post_date", "slug")
 
 def _slug_to_id(slug: str) -> str:
     stem = re.sub(r"[^a-z0-9]+", "_", slug.lower()).strip("_")
-    stem = re.sub(r"_[0-9a-f]{8,}$", "", stem)  # trailing hash substack appends
     stem = re.sub(r"^\d{4}_\d{2}_\d{2}_", "", stem)  # leading date
+    # Trailing content hash, sometimes with "html" glued straight onto it.
+    # Strip before truncating, or truncation leaves half a hash behind.
+    stem = re.sub(r"_?[0-9a-f]{8,}(html)?$", "", stem)
+    stem = re.sub(r"_?html$", "", stem)
     return f"src:{stem[:60].strip('_') or 'post'}"
+
+
+def _title_key(title: str) -> str:
+    """Normalised title, for matching a fetched post to a hand-written entry."""
+    return re.sub(r"[^a-z0-9]+", "", (title or "").lower())
 
 
 def fetch_page(offset: int, timeout: float = 30.0) -> list[dict[str, Any]]:
@@ -74,6 +82,7 @@ def collect(limit: int) -> tuple[list[dict[str, Any]], str | None]:
     "the archive was unreachable" and carry on either way.
     """
     posts: list[dict[str, Any]] = []
+    seen: set[str] = set()
     offset = 0
     while len(posts) < limit:
         try:
@@ -86,8 +95,18 @@ def collect(limit: int) -> tuple[list[dict[str, Any]], str | None]:
             break
         if not page:
             break
-        posts.extend(page)
-        offset += PAGE_SIZE
+
+        fresh = [p for p in page if p.get("canonical_url") and p["canonical_url"] not in seen]
+        for post in fresh:
+            seen.add(post["canonical_url"])
+        posts.extend(fresh)
+
+        # Advance by what the page actually returned, not by the requested size.
+        # This endpoint can return fewer rows than asked for while more remain;
+        # stepping a fixed PAGE_SIZE skips those rows silently.
+        offset += len(page)
+        if not fresh:
+            break
     return posts[:limit], None
 
 
@@ -122,10 +141,24 @@ def to_source_node(post: dict[str, Any]) -> dict[str, Any] | None:
     }
 
 
-def merge(existing: list[dict[str, Any]], fetched: list[dict[str, Any]], today: str) -> tuple[list[dict[str, Any]], int]:
+def merge(
+    existing: list[dict[str, Any]], fetched: list[dict[str, Any]], today: str
+) -> tuple[list[dict[str, Any]], int, int]:
+    """Fold fetched metadata into the existing index.
+
+    Matching is by URL first, then by normalised title. The title pass matters:
+    hand-written entries were added from search results and their URLs can differ
+    from the archive's canonical form. Matching on title lets those entries keep
+    their ids - and therefore the citation edges pointing at them - while their
+    URL is corrected to the canonical one.
+
+    Returns (nodes, added, reconciled).
+    """
     by_url = {node.get("url"): node for node in existing}
+    by_title = {_title_key(node.get("label", "")): node for node in existing if node.get("label")}
     by_id = {node["id"]: node for node in existing}
-    added = 0
+    confirmed = by_url_confirmed(fetched)
+    added = reconciled = 0
 
     for post in fetched:
         node = to_source_node(post)
@@ -134,11 +167,23 @@ def merge(existing: list[dict[str, Any]], fetched: list[dict[str, Any]], today: 
         node["verified_on"] = today
 
         current = by_url.get(node["url"])
+        if current is None:
+            candidate = by_title.get(_title_key(node["label"]))
+            # Only reconcile against an entry whose URL the archive did not confirm.
+            if candidate is not None and candidate.get("url") not in confirmed:
+                current = candidate
+                if current.get("url") != node["url"]:
+                    current["url_previous"] = current.get("url")
+                    current["url"] = node["url"]
+                    by_url[node["url"]] = current
+                    reconciled += 1
+
         if current is not None:
-            # keep hand-written fields; only fill in what is missing
             for key in ("published", "label"):
                 if not current.get(key) and node.get(key):
                     current[key] = node[key]
+            current["verified"] = "archive_api"
+            current["verified_on"] = today
             continue
 
         node_id = node["id"]
@@ -151,9 +196,15 @@ def merge(existing: list[dict[str, Any]], fetched: list[dict[str, Any]], today: 
         existing.append(node)
         by_id[node_id] = node
         by_url[node["url"]] = node
+        by_title.setdefault(_title_key(node["label"]), node)
         added += 1
 
-    return existing, added
+    return existing, added, reconciled
+
+
+def by_url_confirmed(fetched: list[dict[str, Any]]) -> set[str]:
+    """URLs the archive itself reported, so an exact match is never overwritten."""
+    return {p.get("canonical_url") for p in fetched if p.get("canonical_url")}
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -182,10 +233,13 @@ def main(argv: list[str] | None = None) -> int:
 
     existing = json.loads(SOURCES.read_text(encoding="utf-8"))
     before = len(existing)
-    merged, added = merge(existing, fetched, today)
+    merged, added, reconciled = merge(existing, fetched, today)
     new_nodes = merged[before:]
 
-    print(f"{before} existing source node(s); {added} new", file=sys.stderr)
+    print(
+        f"{before} existing source node(s); {added} new; {reconciled} URL(s) reconciled to canonical",
+        file=sys.stderr,
+    )
 
     if args.report:
         Path(args.report).write_text(
@@ -197,6 +251,7 @@ def main(argv: list[str] | None = None) -> int:
                     "fetched": len(fetched),
                     "existing": before,
                     "new_count": added,
+                    "reconciled_count": reconciled,
                     "new_posts": [
                         {"id": n["id"], "published": n["published"], "title": n["label"], "url": n["url"]}
                         for n in new_nodes

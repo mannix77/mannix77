@@ -26,7 +26,7 @@ GAPS = coverage_audit.load_gaps()
 REPORT = coverage_audit.audit(GRAPH, GAPS)
 
 IMPACTS = {"high", "medium", "low", "out_of_scope"}
-STATUSES = {"not_modelled", "partially_modelled", "deliberately_excluded"}
+STATUSES = {"not_modelled", "partially_modelled", "deliberately_excluded", "not_covered_by_series"}
 
 
 class TestGapRegister(unittest.TestCase):
@@ -67,27 +67,61 @@ class TestAudit(unittest.TestCase):
     def test_density_covers_every_pillar(self):
         self.assertEqual(len(REPORT["structural"]["density"]), len(GRAPH.by_type("pillar")))
 
-    def test_citation_coverage_is_reported_as_partial_and_honest(self):
+    def test_citation_coverage_is_substantial_and_counted(self):
         citation = REPORT["citation"]
-        self.assertLess(citation["coverage_ratio"], 1.0)
-        self.assertIn("estimate", citation["series_estimate_basis"])
-        self.assertEqual(REPORT["verdict"]["citation_coverage"], "partial")
+        self.assertLessEqual(citation["coverage_ratio"], 1.0, "ratio must be capped at 1.0")
+        self.assertGreaterEqual(citation["coverage_ratio"], 0.95)
+        self.assertIn("counted", citation["series_estimate_basis"])
+        self.assertEqual(REPORT["verdict"]["citation_coverage"], "substantial")
 
-    def test_thematic_coverage_declares_itself_unmeasurable(self):
-        self.assertFalse(REPORT["thematic"]["measurable"])
-        self.assertEqual(REPORT["verdict"]["thematic_coverage"], "declared_incomplete")
+    def test_thematic_coverage_is_verified_against_the_corpus(self):
+        thematic = REPORT["thematic"]
+        self.assertTrue(thematic["measurable"])
+        self.assertEqual(REPORT["verdict"]["thematic_coverage"], "verified_against_corpus")
+        self.assertTrue(thematic["verified_against_corpus"], "no gap carries a series_titles count")
+
+    def test_refuted_assumptions_are_recorded_not_deleted(self):
+        """Assumptions the corpus disproved stay in the register as a record."""
+        self.assertTrue(REPORT["thematic"]["refuted"], "no refuted entries retained")
+        for gap_id in REPORT["thematic"]["refuted"]:
+            gap = next(g for g in GAPS if g["id"] == gap_id)
+            # "Not covered" means absent or, at most, one incidental mention.
+            self.assertLessEqual(gap["series_titles"], 1, f"{gap_id} has too many instalments to call refuted")
+            self.assertTrue(gap.get("note"), f"{gap_id} should say what was assumed and why it was wrong")
+
+    def test_rubric_risks_are_surfaced(self):
+        areas = {r["area"] for r in REPORT["recommendations"]}
+        self.assertTrue(REPORT["thematic"]["rubric_risks"])
+        for gap_id in REPORT["thematic"]["rubric_risks"]:
+            self.assertIn(gap_id, areas, f"{gap_id} is a rubric risk but is not recommended")
 
     def test_high_impact_gaps_become_recommendations(self):
         areas = {r["area"] for r in REPORT["recommendations"]}
         for gap in GAPS:
-            if gap["impact"] == "high" and gap["status"] != "deliberately_excluded":
-                self.assertIn(gap["id"], areas, f"{gap['id']} is high impact but not recommended")
+            if gap["impact"] != "high":
+                continue
+            if gap["status"] in ("deliberately_excluded", "not_covered_by_series"):
+                continue
+            self.assertIn(gap["id"], areas, f"{gap['id']} is high impact but not recommended")
 
     def test_out_of_scope_gaps_do_not_nag(self):
         areas = {r["area"] for r in REPORT["recommendations"]}
         for gap in GAPS:
             if gap["status"] == "deliberately_excluded":
                 self.assertNotIn(gap["id"], areas, f"{gap['id']} is excluded but still recommended")
+
+    def test_evidence_references_resolve_to_indexed_sources(self):
+        for gap in GAPS:
+            for source_id in gap.get("evidence", []):
+                node = GRAPH.get(source_id)
+                self.assertIsNotNone(node, f"{gap['id']} cites unknown source {source_id}")
+                self.assertEqual(node["type"], "source")
+
+    def test_every_gap_carries_corpus_evidence(self):
+        """A gap without a title count has not been checked against the corpus."""
+        for gap in GAPS:
+            self.assertIn("series_titles", gap, f"{gap['id']} has no series_titles count")
+            self.assertIsInstance(gap["series_titles"], int)
 
     def test_recommendations_are_ordered_by_priority(self):
         order = {"blocking": 0, "high": 1, "medium": 2, "low": 3}
@@ -156,7 +190,7 @@ class TestRefreshCorpus(unittest.TestCase):
 
     def test_merge_adds_new_posts(self):
         existing = [{"id": "src:known", "type": "source", "label": "Known", "url": "https://example.test/p/known"}]
-        merged, added = refresh_corpus.merge(
+        merged, added, _reconciled = refresh_corpus.merge(
             existing,
             [{"title": "Fresh", "canonical_url": "https://example.test/p/fresh", "post_date": "2026-02-01", "slug": "fresh"}],
             "2026-02-02",
@@ -176,15 +210,15 @@ class TestRefreshCorpus(unittest.TestCase):
             }
         ]
         post = {"title": "Known", "canonical_url": "https://example.test/p/known", "post_date": "2026-01-01", "slug": "known"}
-        merged, added = refresh_corpus.merge(existing, [post], "2026-02-02")
-        merged, added_again = refresh_corpus.merge(merged, [post], "2026-02-02")
+        merged, added, _ = refresh_corpus.merge(existing, [post], "2026-02-02")
+        merged, added_again, _ = refresh_corpus.merge(merged, [post], "2026-02-02")
         self.assertEqual((added, added_again), (0, 0))
         self.assertEqual(len(merged), 1)
         self.assertEqual(merged[0]["themes"], ["hand written"], "hand-written fields must survive a refresh")
 
     def test_merge_disambiguates_colliding_ids(self):
         existing = [{"id": "src:fresh", "type": "source", "label": "Old", "url": "https://example.test/p/other"}]
-        merged, added = refresh_corpus.merge(
+        merged, added, _reconciled = refresh_corpus.merge(
             existing,
             [{"title": "Fresh", "canonical_url": "https://example.test/p/fresh", "post_date": "", "slug": "fresh"}],
             "2026-02-02",
