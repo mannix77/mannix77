@@ -1,0 +1,196 @@
+"""Build the portable artefacts from the JSON source of truth.
+
+Produces:
+  build/graph.sqlite   nodes + edges + a full-text index, for the agent runtime
+  build/graph.json     the whole graph in one document, for tooling
+  build/graph.cypher   import script for Neo4j or any Cypher-speaking store
+"""
+
+from __future__ import annotations
+
+import json
+import sqlite3
+from pathlib import Path
+from typing import Any
+
+from .model import DATA_DIR, Graph, load_graph, stats, validate
+
+BUILD_DIR = Path(__file__).resolve().parents[2] / "build"
+
+SEARCH_FIELDS = (
+    "label",
+    "summary",
+    "statement",
+    "text",
+    "intent",
+    "practitioner_note",
+    "why_it_matters",
+    "implication",
+    "coaching_use",
+    "coaching_move",
+    "captures",
+    "assess_focus",
+    "why_costly",
+)
+
+
+def _searchable(node: dict[str, Any]) -> str:
+    parts = [str(node.get(f, "")) for f in SEARCH_FIELDS]
+    for key in ("aka", "signals", "pass_signals", "fail_signals", "themes"):
+        value = node.get(key)
+        if isinstance(value, list):
+            parts.extend(str(v) for v in value)
+    return "\n".join(p for p in parts if p)
+
+
+def _clean(node: dict[str, Any]) -> dict[str, Any]:
+    return {k: v for k, v in node.items() if not k.startswith("_")}
+
+
+def write_sqlite(graph: Graph, path: Path) -> Path:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    if path.exists():
+        path.unlink()
+    conn = sqlite3.connect(path)
+    try:
+        conn.executescript(
+            """
+            CREATE TABLE node (
+                id      TEXT PRIMARY KEY,
+                type    TEXT NOT NULL,
+                label   TEXT,
+                pillar  TEXT,
+                payload TEXT NOT NULL
+            );
+            CREATE TABLE edge (
+                src     TEXT NOT NULL,
+                dst     TEXT NOT NULL,
+                type    TEXT NOT NULL,
+                derived INTEGER NOT NULL,
+                note    TEXT,
+                PRIMARY KEY (src, dst, type)
+            );
+            CREATE INDEX idx_node_type ON node(type);
+            CREATE INDEX idx_node_pillar ON node(pillar);
+            CREATE INDEX idx_edge_src ON edge(src, type);
+            CREATE INDEX idx_edge_dst ON edge(dst, type);
+            """
+        )
+        conn.executemany(
+            "INSERT INTO node (id, type, label, pillar, payload) VALUES (?, ?, ?, ?, ?)",
+            [
+                (
+                    n["id"],
+                    n["type"],
+                    n.get("label") or n.get("text", "")[:120],
+                    n.get("pillar"),
+                    json.dumps(_clean(n), ensure_ascii=False),
+                )
+                for n in graph.nodes.values()
+            ],
+        )
+        # de-duplicate: the same pair can be implied by two different fields
+        seen: set[tuple[str, str, str]] = set()
+        rows = []
+        for e in graph.edges:
+            key = (e.src, e.dst, e.type)
+            if key in seen:
+                continue
+            seen.add(key)
+            rows.append((e.src, e.dst, e.type, int(e.derived), e.note))
+        conn.executemany("INSERT INTO edge (src, dst, type, derived, note) VALUES (?, ?, ?, ?, ?)", rows)
+
+        try:
+            conn.executescript(
+                "CREATE VIRTUAL TABLE node_fts USING fts5(id UNINDEXED, type UNINDEXED, body);"
+            )
+            conn.executemany(
+                "INSERT INTO node_fts (id, type, body) VALUES (?, ?, ?)",
+                [(n["id"], n["type"], _searchable(n)) for n in graph.nodes.values()],
+            )
+        except sqlite3.OperationalError:
+            # FTS5 unavailable in this build of sqlite; query.py falls back to LIKE
+            pass
+
+        conn.commit()
+    finally:
+        conn.close()
+    return path
+
+
+def write_json(graph: Graph, path: Path) -> Path:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    seen: set[tuple[str, str, str]] = set()
+    edges = []
+    for e in graph.edges:
+        key = (e.src, e.dst, e.type)
+        if key not in seen:
+            seen.add(key)
+            edges.append(e.as_dict())
+    doc = {
+        "meta": stats(graph),
+        "nodes": [_clean(n) for n in graph.nodes.values()],
+        "edges": edges,
+    }
+    path.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    return path
+
+
+def _cypher_literal(value: Any) -> str:
+    if isinstance(value, bool):
+        return "true" if value else "false"
+    if isinstance(value, (int, float)):
+        return str(value)
+    if isinstance(value, list):
+        return "[" + ", ".join(_cypher_literal(v) for v in value) + "]"
+    text = str(value).replace("\\", "\\\\").replace("'", "\\'")
+    return f"'{text}'"
+
+
+def write_cypher(graph: Graph, path: Path) -> Path:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    lines = [
+        "// Generated by graphify build - do not edit by hand.",
+        "CREATE CONSTRAINT graphify_node_id IF NOT EXISTS",
+        "FOR (n:GraphifyNode) REQUIRE n.id IS UNIQUE;",
+        "",
+    ]
+    for node in graph.nodes.values():
+        clean = _clean(node)
+        label = node["type"].capitalize()
+        props = ", ".join(
+            f"{k}: {_cypher_literal(v)}"
+            for k, v in clean.items()
+            if isinstance(v, (str, int, float, bool)) or (isinstance(v, list) and all(isinstance(i, str) for i in v))
+        )
+        lines.append(f"CREATE (:GraphifyNode:{label} {{{props}}});")
+    lines.append("")
+    seen: set[tuple[str, str, str]] = set()
+    for e in graph.edges:
+        key = (e.src, e.dst, e.type)
+        if key in seen:
+            continue
+        seen.add(key)
+        lines.append(
+            f"MATCH (a:GraphifyNode {{id: {_cypher_literal(e.src)}}}), "
+            f"(b:GraphifyNode {{id: {_cypher_literal(e.dst)}}}) "
+            f"CREATE (a)-[:{e.type} {{derived: {_cypher_literal(e.derived)}}}]->(b);"
+        )
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    return path
+
+
+def build(data_dir: Path = DATA_DIR, out_dir: Path = BUILD_DIR, strict: bool = True) -> dict[str, Any]:
+    graph = load_graph(data_dir)
+    errors = validate(graph)
+    if errors and strict:
+        raise SystemExit(
+            "graph validation failed:\n  " + "\n  ".join(errors[:40])
+            + (f"\n  ... and {len(errors) - 40} more" if len(errors) > 40 else "")
+        )
+    artefacts = {
+        "sqlite": write_sqlite(graph, out_dir / "graph.sqlite"),
+        "json": write_json(graph, out_dir / "graph.json"),
+        "cypher": write_cypher(graph, out_dir / "graph.cypher"),
+    }
+    return {"stats": stats(graph), "errors": errors, "artefacts": {k: str(v) for k, v in artefacts.items()}}

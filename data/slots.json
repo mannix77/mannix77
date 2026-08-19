@@ -1,0 +1,325 @@
+[
+  {
+    "id": "slot:aspiration_win_definition",
+    "type": "slot",
+    "label": "Definition of winning",
+    "pillar": "pillar:winning_aspiration",
+    "order": 10,
+    "required": true,
+    "captures": "What winning means in this arena, stated so that failing at it is possible.",
+    "sufficient_when": "A named condition in the market that a competitor could deny them.",
+    "not_sufficient": ["A financial target", "A vision statement any competitor would also sign"]
+  },
+  {
+    "id": "slot:aspiration_whose_win",
+    "type": "slot",
+    "label": "Winning for whom",
+    "pillar": "pillar:winning_aspiration",
+    "order": 20,
+    "required": true,
+    "captures": "The customers and other constituencies in whose eyes the organisation intends to win.",
+    "sufficient_when": "A specific group is named, not 'the market'.",
+    "depends_on": ["slot:aspiration_win_definition"]
+  },
+  {
+    "id": "slot:wtp_customers",
+    "type": "slot",
+    "label": "Which customers",
+    "pillar": "pillar:where_to_play",
+    "order": 30,
+    "required": true,
+    "captures": "The customers in the chosen arena, defined by what they are trying to accomplish and how they choose.",
+    "sufficient_when": "The definition distinguishes them behaviourally from customers outside the arena.",
+    "not_sufficient": ["A demographic or size band", "An entire addressable market"],
+    "depends_on": ["slot:aspiration_whose_win"]
+  },
+  {
+    "id": "slot:wtp_offering",
+    "type": "slot",
+    "label": "Which offerings",
+    "pillar": "pillar:where_to_play",
+    "order": 40,
+    "required": true,
+    "captures": "The products, services or categories the organisation will compete with in this arena."
+  },
+  {
+    "id": "slot:wtp_geography",
+    "type": "slot",
+    "label": "Which geographies",
+    "pillar": "pillar:where_to_play",
+    "order": 50,
+    "required": false,
+    "captures": "The geographic scope of the arena, where geography changes how winning works."
+  },
+  {
+    "id": "slot:wtp_channel",
+    "type": "slot",
+    "label": "Which channels and intermediaries",
+    "pillar": "pillar:where_to_play",
+    "order": 60,
+    "required": true,
+    "captures": "How the organisation reaches the customer, and who stands between them.",
+    "sufficient_when": "The channel is named as a choice, with the intermediaries' own interests acknowledged.",
+    "note": "Frequently the unexamined arena choice; ask even when the user does not raise it."
+  },
+  {
+    "id": "slot:wtp_stage",
+    "type": "slot",
+    "label": "Which stage of the chain",
+    "pillar": "pillar:where_to_play",
+    "order": 70,
+    "required": false,
+    "captures": "Which activities in the value chain the organisation occupies and which it leaves to others."
+  },
+  {
+    "id": "slot:wtp_exclusions",
+    "type": "slot",
+    "label": "Where the organisation will not play",
+    "pillar": "pillar:where_to_play",
+    "order": 80,
+    "required": true,
+    "captures": "The arenas deliberately left to others, including ones the organisation could plausibly have pursued.",
+    "sufficient_when": "At least one exclusion is something the organisation could have done and someone wanted to do.",
+    "depends_on": ["slot:wtp_customers"]
+  },
+  {
+    "id": "slot:customer_insight",
+    "type": "slot",
+    "label": "Insight into the chosen customer",
+    "pillar": "pillar:customer",
+    "order": 90,
+    "required": true,
+    "captures": "What is understood about why these customers behave as they do in their own context.",
+    "sufficient_when": "The insight would predict behaviour towards something that does not exist yet.",
+    "depends_on": ["slot:wtp_customers"]
+  },
+  {
+    "id": "slot:customer_action",
+    "type": "slot",
+    "label": "Desired customer action",
+    "pillar": "pillar:customer",
+    "order": 100,
+    "required": true,
+    "captures": "The specific behaviour the strategy must compel, including both quantity and price.",
+    "sufficient_when": "An observable action is named, with a sense of how much and at what price.",
+    "not_sufficient": ["Awareness", "Engagement", "An internal milestone"]
+  },
+  {
+    "id": "slot:customer_promise",
+    "type": "slot",
+    "label": "Promise to the customer",
+    "pillar": "pillar:customer",
+    "order": 110,
+    "required": true,
+    "captures": "What is promised to the chosen customer, in terms they would recognise.",
+    "sufficient_when": "Valuable to them, memorable at the point of choice, and specific enough that breaking it would be visible.",
+    "depends_on": ["slot:customer_insight"]
+  },
+  {
+    "id": "slot:htw_advantage_type",
+    "type": "slot",
+    "label": "Route to advantage",
+    "pillar": "pillar:how_to_win",
+    "order": 120,
+    "required": true,
+    "captures": "Whether winning rests on a structurally lower cost position or on difference customers pay for.",
+    "sufficient_when": "One is chosen, and the trade-offs the other would have required are acknowledged.",
+    "depends_on": ["slot:wtp_customers"]
+  },
+  {
+    "id": "slot:htw_logic",
+    "type": "slot",
+    "label": "The winning logic",
+    "pillar": "pillar:how_to_win",
+    "order": 130,
+    "required": true,
+    "captures": "The causal chain from what the organisation does to why the chosen customer chooses it.",
+    "sufficient_when": "It reads as a because-therefore chain, not a list joined by 'and'.",
+    "depends_on": ["slot:htw_advantage_type", "slot:customer_promise"]
+  },
+  {
+    "id": "slot:htw_why_not_copied",
+    "type": "slot",
+    "label": "Why competitors cannot simply copy it",
+    "pillar": "pillar:competition",
+    "order": 140,
+    "required": true,
+    "captures": "What a rival would have to give up to match this, or why they would be unwilling.",
+    "sufficient_when": "A trade-off is named, not a secret or a head start.",
+    "depends_on": ["slot:htw_logic"]
+  },
+  {
+    "id": "slot:competitor_set",
+    "type": "slot",
+    "label": "Who else is competing for this action",
+    "pillar": "pillar:competition",
+    "order": 150,
+    "required": true,
+    "captures": "The named alternatives the customer actually considers, including substitutes and doing nothing.",
+    "sufficient_when": "Specific alternatives are named and what the customer does today is described."
+  },
+  {
+    "id": "slot:competitor_response",
+    "type": "slot",
+    "label": "Expected competitor response",
+    "pillar": "pillar:competition",
+    "order": 160,
+    "required": true,
+    "captures": "What rivals do once this becomes visible, and why that does not neutralise the strategy.",
+    "depends_on": ["slot:competitor_set"]
+  },
+  {
+    "id": "slot:capabilities_required",
+    "type": "slot",
+    "label": "Capabilities the logic requires",
+    "pillar": "pillar:capabilities",
+    "order": 170,
+    "required": true,
+    "captures": "The activities that must be done distinctively well for the winning logic to hold.",
+    "sufficient_when": "Each one is traceable to a step in the winning logic.",
+    "depends_on": ["slot:htw_logic"]
+  },
+  {
+    "id": "slot:capability_gaps",
+    "type": "slot",
+    "label": "Capability gaps and how they close",
+    "pillar": "pillar:capabilities",
+    "order": 180,
+    "required": true,
+    "captures": "Which required capabilities the organisation lacks, and whether each is built, bought, partnered or dropped.",
+    "depends_on": ["slot:capabilities_required"]
+  },
+  {
+    "id": "slot:capability_reinforcement",
+    "type": "slot",
+    "label": "How the capabilities reinforce each other",
+    "pillar": "pillar:capabilities",
+    "order": 190,
+    "required": false,
+    "captures": "Which capabilities are valuable only in the presence of the others.",
+    "depends_on": ["slot:capabilities_required"]
+  },
+  {
+    "id": "slot:systems_changes",
+    "type": "slot",
+    "label": "What changes in the management systems",
+    "pillar": "pillar:management_systems",
+    "order": 200,
+    "required": true,
+    "captures": "The measures, budgets, reviews, routines and incentives that change to build and protect the choices.",
+    "sufficient_when": "At least one concrete change is named that someone would notice next month.",
+    "depends_on": ["slot:capabilities_required"]
+  },
+  {
+    "id": "slot:leading_indicators",
+    "type": "slot",
+    "label": "Leading indicators",
+    "pillar": "pillar:management_systems",
+    "order": 210,
+    "required": true,
+    "captures": "Non-financial measures tied to the conditions the strategy's logic depends on.",
+    "depends_on": ["slot:must_be_trues"]
+  },
+  {
+    "id": "slot:choice_owners",
+    "type": "slot",
+    "label": "Who owns which choice",
+    "pillar": "pillar:management_systems",
+    "order": 220,
+    "required": true,
+    "captures": "The named owner of each choice and the boundaries within which it is theirs to make.",
+    "depends_on": ["slot:htw_logic"]
+  },
+  {
+    "id": "slot:resource_shift",
+    "type": "slot",
+    "label": "What gets funded and defunded",
+    "pillar": "pillar:management_systems",
+    "order": 230,
+    "required": true,
+    "captures": "The actual movement of money, people and senior attention implied by the choices.",
+    "sufficient_when": "Something is being reduced, not only added.",
+    "depends_on": ["slot:wtp_exclusions"]
+  },
+  {
+    "id": "slot:alternatives_considered",
+    "type": "slot",
+    "label": "Alternative possibilities considered",
+    "pillar": "pillar:logic",
+    "order": 240,
+    "required": true,
+    "captures": "The other genuine ways the organisation could have tried to win, and why they were set aside.",
+    "sufficient_when": "At least one alternative differed in Where-to-Play, not only in emphasis."
+  },
+  {
+    "id": "slot:must_be_trues",
+    "type": "slot",
+    "label": "What would have to be true",
+    "pillar": "pillar:logic",
+    "order": 250,
+    "required": true,
+    "captures": "The conditions about customers, competitors, capabilities, channels and economics that must hold for this to be a great choice.",
+    "sufficient_when": "Written as falsifiable statements about the world rather than as intentions.",
+    "depends_on": ["slot:htw_logic"]
+  },
+  {
+    "id": "slot:barriers_to_choice",
+    "type": "slot",
+    "label": "The least believed condition",
+    "pillar": "pillar:logic",
+    "order": 260,
+    "required": true,
+    "captures": "Which of the must-be-trues the team believes least, and why.",
+    "depends_on": ["slot:must_be_trues"]
+  },
+  {
+    "id": "slot:tests_planned",
+    "type": "slot",
+    "label": "Tests for the barriers",
+    "pillar": "pillar:logic",
+    "order": 270,
+    "required": true,
+    "captures": "The cheapest evidence that would change the team's mind about each barrier, with pass and fail criteria set in advance.",
+    "depends_on": ["slot:barriers_to_choice"]
+  },
+  {
+    "id": "slot:disconfirming_evidence",
+    "type": "slot",
+    "label": "What would prove this wrong",
+    "pillar": "pillar:logic",
+    "order": 280,
+    "required": true,
+    "captures": "The observations, agreed now, that would mean the strategy should change.",
+    "depends_on": ["slot:must_be_trues"]
+  },
+  {
+    "id": "slot:sacrifice",
+    "type": "slot",
+    "label": "What is given up",
+    "pillar": "pillar:coherence",
+    "order": 290,
+    "required": true,
+    "captures": "What the organisation becomes worse at, or declines to pursue, as a direct consequence of these choices.",
+    "sufficient_when": "Someone internally lost something they wanted."
+  },
+  {
+    "id": "slot:articulation",
+    "type": "slot",
+    "label": "The strategy stated plainly",
+    "pillar": "pillar:adoption",
+    "order": 300,
+    "required": true,
+    "captures": "The strategy as the user would say it out loud, without a document.",
+    "sufficient_when": "It names the customer, the arena, the way of winning, and what is excluded."
+  },
+  {
+    "id": "slot:cascade_to_units",
+    "type": "slot",
+    "label": "What changes for functions and units",
+    "pillar": "pillar:adoption",
+    "order": 310,
+    "required": false,
+    "captures": "What a specific function or unit now chooses differently because of this strategy.",
+    "depends_on": ["slot:articulation"]
+  }
+]

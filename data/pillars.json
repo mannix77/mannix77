@@ -1,0 +1,143 @@
+[
+  {
+    "id": "pillar:definition",
+    "type": "pillar",
+    "label": "What Strategy Is (and Is Not)",
+    "order": 10,
+    "summary": "Whether the thing on the table is actually a strategy: an integrated set of choices about where to compete and how to win, aimed at compelling a specific customer action - as opposed to a plan, a budget, a vision, or a list of initiatives.",
+    "assess_focus": "Classify the artefact before critiquing it. Most weak strategies fail here, and no amount of downstream polish fixes a category error.",
+    "sources": [
+      "src:revisiting_definition",
+      "src:fixing_strategy"
+    ]
+  },
+  {
+    "id": "pillar:winning_aspiration",
+    "type": "pillar",
+    "label": "Winning Aspiration",
+    "order": 20,
+    "summary": "What winning means, for whom, and in whose eyes - the purpose the rest of the choices serve.",
+    "assess_focus": "Look for a definition of winning that could be lost, not a financial target and not a slogan.",
+    "sources": [
+      "src:publication"
+    ]
+  },
+  {
+    "id": "pillar:where_to_play",
+    "type": "pillar",
+    "label": "Where-to-Play",
+    "order": 30,
+    "summary": "The arena: which customers, which offerings, which geographies, which channels, which stages of the value chain - and, by necessity, which not.",
+    "assess_focus": "A Where-to-Play that excludes nothing is not a choice. Probe the unstated arenas, especially channel and intermediate customers.",
+    "sources": [
+      "src:hidden_wtp",
+      "src:regional_strategy",
+      "src:thick_thin"
+    ]
+  },
+  {
+    "id": "pillar:customer",
+    "type": "pillar",
+    "label": "Customer & Promise",
+    "order": 40,
+    "summary": "The specific customer whose action the strategy is meant to compel, the insight into that customer's context, and the promise made to them.",
+    "assess_focus": "Push from abstractions ('the market', 'users') to a named customer whose behaviour can be described and observed.",
+    "sources": [
+      "src:revisiting_definition",
+      "src:regional_strategy",
+      "src:culture_change"
+    ]
+  },
+  {
+    "id": "pillar:how_to_win",
+    "type": "pillar",
+    "label": "How-to-Win",
+    "order": 50,
+    "summary": "Within the chosen arena, the reason a customer chooses you over the alternatives, and the reason that reason holds up against competitors.",
+    "assess_focus": "Test for a single coherent logic that resolves to lower cost or to differentiation, not a portfolio of unrelated initiatives.",
+    "sources": [
+      "src:powerful_htw",
+      "src:creative_offense",
+      "src:thick_thin"
+    ]
+  },
+  {
+    "id": "pillar:competition",
+    "type": "pillar",
+    "label": "Competition & Context",
+    "order": 60,
+    "summary": "Who else is trying to win in the same arena, what they can and will do in response, and what about the landscape makes winning possible at all.",
+    "assess_focus": "A strategy with no competitor in the story is a plan. Ask what a rival would have to fail to do.",
+    "sources": [
+      "src:what_questions",
+      "src:rugged_landscapes",
+      "src:book_club_ch11"
+    ]
+  },
+  {
+    "id": "pillar:capabilities",
+    "type": "pillar",
+    "label": "Capabilities",
+    "order": 70,
+    "summary": "The activities that must be done distinctively well, and must reinforce one another, for the How-to-Win to be real rather than aspirational.",
+    "assess_focus": "Trace each claimed capability back to the How-to-Win it serves; unattached capabilities are wish lists.",
+    "sources": [
+      "src:book_club_ch11"
+    ]
+  },
+  {
+    "id": "pillar:management_systems",
+    "type": "pillar",
+    "label": "Management Systems",
+    "order": 80,
+    "summary": "The systems, measures, routines and ownership that build the capabilities and keep the choices alive after the offsite ends.",
+    "assess_focus": "Ask what would have to change on Monday. If nothing in the measures, budgets or meeting agendas changes, the strategy has no mechanism.",
+    "sources": [
+      "src:management_systems_role",
+      "src:revisiting_management_systems",
+      "src:non_financial_kpis",
+      "src:choice_chartering"
+    ]
+  },
+  {
+    "id": "pillar:coherence",
+    "type": "pillar",
+    "label": "Coherence of the Whole",
+    "order": 90,
+    "summary": "Whether the choices reinforce one another end to end, read in both directions, rather than each being defensible on its own.",
+    "assess_focus": "Test pairs, not boxes: does this Where-to-Play make this How-to-Win easier, and do these capabilities make sense only here?",
+    "sources": [
+      "src:fixing_strategy"
+    ]
+  },
+  {
+    "id": "pillar:logic",
+    "type": "pillar",
+    "label": "Logic, Assumptions & Testing",
+    "order": 100,
+    "summary": "The strategy treated as a theory: what must be true for it to work, which of those things is least likely, and how that will be tested before betting the company.",
+    "assess_focus": "This is where the highest-leverage questioning lives. Separate the logic from the evidence, then find the weakest link.",
+    "sources": [
+      "src:wwhtbt",
+      "src:scsp",
+      "src:scsp_evolution",
+      "src:faux_science",
+      "src:misplaced_shoulds",
+      "src:innovation_driven_change"
+    ]
+  },
+  {
+    "id": "pillar:adoption",
+    "type": "pillar",
+    "label": "Adoption, Cascade & Adaptation",
+    "order": 110,
+    "summary": "Whether the people who make daily choices know the strategy, own their piece of it, and can tell when it needs to change.",
+    "assess_focus": "Ask who else could state this strategy without the deck, and what evidence would make the team abandon it.",
+    "sources": [
+      "src:choice_chartering",
+      "src:functional_strategy",
+      "src:strategic_stuckness",
+      "src:investor_relations"
+    ]
+  }
+]

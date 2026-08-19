@@ -1,0 +1,8 @@
+# generated artefacts - rebuild with: PYTHONPATH=src python3 -m graphify build
+build/
+
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.DS_Store
