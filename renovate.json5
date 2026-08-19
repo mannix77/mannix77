@@ -1,0 +1,75 @@
+// Ported from stock-analyzer, cut down to what this repository actually has.
+//
+// JSON5, not JSON, so these comments are legal: Renovate's config validator
+// rejects unknown keys, including the `//` comment convention.
+//
+// The big difference from the source config: this project has NO dependencies.
+// It is standard-library Python by design, with no requirements.txt and no
+// lockfile, so every pip_requirements rule in the original has nothing to act
+// on. What can drift here is the pinned actions in .github/workflows — three
+// workflows referencing checkout, setup-python and upload-artifact. So the
+// github-actions manager is the whole job.
+//
+// AI attribution: Renovate commits and PRs are authored by renovate[bot], so
+// they are exempt — check-commits.sh skips authors matching '[bot]', and the
+// PR-body check in .github/workflows/ai-attribution.yml skips user.type == 'Bot'.
+// Renovate cannot emit AI-* trailers itself; the bot identity in the author
+// field is the attribution.
+{
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  extends: ['config:recommended'],
+
+  // Mend's hosted runner injects `mode: 'silent'` on a new installation, which
+  // is invisible from GitHub: the job runs, succeeds, and creates nothing.
+  // Declared explicitly rather than toggled in the Mend UI so the setting is
+  // version-controlled and survives a re-install.
+  mode: 'full',
+
+  // dependencyDashboardApproval makes the dashboard issue the only thing
+  // Renovate opens unprompted: no branch is pushed and no PR created until the
+  // corresponding checkbox is ticked. prCreation:'approval' would still push
+  // branches and run CI.
+  dependencyDashboard: true,
+  dependencyDashboardApproval: true,
+  dependencyDashboardTitle: 'Dependency Dashboard',
+
+  // Weekly, before the Tuesday corpus-check cron, so an action bump and the
+  // scheduled maintenance run do not land on top of each other. UTC — no
+  // timezone set.
+  schedule: ['before 6am on monday'],
+  prConcurrentLimit: 5,
+  labels: ['dependencies', 'ai-attribution:bot-exempt'],
+
+  semanticCommits: 'enabled',
+
+  // No pip manager is configured, so Renovate has no vulnerability surface to
+  // handle for application dependencies. Left explicit so the intent survives:
+  // if dependencies are ever added, decide deliberately whether Renovate or
+  // Dependabot owns security updates rather than letting both file for the
+  // same CVE.
+  vulnerabilityAlerts: {
+    enabled: false,
+  },
+
+  packageRules: [
+    {
+      description: 'Unpinned actions are a supply-chain risk; all action bumps in one entry.',
+      matchManagers: ['github-actions'],
+      groupName: 'actions-all',
+      semanticCommitType: 'ci',
+      addLabels: ['github-actions'],
+    },
+    {
+      // Nothing matches this today. It is here so that the moment a
+      // requirements.txt appears, floors are treated correctly rather than
+      // inheriting a default that raises every one of them. 'replace' rewrites
+      // a range only when the adopted version falls outside it; 'bump' would
+      // raise every floor to the newest release, which changes nothing about
+      // what a fresh clone installs and only narrows the environments that
+      // still resolve.
+      description: 'If dependencies are ever added: raise a floor only when the range genuinely excludes the new version.',
+      matchManagers: ['pip_requirements'],
+      rangeStrategy: 'replace',
+    },
+  ],
+}
