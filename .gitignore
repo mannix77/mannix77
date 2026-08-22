@@ -1,6 +1,9 @@
 # generated artefacts - rebuild with: PYTHONPATH=src python3 -m graphify build
 build/
 
+# packaged MCP bundle - rebuild with: python3 tools/build_mcpb.py
+dist/
+
 __pycache__/
 *.py[cod]
 .venv/

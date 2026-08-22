@@ -1,0 +1,92 @@
+{
+  "manifest_version": "0.3",
+  "name": "strategy-graph",
+  "display_name": "Strategy Practitioner Graph",
+  "version": "0.1.0",
+  "description": "Assess a strategy and ask the questions that improve it, from a knowledge graph of the strategy practitioner method.",
+  "long_description": "A Socratic coaching server over a 653-node graph of the strategy practitioner method drawn from Roger L. Martin's Strategy Practitioner Insights series.\n\nIt assesses a strategy against 54 checkable tests and returns the ranked question that follows from the weakest point — and it deliberately will not write the strategy. A strategy the user did not choose is one they cannot defend, cascade, or resource.\n\nThe division of labour is the point: the graph decides structure (which tests apply, what gates what, which question follows from which gap) deterministically, so every question is traceable rather than improvised. The calling agent supplies the verdicts, because judging whether a stated way of winning really resolves to a cost advantage is a reading task.\n\nStandard library only — nothing to install, nothing to resolve.",
+  "author": {
+    "name": "mannix77"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mannix77/mannix77"
+  },
+  "documentation": "https://github.com/mannix77/mannix77/blob/master/docs/MCP.md",
+  "keywords": ["strategy", "coaching", "knowledge-graph", "playing-to-win", "socratic"],
+  "server": {
+    "type": "python",
+    "entry_point": "server/main.py",
+    "mcp_config": {
+      "command": "python",
+      "args": ["${__dirname}/server/main.py"],
+      "env": {
+        "PYTHONPATH": "${__dirname}/server/lib",
+        "PYTHONUNBUFFERED": "1",
+        "GRAPHIFY_DATA_DIR": "${__dirname}/server/lib/data"
+      }
+    }
+  },
+  "tools_generated": false,
+  "tools": [
+    {
+      "name": "strategy_load_context",
+      "description": "Load the assessment framework: pillars in order, principles, failure patterns, tests with pass/fail signals, slots."
+    },
+    {
+      "name": "strategy_search",
+      "description": "Search the graph by keyword to find a node id."
+    },
+    {
+      "name": "strategy_get_pillar",
+      "description": "The full assessment kit for one area of strategy."
+    },
+    {
+      "name": "strategy_get_concept",
+      "description": "One concept with its practitioner note, relations and citations."
+    },
+    {
+      "name": "strategy_get_test",
+      "description": "One test with its pass/fail signals, weight and probing questions."
+    },
+    {
+      "name": "strategy_get_trap",
+      "description": "One failure pattern with its observable signals and coaching move."
+    },
+    {
+      "name": "strategy_explain_link",
+      "description": "Shortest path between two nodes, to justify a question."
+    },
+    {
+      "name": "strategy_list_corpus",
+      "description": "The indexed source material by title, URL and date. Metadata only."
+    },
+    {
+      "name": "strategy_prescreen",
+      "description": "Unverified regex hints over a pasted strategy document."
+    },
+    {
+      "name": "strategy_assess",
+      "description": "Per-pillar readiness, blocking failures and a ranked gap list from a strategy state."
+    },
+    {
+      "name": "strategy_next_questions",
+      "description": "The ranked question queue, each entry carrying why it was chosen."
+    },
+    {
+      "name": "strategy_coverage_report",
+      "description": "Questions asked versus available, by pillar."
+    },
+    {
+      "name": "strategy_session_plan",
+      "description": "Preview several rounds of questioning without changing state."
+    }
+  ],
+  "compatibility": {
+    "platforms": ["darwin", "win32", "linux"],
+    "runtimes": {
+      "python": ">=3.11"
+    }
+  }
+}
