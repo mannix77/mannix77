@@ -123,6 +123,7 @@ tools/
   refresh_corpus.py   extend the source index (metadata only)
   coverage_audit.py   measure structural, citation and thematic coverage
   weekly_report.py    the scheduled maintenance run
+mcpb/                 the MCP server + .mcpb bundle manifest
 scripts/ai-attribution/  provenance hooks and CI checkers
 .githooks/            prepare-commit-msg, installed via core.hooksPath
 .github/workflows/
@@ -140,6 +141,17 @@ readable and the edge list cannot drift out of sync. `validate` enforces
 referential integrity, id conventions, required fields, that every test is probed
 by some question, that every required slot is covered, that every trap is
 detectable, and that the `PRECEDES` chain agrees with the pillars' `order` fields.
+
+## Using it from an MCP client
+
+```bash
+python3 tools/build_mcpb.py --verify     # -> dist/strategy-graph-0.1.0.mcpb (~149 KB)
+```
+
+13 read-only tools over stdio. Open the `.mcpb` in a desktop app, or point any
+client at `mcpb/server/main.py` — it runs straight from a checkout too, since
+there is nothing to install. Details and design notes in
+[`docs/MCP.md`](docs/MCP.md).
 
 ## Contributing
 

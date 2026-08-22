@@ -52,6 +52,16 @@ jobs:
           PYTHONPATH=src python3 -m graphify assess examples/meridian_turn1.json > /dev/null
           PYTHONPATH=src python3 -m graphify next examples/meridian_turn2.json --limit 3 > /dev/null
 
+      - name: Build and verify the MCP bundle
+        run: python3 tools/build_mcpb.py --verify
+
+      - name: Upload the installable bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: strategy-graph-mcpb
+          path: dist/*.mcpb
+          retention-days: 30
+
       - name: Attribution scripts are syntactically valid
         run: |
           for f in scripts/ai-attribution/*.sh .githooks/*; do
