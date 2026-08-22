@@ -123,8 +123,15 @@ tools/
   refresh_corpus.py   extend the source index (metadata only)
   coverage_audit.py   measure structural, citation and thematic coverage
   weekly_report.py    the scheduled maintenance run
-.github/workflows/weekly-corpus-check.yml
-tests/                88 tests
+scripts/ai-attribution/  provenance hooks and CI checkers
+.githooks/            prepare-commit-msg, installed via core.hooksPath
+.github/workflows/
+  ci.yml                    validate + tests + audit + build
+  ai-attribution.yml        required provenance check on PRs
+  ai-attribution-audit.yml  post-merge backstop
+  weekly-corpus-check.yml   scheduled archive + coverage run
+CLAUDE.md             conventions and the pre-push checklist
+tests/                104 tests
 ```
 
 Most edges are **derived** from reference fields on the nodes (`probes`,
@@ -133,6 +140,22 @@ readable and the edge list cannot drift out of sync. `validate` enforces
 referential integrity, id conventions, required fields, that every test is probed
 by some question, that every required slot is covered, that every trap is
 detectable, and that the `PRECEDES` chain agrees with the pillars' `order` fields.
+
+## Contributing
+
+Two gates, both enforced in CI:
+
+- **`CI`** — graph validation, the full test suite, the coverage audit in strict
+  mode, and the build. Nothing to install; the project is stdlib-only.
+- **`AI attribution check`** — every commit and PR declares which model produced
+  it. Run `bash scripts/ai-attribution/setup.sh` once per clone so the trailers
+  are appended automatically. Full policy in
+  [`docs/AI_ATTRIBUTION.md`](docs/AI_ATTRIBUTION.md); conventions in
+  [`CLAUDE.md`](CLAUDE.md).
+
+Both workflows report from the moment they land, but nothing *blocks* on them
+until a ruleset on `master` requires the checks — that is a repository setting,
+not something a workflow file can grant itself.
 
 ## Extending it
 

@@ -1,0 +1,85 @@
+#!/usr/bin/env bash
+# Append AI provenance trailers to every commit message.
+#
+# Installed by scripts/ai-attribution/setup.sh, which points core.hooksPath here.
+#
+# Inside a Claude Code session, the model id and transcript path come from a
+# state file written by .claude/hooks/session_start.py — SessionStart is the only
+# hook that receives the model id.
+#
+# When the session cannot be identified, this hook REFUSES the commit rather than
+# stamping a filler value. A non-blank placeholder passes a presence check, which
+# would let a commit merge green while declaring nothing.
+set -euo pipefail
+
+MSG_FILE="$1"
+SOURCE="${2:-}"
+
+# Leave squash/merge/amend-from-existing messages alone; a message that already
+# carries a trailer block has been handled.
+case "$SOURCE" in
+  merge|squash) exit 0 ;;
+esac
+if grep -qE '^AI-(Model|Assisted):' "$MSG_FILE"; then
+  exit 0
+fi
+
+in_claude_session() {
+  [ -n "${CLAUDECODE:-}" ] || [ -n "${CLAUDE_CODE_SESSION_ID:-}" ]
+}
+
+if ! in_claude_session; then
+  printf '\nAI-Assisted: none\n' >> "$MSG_FILE"
+  exit 0
+fi
+
+SESSION="${CLAUDE_CODE_SESSION_ID:-${CLAUDE_CODE_REMOTE_SESSION_ID:-}}"
+STATE_DIR="${AI_ATTRIBUTION_STATE_DIR:-$HOME/.claude/ai-attribution}"
+MODEL=""
+TRANSCRIPT=""
+
+if [ -n "$SESSION" ] && [ -r "$STATE_DIR/$SESSION.env" ]; then
+  # shellcheck disable=SC1090
+  . "$STATE_DIR/$SESSION.env"
+  MODEL="${AI_MODEL:-}"
+  TRANSCRIPT="${AI_TRANSCRIPT:-}"
+fi
+
+# Per-clone fallback for sessions started outside a project that registers the
+# SessionStart hook: git config ai.model claude-opus-5
+if [ -z "$MODEL" ]; then
+  MODEL="$(git config --get ai.model || true)"
+fi
+
+if [ -z "$MODEL" ]; then
+  cat >&2 <<'EOF'
+ai-attribution: refusing to commit — the model id for this session is unknown.
+
+A Claude Code session is active but no model was recorded, so this commit would
+declare nothing while still passing a presence check.
+
+Fix it either way:
+
+  bash scripts/ai-attribution/setup.sh --global-hooks   # record the model in every session
+  git config ai.model <model-id>                        # or declare it for this clone
+
+See docs/AI_ATTRIBUTION.md.
+EOF
+  exit 1
+fi
+
+# Written with explicit `if`s rather than `[ -n "$x" ] && printf ...`. Under
+# `set -e` a trailing test that evaluates false becomes the block's exit status,
+# which aborts the hook and silently aborts the commit with no diagnostic.
+{
+  printf '\n'
+  printf 'AI-Model: %s\n' "$MODEL"
+  if [ -n "$SESSION" ]; then
+    printf 'AI-Session: %s\n' "$SESSION"
+  fi
+  if [ -n "$TRANSCRIPT" ]; then
+    printf 'AI-Transcript: %s\n' "$TRANSCRIPT"
+  fi
+} >> "$MSG_FILE"
+
+exit 0

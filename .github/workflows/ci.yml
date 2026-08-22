@@ -1,0 +1,64 @@
+name: CI
+
+# The repository's actual quality gate. Nothing to install: the project is
+# standard-library only by design, so this is deliberately dependency-free.
+#
+# `graphify validate` is the load-bearing check. It enforces referential
+# integrity across the data files, id conventions, that every test is probed by
+# some question, that every required slot is covered, that every trap is
+# detectable, and that the pillar PRECEDES chain agrees with the order fields.
+# A graph that fails it cannot drive the agent.
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Graph integrity
+        run: PYTHONPATH=src python3 -m graphify validate
+
+      - name: Tests
+        run: python3 -m unittest discover -s tests -t . -v
+
+      - name: Coverage audit (structural regressions fail)
+        run: python3 tools/coverage_audit.py --strict --quiet
+
+      - name: Build artefacts
+        run: PYTHONPATH=src python3 -m graphify build
+
+      - name: Confirm the worked example still runs
+        run: |
+          PYTHONPATH=src python3 -m graphify prescreen examples/scenario_meridian.md
+          PYTHONPATH=src python3 -m graphify assess examples/meridian_turn1.json > /dev/null
+          PYTHONPATH=src python3 -m graphify next examples/meridian_turn2.json --limit 3 > /dev/null
+
+      - name: Attribution scripts are syntactically valid
+        run: |
+          for f in scripts/ai-attribution/*.sh .githooks/*; do
+            bash -n "$f" && echo "ok $f"
+          done
+          python3 -m py_compile .claude/hooks/session_start.py && echo "ok session_start.py"
+
+      - name: Coverage summary
+        if: always()
+        run: python3 tools/coverage_audit.py >> "$GITHUB_STEP_SUMMARY"

@@ -8,6 +8,8 @@ functions are exercised here.
 from __future__ import annotations
 
 import copy
+import json
+import subprocess
 import sys
 import unittest
 from pathlib import Path
@@ -330,8 +332,276 @@ class TestWeeklyReport(unittest.TestCase):
         self.assertEqual(result["new_count"], 0)
 
 
+class TestAttributionScripts(unittest.TestCase):
+    """The AI attribution gate, ported from stock-analyzer.
+
+    The two selector behaviours below are the reason trailer-block.sh exists at
+    all; both correspond to false positives that reached a default branch in the
+    original repo.
+    """
+
+    SCRIPTS = ROOT / "scripts" / "ai-attribution"
+
+    def _run(self, script: str, stdin: str) -> subprocess.CompletedProcess:
+        return subprocess.run(
+            ["bash", str(self.SCRIPTS / script), "-"] if script != "trailer-block.sh"
+            else ["bash", str(self.SCRIPTS / script)],
+            input=stdin,
+            capture_output=True,
+            text=True,
+        )
+
+    def test_scripts_are_syntactically_valid(self):
+        targets = list(self.SCRIPTS.glob("*.sh")) + [ROOT / ".githooks" / "prepare-commit-msg"]
+        self.assertTrue(targets)
+        for path in targets:
+            with self.subTest(script=path.name):
+                self.assertEqual(subprocess.run(["bash", "-n", str(path)]).returncode, 0)
+
+    def test_selects_trailer_block_that_is_not_the_last_paragraph(self):
+        message = (
+            "Change\n\nAI-Model: claude-opus-5\nAI-Session: abc-123\n\n"
+            "Co-authored-by: someone <a@b.c>\nNotes appended by a review bot.\n"
+        )
+        out = self._run("trailer-block.sh", message).stdout
+        self.assertIn("AI-Model: claude-opus-5", out)
+        self.assertNotIn("review bot", out)
+
+    def test_prose_quoting_the_format_does_not_win_over_a_real_block(self):
+        message = (
+            "Docs change\n\nThis file explains AI-Model: some-example inline.\n\n"
+            "AI-Model: claude-opus-5\nAI-Session: abc-123\n"
+        )
+        out = self._run("trailer-block.sh", message).stdout
+        self.assertIn("claude-opus-5", out)
+        self.assertNotIn("some-example", out)
+
+    def test_folded_values_are_rejoined(self):
+        message = "x\n\nAI-Model: claude-opus-5\nAI-Transcript: /a/long\n  /path.jsonl\n"
+        out = self._run("trailer-block.sh", message).stdout
+        self.assertIn("/a/long/path.jsonl", out)
+
+    def test_pr_body_rejects_empty_fields(self):
+        result = self._run("check-pr-body.sh", "Body\n\nAI-Model:\nAI-Session:\n")
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("missing AI-Model", result.stderr)
+
+    def test_pr_body_rejects_placeholders(self):
+        result = self._run("check-pr-body.sh", "Body\n\nAI-Model: unknown\nAI-Session: TBD\n")
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("placeholder", result.stderr)
+
+    def test_pr_body_accepts_real_values(self):
+        result = self._run(
+            "check-pr-body.sh", "Body\n\nAI-Model: claude-opus-5\nAI-Session: b22aa90d\n"
+        )
+        self.assertEqual(result.returncode, 0, result.stderr)
+
+    def test_pr_body_accepts_an_explicit_no_ai_declaration(self):
+        result = self._run("check-pr-body.sh", "Body\n\nAI-Assisted: none\n")
+        self.assertEqual(result.returncode, 0, result.stderr)
+
+    def test_grandfathered_history_is_exempt(self):
+        """Adopting the check must not flag the history that predates it."""
+        result = subprocess.run(
+            ["bash", str(self.SCRIPTS / "check-commits.sh"), "81e0c55..5c262d6"],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+        )
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn("exempt", result.stdout)
+
+    def test_commit_hook_refuses_rather_than_stamping_a_placeholder(self):
+        """The key lesson from the source policy: 'unknown' passes a presence check."""
+        hook = (ROOT / ".githooks" / "prepare-commit-msg").read_text(encoding="utf-8")
+        self.assertNotIn("AI-Model: unknown", hook)
+        self.assertIn("exit 1", hook)
+
+    def test_checker_rejects_unknown_as_a_value(self):
+        checker = (self.SCRIPTS / "check-commits.sh").read_text(encoding="utf-8")
+        self.assertIn("unknown", checker, "the CI side must also reject 'unknown'")
+
+
+class TestCommitHookBehaviour(unittest.TestCase):
+    """Run the commit hook for real in a throwaway repository.
+
+    `bash -n` cannot catch what this catches. The first version of this hook ended
+    with `[ -n "$TRANSCRIPT" ] && printf ...`; under `set -e` that trailing test
+    became the block's exit status whenever there was no transcript, so the hook
+    exited 1 and git aborted the commit with no diagnostic at all.
+    """
+
+    HOOK = ROOT / ".githooks" / "prepare-commit-msg"
+
+    def _repo(self, stack) -> Path:
+        import tempfile
+
+        tmp = Path(stack.enter_context(tempfile.TemporaryDirectory()))
+        hooks = tmp / ".githooks"
+        hooks.mkdir()
+        (hooks / "prepare-commit-msg").write_bytes(self.HOOK.read_bytes())
+        (hooks / "prepare-commit-msg").chmod(0o755)
+        for args in (
+            ["init", "-q", "."],
+            ["config", "user.email", "t@example.test"],
+            ["config", "user.name", "Test"],
+            ["config", "core.hooksPath", ".githooks"],
+        ):
+            subprocess.run(["git", *args], cwd=tmp, check=True, capture_output=True)
+        (tmp / "f.txt").write_text("x")
+        subprocess.run(["git", "add", "f.txt"], cwd=tmp, check=True, capture_output=True)
+        return tmp
+
+    def _commit(self, repo: Path, env: dict, message: str = "probe: change") -> subprocess.CompletedProcess:
+        import os
+
+        merged = {**os.environ, **env}
+        for key, value in env.items():
+            if value is None:
+                merged.pop(key, None)
+        return subprocess.run(
+            ["git", "commit", "-F", "-"],
+            cwd=repo,
+            input=message,
+            text=True,
+            capture_output=True,
+            env=merged,
+        )
+
+    def _message(self, repo: Path) -> str:
+        return subprocess.run(
+            ["git", "log", "-1", "--format=%B"], cwd=repo, capture_output=True, text=True
+        ).stdout
+
+    def test_appends_trailers_inside_a_session(self):
+        import contextlib
+
+        with contextlib.ExitStack() as stack:
+            repo = self._repo(stack)
+            subprocess.run(["git", "config", "ai.model", "claude-opus-5"], cwd=repo, check=True, capture_output=True)
+            result = self._commit(repo, {"CLAUDECODE": "1", "CLAUDE_CODE_SESSION_ID": "sess-123"})
+            self.assertEqual(result.returncode, 0, result.stderr)
+            message = self._message(repo)
+            self.assertIn("AI-Model: claude-opus-5", message)
+            self.assertIn("AI-Session: sess-123", message)
+
+    def test_declares_none_outside_a_session(self):
+        import contextlib
+
+        with contextlib.ExitStack() as stack:
+            repo = self._repo(stack)
+            result = self._commit(
+                repo,
+                {"CLAUDECODE": None, "CLAUDE_CODE_SESSION_ID": None, "CLAUDE_CODE_REMOTE_SESSION_ID": None},
+            )
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertIn("AI-Assisted: none", self._message(repo))
+
+    def test_refuses_when_the_model_is_unknown(self):
+        """The whole point: a placeholder would pass a presence check."""
+        import contextlib
+
+        with contextlib.ExitStack() as stack:
+            repo = self._repo(stack)
+            result = self._commit(
+                repo,
+                {
+                    "CLAUDECODE": "1",
+                    "CLAUDE_CODE_SESSION_ID": "sess-456",
+                    "AI_ATTRIBUTION_STATE_DIR": str(repo / "no-such-dir"),
+                },
+            )
+            self.assertNotEqual(result.returncode, 0, "hook should refuse")
+            self.assertIn("unknown", result.stderr)
+            log = subprocess.run(["git", "log", "--oneline"], cwd=repo, capture_output=True, text=True)
+            self.assertEqual(log.stdout.strip(), "", "no commit should have been created")
+
+    def test_hook_output_is_produced_by_the_state_file_path(self):
+        """The primary path: model and transcript come from the SessionStart recorder."""
+        import contextlib
+
+        with contextlib.ExitStack() as stack:
+            repo = self._repo(stack)
+            state = repo / "state"
+            state.mkdir()
+            (state / "sess-789.env").write_text(
+                "AI_MODEL='claude-opus-5'\nAI_TRANSCRIPT='/tmp/t.jsonl'\n"
+            )
+            result = self._commit(
+                repo,
+                {
+                    "CLAUDECODE": "1",
+                    "CLAUDE_CODE_SESSION_ID": "sess-789",
+                    "AI_ATTRIBUTION_STATE_DIR": str(state),
+                },
+            )
+            self.assertEqual(result.returncode, 0, result.stderr)
+            message = self._message(repo)
+            self.assertIn("AI-Model: claude-opus-5", message)
+            self.assertIn("AI-Transcript: /tmp/t.jsonl", message)
+
+    def test_session_start_recorder_writes_a_sourceable_state_file(self):
+        import contextlib, tempfile, os
+
+        with contextlib.ExitStack() as stack:
+            tmp = Path(stack.enter_context(tempfile.TemporaryDirectory()))
+            result = subprocess.run(
+                ["python3", str(ROOT / ".claude" / "hooks" / "session_start.py")],
+                input=json.dumps(
+                    {"session_id": "abc", "model": "claude-opus-5", "transcript_path": "/tmp/x.jsonl"}
+                ),
+                text=True,
+                capture_output=True,
+                env={**os.environ, "AI_ATTRIBUTION_STATE_DIR": str(tmp)},
+            )
+            self.assertEqual(result.returncode, 0, result.stderr)
+            written = (tmp / "abc.env").read_text()
+            self.assertIn("AI_MODEL='claude-opus-5'", written)
+            self.assertIn("AI_TRANSCRIPT='/tmp/x.jsonl'", written)
+
+
 class TestWorkflowDefinition(unittest.TestCase):
     PATH = ROOT / ".github" / "workflows" / "weekly-corpus-check.yml"
+    ALL = ROOT / ".github" / "workflows"
+
+    @staticmethod
+    def _load(path: Path) -> dict:
+        try:
+            import yaml
+        except ImportError:  # pragma: no cover
+            raise unittest.SkipTest("pyyaml not installed")
+        return yaml.safe_load(path.read_text(encoding="utf-8"))
+
+    def test_every_workflow_parses(self):
+        files = sorted(self.ALL.glob("*.yml"))
+        self.assertGreaterEqual(len(files), 4, "expected ci, attribution, audit and corpus workflows")
+        for path in files:
+            with self.subTest(workflow=path.name):
+                doc = self._load(path)
+                self.assertIn("jobs", doc, path.name)
+                self.assertTrue(doc.get("on") or doc.get(True), f"{path.name} has no triggers")
+
+    def test_ci_runs_the_load_bearing_checks(self):
+        doc = self._load(self.ALL / "ci.yml")
+        steps = json.dumps(doc["jobs"]["check"]["steps"])
+        for command in ("graphify validate", "unittest discover", "coverage_audit.py --strict", "graphify build"):
+            self.assertIn(command, steps, f"CI does not run {command}")
+
+    def test_attribution_check_exempts_bot_pull_requests(self):
+        doc = self._load(self.ALL / "ai-attribution.yml")
+        self.assertIn("Bot", json.dumps(doc["jobs"]["check"].get("if", "")))
+
+    def test_attribution_check_uses_full_history(self):
+        """A shallow clone cannot resolve a base..head commit range."""
+        doc = self._load(self.ALL / "ai-attribution.yml")
+        steps = doc["jobs"]["check"]["steps"]
+        checkout = next(s for s in steps if str(s.get("uses", "")).startswith("actions/checkout"))
+        self.assertEqual(checkout.get("with", {}).get("fetch-depth"), 0)
+
+    def test_audit_can_open_an_issue(self):
+        doc = self._load(self.ALL / "ai-attribution-audit.yml")
+        self.assertEqual(doc["permissions"].get("issues"), "write")
 
     def test_workflow_exists_and_parses(self):
         try:
